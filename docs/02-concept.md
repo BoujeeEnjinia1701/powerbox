@@ -1,6 +1,21 @@
-# PowerBox: design precis
+---
+doc_id: PBX-PRC-001
+title: PowerBox design precis
+project: PowerBox
+doc_type: Design precis
+version: "0.1"
+status: Draft
+date: '2026-09-24'
+author: Amish Chadha
+license: CERN-OHL-S-2.0
+revisions:
+- version: "0.1"
+  date: '2026-09-24'
+  author: Amish Chadha
+  change: Initial scaffold
+---
 
-> Status: concept. This precis is a working draft and will be expanded before prototyping.
+# PowerBox design precis
 
 ## Summary
 
