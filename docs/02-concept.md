@@ -3,9 +3,9 @@ doc_id: PBX-PRC-001
 title: PowerBox design precis
 project: PowerBox
 doc_type: Design precis
-version: "0.3"
+version: "0.4"
 status: Draft
-date: '2026-09-24'
+date: '2026-09-25'
 author: Amish Chadha
 license: CERN-OHL-S-2.0
 revisions:
@@ -21,127 +21,137 @@ revisions:
   date: '2026-09-24'
   author: Amish Chadha
   change: Removed StepGen as a charging source after StepGen became a walking vehicle (Amish, 2026-09-24)
+- version: "0.4"
+  date: '2026-09-25'
+  author: Amish Chadha
+  change: TRL 3. SwapCell interface v0.3 (wake, station mode, latch class); Amish's decisions recorded (PBX-DDR-001); numbers checked against PBX-CAL-001; 30 A buck; general arrangement PBX-DWG-001
 ---
 
 # PowerBox design precis
 
-PowerBox is an aluminium carry case about the size of a small toolbox (460 x 260 x 220 mm body) with a SwapCell pack sliding into a bay through a side door. A charge controller takes DC from a solar panel, a certified external charger takes grid power, and a charged pack from a SunSpoke bike can simply be swapped in. Power leaves through USB-C PD, USB-A, 12 V sockets and one 300 W pure sine AC outlet protected by a GFCI or RCD. It never connects to household wiring. First-order numbers suggest one pack gives about 420 Wh usable, enough for about 1.9 evenings of lights, phones, radio and a router, and the PowerBox parts cost about $435 without the pack.
+PowerBox is an aluminium carry case about the size of a small toolbox (460 x 260 x 220 mm body, 482 x 276 x 278 mm overall) with a SwapCell pack sliding into a bay through an end door. A charge controller takes DC from a solar panel, a certified external charger takes grid power, and a charged pack from a SunSpoke bike can simply be swapped in. Power leaves through USB-C PD, USB-A, 12 V sockets and one 300 W, 230 V pure sine AC outlet behind a 30 mA RCD. It never connects to household wiring. The sizing note PBX-CAL-001 shows one pack gives 419 Wh usable, which runs the reference evening of lights, phones, radio and a router **1.87 times, short of the two evenings in R2**. The box weighs about 8.6 kg with the pack, and the PowerBox parts cost about $449 without the pack, against a $450 budget.
+
+PowerBox builds to **SwapCell interface v0.3**. It is a station host (item C), so it can run loads while charging from solar; its receptacle carries the 10 kΩ INTERLOCK coding resistor that wakes a sleeping pack (item W); and its bay uses a class D latch catch (item V).
 
 ![Hero render](../media/hero.png)
 
-*Figure 1. PowerBox on a table, with a phone for scale. Output panel on the front, input panel and pack bay door on the right end. Massing model.*
+*Figure 1. PowerBox on a table, with a phone for scale. Output panel on the front, input panel and pack bay door on the right end. Rendered from the parametric model `cad/src/model.py`.*
 
 ## How it works
 
 1. **Charge.** Energy comes in through one of three paths, all controlled by the host controller:
    - **DC input** (a solar panel or another 12 to 60 V DC source, up to 200 W) goes through a buck-boost charge controller that tracks the source's maximum power point and charges the pack at up to 54.6 V.
    - **Grid** goes through a certified external 54.6 V, 5 A charger brick with a DC plug. PowerBox itself has no AC inlet, so it cannot be plugged into anything that would back-feed.
-   - **SunSpoke** charges the pack while riding or at its own 100 W panel. The rider brings the charged SwapCell pack home and swaps it in, which takes about 30 s. SunSpoke's panel can also plug into the DC input directly. StepGen, now a walking vehicle, runs on the same SwapCell pack, so a pack can move between PowerBox and StepGen in the same way.
-2. **Store.** The SwapCell pack (13S2P lithium-ion, 46.8 V nominal, about 468 Wh) sits in a bay with guide rails and mates through the SwapCell blind-mate connector. The host controller runs the SwapCell CAN handshake: the pack enables its output only when seated, with the interlock closed and a valid host heartbeat.
-3. **Convert and deliver.** The 39 to 54.6 V bus feeds a 48 V to 12 V buck converter for the 12 V sockets and the USB-C PD and USB-A modules, and a 48 V input, 300 W pure sine inverter for the single AC outlet.
-4. **Inform.** A small display shows state of charge, input and output power and estimated time remaining, read from the pack's CAN messages. The host switches the inverter off after 10 min below 5 W, because its idle draw would otherwise drain the pack.
-5. **Protect.** A pack fuse, a breaker on the inverter feed, per-output fuses, thermostatic fan control and the pack's own BMS limits guard against faults.
+   - **SunSpoke** charges the pack while riding or at its own 100 W panel. The rider brings the charged SwapCell pack home and swaps it in. SunSpoke's panel can also plug into the DC input directly. StepGen, a walking vehicle, runs on the same SwapCell pack, so a pack can move between PowerBox and StepGen in the same way.
+2. **Store.** The SwapCell pack (13S2P lithium-ion, 46.8 V nominal, 468 Wh nameplate) lies on one of its guide faces on floor runners, with its latch face toward the front of the case, and mates through the SwapCell blind-mate connector at the far end of the bay. A class D catch on a bracket at the front of the bay takes the pack's latch pawl, and the closed door stops the handle.
+3. **Wake and handshake.** Seating the pack closes the INTERLOCK loop through the receptacle's 10 kΩ coding resistor, which wakes the pack. With no heartbeat after 2 s the pack enters legacy discharge (15 A limit), which powers the host; the host then sends a station heartbeat (host type 3) requesting mode 2 (discharge) or mode 4 (charge-discharge). A pack that fell asleep in the bay is woken with a recessed wake button on the front panel, which briefly opens the INTERLOCK loop.
+4. **Convert and deliver.** The 39 to 54.6 V bus feeds a 48 V to 12 V, 30 A buck converter for the 12 V sockets and the USB-C PD and USB-A modules, and a 48 V input, 300 W pure sine inverter for the AC outlet. The inverter is switched in through its own relay and pre-charge resistor.
+5. **Charge while in use.** When a source and a load are both present the host requests mode 4 and keeps net charge current at or below 5.0 A. With the grid charger connected (a fixed 5 A), the host limits the solar controller to the present load current.
+6. **Inform.** A small display shows state of charge, input and output power and estimated time remaining, read from the pack's CAN messages. The host switches the inverter off after 10 min below 5 W and returns to off after 30 min idle.
+7. **Protect.** A 30 A main fuse, a 20 A breaker on the inverter feed, per-output fuses, thermostatic fan control and the pack's own BMS limits guard against faults.
 
 ![Energy flow](../media/flow.png)
 
-*Figure 2. Energy per usable cycle, DC input to loads. All values are estimates: controller 94 %, cell charge and wiring 96 %, output conversion about 91 % for a mixed load of 60 % DC, 25 % USB and 15 % AC.*
+*Figure 2. Energy per usable cycle, DC input to loads, from PBX-CAL-001. All values are estimates: controller 94 %, cell charge 95 %, output conversion for the reference evening mix of 12 V and USB loads.*
 
 ## Main components
 
-Table 1. Main components. Numbers match `bom/bom.csv` and Figure 4.
+*Table 1. Main components. Numbers match `bom/bom.csv` and Figure 4.*
 
-| # | Component | Proposed choice | Notes |
+| # | Component | Choice | Notes |
 | --- | --- | --- | --- |
-| 1 | Enclosure body | Folded 1.2 mm aluminium tub, 460 x 260 x 220 mm | Spreads heat and resists fire better than plastic. Proposed, awaiting Amish |
-| 2 | Lid | Aluminium with exhaust slots at the back | Removable for service |
-| 3 | Carry handle | Folding bar handle on the lid | Rated 15 kg or more |
-| 4 | SwapCell pack | SwapCell interface v0.2 reference pack, 468 Wh | Not in the PowerBox cost; shared with SunSpoke and the dock |
-| 5 | Pack bay | Floor, guide rails, SwapCell dock-side receptacle on a floating mount, shelf above | Mirrors the SwapCell dock cradle, horizontal |
-| 6 | Pack bay door | Hinged door on the right end, magnetic catch, padlock eye | Keeps fingers and debris out of the bay |
-| 7 | Multi-input charge controller | Buck-boost DC-DC, 12 to 60 V in, 200 W, CC-CV output set by the host | Maximum power point tracking in host firmware |
-| 8 | Host controller | ESP32 with CAN transceiver, relays and current sensors | Runs the SwapCell handshake, charge control, auto-off and display |
-| 9 | Inverter | 300 W pure sine, 48 V input, 600 W surge, certified | Regional variant (230 V or 120 V) awaiting Amish |
-| 10 | DC-DC converter | 48 V to 12 V, 20 A buck | Feeds 12 V sockets and USB modules |
-| 11 | Output panel | USB-C PD 100 W and 60 W, 2 x USB-A, 2 x 12 V sockets, main switch | Front face |
-| 12 | AC outlet | Single outlet behind a 30 mA RCD (230 V) or 5 mA GFCI (120 V) | Only mains-voltage point on the box |
+| 1 | Enclosure body | Folded 1.2 mm aluminium tub, 460 x 260 x 220 mm | Spreads heat and resists fire better than plastic. Decided by Amish, 2026-09-25 |
+| 2 | Lid | 1.2 mm aluminium with a 12 mm skirt and exhaust slots at the back | Removable for service |
+| 3 | Carry handle | Folding bar handle on the lid, 200 mm span | Rated 15 kg or more |
+| 4 | SwapCell pack | SwapCell interface v0.3 reference pack, 468 Wh, 2.85 kg | Priced once in the SwapCell BOM, not here. Removable pack decided by Amish, 2026-09-25 |
+| 5 | Pack bay | Floor runners and top guide rail (1 mm clearance per side), class D catch bracket, shelf above, SwapCell receptacle on a floating mount with a 10 kΩ INTERLOCK coding resistor | Horizontal side-loading bay decided by Amish, 2026-09-25 |
+| 6 | Pack bay door | Hinged door on the right end, magnetic catch, padlock eye | Second stop behind the pack handle |
+| 7 | Multi-input charge controller | Buck-boost DC-DC, 12 to 60 V in, 200 W, CC-CV output set by the host | One DC input decided by Amish, 2026-09-25; MPPT in host firmware |
+| 8 | Host controller | ESP32 with CAN transceiver, relays and current sensors | SwapCell station host; charge control, auto-off, display |
+| 9 | Inverter | 300 W pure sine, 48 V input, 600 W for 1 s, 230 V 50 Hz, output isolated so the neutral can be bonded | AC region decided by Amish, 2026-09-25 |
+| 10 | DC-DC converter | 48 V to 12 V, 30 A buck | Resized from 20 A by PBX-CAL-001 |
+| 11 | Output panel | USB-C PD 100 W and 60 W, 2 x USB-A, 2 x 12 V sockets, main switch, recessed wake button | Front face |
+| 12 | AC outlet | Single 230 V outlet behind a 30 mA RCD | Only mains-voltage point on the box |
 | 13 | Display | 2.4 in TFT or e-paper | State of charge, power in and out, time left |
 | 14 | Input panel | 2 x Anderson Powerpole PP45: DC in, charger in | Right end, above the bay door |
-| 15 | Exhaust fan | 80 mm 12 V fan, thermostatic; filtered intake slots on the right end | Pulls air front to back over the inverter |
+| 15 | Exhaust fan | 80 mm 12 V fan, thermostatic; filtered intake slots on the right end | Pulls air across the case and out of the left end and lid |
 
-Items 16 (protection and wiring), 17 (grid charger brick) and 18 (hardware) are in the BOM but not modelled.
+Items 16 (protection and wiring), 17 (grid charger brick) and 18 (hardware) are in the BOM but not modelled. The general arrangement is drawing PBX-DWG-001 (`cad/drawings/PBX-DWG-001.pdf`), generated from `cad/src/model.py`.
 
 ![Cutaway](../media/cutaway.png)
 
 *Figure 3. Section looking from the front: inverter (9) on the floor at the front, SwapCell pack (4) in its bay at the back, charge controller (7) and host (8) on the shelf above, fan (15) on the left end, input panel (14) and bay door (6) on the right end.*
 
-## First-order numbers
+## Key numbers
 
-All values are estimates for concept review and will be checked at TRL 3. Assumptions: the SwapCell reference pack (468 Wh, 39.0 to 54.6 V); the host allows 10 to 100 % state of charge; 12 V buck 94 %, USB modules 93 % from 12 V, charge controller 94 %, cell charge and wiring 96 %, grid charger 90 %; inverter efficiency and idle draw typical of 48 V, 300 W pure sine units (not yet from a datasheet).
+All values come from PBX-CAL-001 (`docs/04-calcs/sizing.py`) and are paper estimates. Assumptions: the SwapCell v0.3 reference pack (466 Wh at 0.2C, 39.0 to 54.6 V); 10 to 100 % state of charge; 12 V buck 94 %, USB modules 93 % from 12 V, charge controller 94 % nominal, cell charge 95 %, grid charger 90 %; inverter efficiency and idle draw typical of 48 V, 300 W pure sine units (no datasheet yet).
 
-Table 2. Energy, charge times, size and cost.
+*Table 2. Energy, charge times, size and cost.*
 
-| Quantity | Estimate | Basis | Requirement |
+| Quantity | Value | Basis | Requirement |
 | --- | --- | --- | --- |
-| Usable energy | about 421 Wh | 90 % of 468 Wh (10 to 100 %) | R1 met (400 Wh) |
-| Reference evening (Table 1 of PBX-REQ-001) | 225 Wh from the pack | 155 Wh DC at 94 %, 48 Wh USB at 87 %, 5 Wh host and display over 5 h | |
-| Evenings per pack | about 1.9 | 421 / 225 | R2 **not met** (target 2) |
-| Grid charge, 10 to 100 % | about 2.1 h; about 490 Wh from the wall | 439 Wh into the pack at 5 A (about 270 W) in CC, then CV; charger 90 % | R4 met (3 h) |
-| Solar, 200 W panel | about 635 Wh per clear day; full in one day, or about 3 h of strong sun | 4.5 peak sun hours, 0.75 derating for heat, dust and angle, 94 % controller | R5 met |
-| Solar, SunSpoke 100 W panel | about 315 Wh per clear day; one evening's use in about 0.7 day | Same basis | |
-| SunSpoke pack swap | about 30 s | Open door, pull pack by its handle, insert charged pack, close door | R12 met, to confirm with users |
-| Inverter efficiency | about 88 % at 200 to 300 W, 85 % at 60 W, 75 % at 20 W; idle draw 6 to 10 W | Typical 48 V, 300 W units | |
-| Inverter idle, if left on | about 190 Wh per day, nearly half the pack | 8 W for 24 h | Auto-off after 10 min below 5 W (R8) |
-| Standby, off | about 3 % per month | Li-ion self-discharge about 2 to 3 % per month; BMS sleep a few mW | R8 met (5 %) |
-| Standby, ready (display on, outputs off) | about 0.6 W | ESP32 modem sleep 0.2 W, CAN and BMS awake 0.2 W, display 0.2 W | R8 met (1.0 W); still about 14 Wh per day, so the host returns to off after 30 min idle |
-| Standby, DC outputs on, no load | about 1.2 W | Ready plus 12 V buck and USB module quiescent draw | |
-| Peak pack current | about 12 A | 400 W output limit at 88 % and 39 V | Within SwapCell's 20 A continuous |
-| Heat at full AC load | about 41 W from the inverter, plus about 12 W from the controller when charging at 200 W | 300 W at 88 %; 200 W at 94 % | Fan needed |
-| Mass | about 8.3 kg (18 lb) with pack | Pack 2.8, body 1.4, lid 0.4, handle 0.2, inverter 1.2, bay 0.4, controller 0.3, DC-DC 0.3, panels 0.4, wiring and fuses 0.6, fan and host 0.3 kg | R10 met (10 kg); charger brick about 0.8 kg extra |
-| Size | 460 x 260 x 220 mm body; about 482 x 276 x 278 mm overall | Pack 340 mm plus 35 mm handle zone, receptacle and walls set the length | R10 met (500 x 300 x 280 mm), tight on height |
-| PowerBox parts cost | about $435 | Indicative prices, see `bom/bom.csv` | R11 met, about $15 margin |
-| Cost with one SwapCell pack | about $805 | $435 plus about $370 from the SwapCell BOM | Above the $450 budget; see design choices |
+| Usable energy | 419 Wh (407 Wh with minimum cells) | 90 % of 466 Wh | R1 met (400 Wh) |
+| Reference evening (Table 1 of PBX-REQ-001) | 225 Wh from the pack | 165 Wh for 12 V loads at 94 %, 55 Wh for USB at 87 %, 5 Wh host and idle converters over 5 h | |
+| Evenings per pack | 1.87 | 419 / 225 | R2 **not met** (target 2) |
+| Grid charge, 10 to 100 % | 2.1 h; 492 Wh from the wall | 1.5 h CC at 5 A, then 0.6 h CV; charger 90 % | R4 met (3 h) |
+| Solar, 200 W panel | 634 Wh per clear day at the pack; full in 0.70 day | 4.5 peak sun hours, 0.75 derating, 94 % controller | R5 met |
+| Solar, SunSpoke 100 W panel | 317 Wh per clear day; one evening in 0.75 day | Same basis | |
+| Charge controller efficiency | 90.5 % at 12 V and 200 W; 93 % or more elsewhere from 40 to 200 W | Loss model, no datasheet | R6 at risk |
+| Station mode, net charge | 4.48 A worst case; 2.74 A typical with the router | 200 W at 94 % into 42 V; limit 5.0 A | Within the SwapCell limit |
+| 12 V bus demand, all DC outputs | 318 W, 26.5 A | 120 W sockets plus 184 W USB at 93 % | 30 A buck (was 20 A) |
+| Peak pack current | 11.5 A at 400 W output; 20.9 A during a 1 s inverter surge | At 39.0 V | Within 20 A continuous and 35 A peak |
+| Inverter idle, if left on | 192 Wh per day, 46 % of usable | 8 W for 24 h | Auto-off after 10 min (R8) |
+| Standby, off | 3.2 % per month | 2.5 % self-discharge plus 100 µA BMS sleep | R8 met (5 %) |
+| Standby, ready | 0.6 W, 14.4 Wh per day | ESP32 0.2 W, CAN and BMS 0.2 W, display 0.2 W | R8 met (1.0 W); host returns to off after 30 min idle |
+| Heat at full load while charging | 60 W; air rise about 6 K with the fan | Inverter 41 W, buck 6.4 W, controller 12 W, host 1 W | Fan needed |
+| Mass | 8.6 kg (19.0 lb) with pack | Pack 2.85, body 1.41, lid 0.44, inverter 1.20, other parts 2.71 kg | R10 met (10 kg); charger brick about 0.8 kg extra |
+| Size | 482 x 276 x 278 mm overall | Parametric model | R10 met, 2 mm spare in height |
+| PowerBox parts cost | $449 | `bom/bom.csv`, indicative prices | R11 at risk ($1 margin) |
+| Cost with one SwapCell pack | $863, for reference | $449 plus $414 from the SwapCell BOM | Pack excluded from this budget (decided) |
 
-Table 3. Runtime on one full pack (421 Wh usable) for single loads. Estimates.
+*Table 3. Runtime on one full pack (419 Wh usable) for single loads.*
 
 | Load | Output | Power at the load | Drawn from the pack | Runtime |
 | --- | --- | --- | --- | --- |
 | Wi-Fi router and fibre terminal | 12 V DC | 12 W | 12.8 W | about 33 h |
 | Three 5 W LED bulbs | 12 V DC | 15 W | 16.0 W | about 26 h |
 | Radio | 12 V DC | 5 W | 5.3 W | about 79 h |
-| Phone charges | USB | 12 Wh each | 13.7 Wh each | about 30 charges |
-| Laptop | USB-C PD | 45 W | 51 W | about 8 h |
-| Small LED TV | AC | 60 W | 71 W | about 6 h |
-| Desk fan | AC | 25 W | 32 W | about 13 h |
-| Maximum AC load | AC | 300 W | 341 W | about 1.2 h |
+| Phone charges | USB | 12 Wh each | 13.7 Wh each | about 31 charges |
+| Laptop | USB-C PD | 45 W | 51.5 W | about 8 h |
+| Small LED TV | AC | 60 W | 70.6 W | about 6 h |
+| Desk fan | AC | 25 W | 32.1 W | about 13 h |
+| Maximum AC load | AC | 300 W | 340.9 W | about 1.2 h |
 | Refrigerator or kettle | AC | Out of scope: starting surge or power beyond the 300 W inverter | | |
 
-Table 4. Input and output specification (proposed).
+*Table 4. Input and output specification.*
 
 | Port | Type and connector | Voltage | Power or current | Notes |
 | --- | --- | --- | --- | --- |
-| DC in | Anderson PP45, red and black | 12 to 60 V DC | 200 W maximum, about 15 A at 12 V | Solar panel or SunSpoke panel; MPPT; TVS and reverse-polarity protection; one source at a time |
+| DC in | Anderson PP45, red and black | 12 to 60 V DC | 200 W maximum, 16.7 A at 12 V | Solar panel or SunSpoke panel; MPPT; TVS and reverse-polarity protection; 20 A fuse |
 | Charger in | Anderson PP45, keyed differently from DC in | 54.6 V DC from the certified brick | 5 A | Grid charging only through the external charger |
-| Pack | SwapCell blind-mate connector | 39.0 to 54.6 V | 20 A continuous available; PowerBox uses 12 A or less | CAN 2.0B at 250 kbit/s; 120 Ω termination in PowerBox |
+| Pack | SwapCell blind-mate connector, interface v0.3 | 39.0 to 54.6 V | 20 A continuous available; PowerBox uses 11.5 A or less | CAN 2.0B at 250 kbit/s; 120 Ω termination in PowerBox; 10 kΩ INTERLOCK coding resistor; station host type 3 |
 | USB-C PD 1 | USB-C | 5 to 20 V | 100 W | Laptops |
 | USB-C PD 2 | USB-C | 5 to 20 V | 60 W | Phones, tablets |
 | USB-A 1, 2 | USB-A | 5 V | 12 W each | Phones, lamps, radios |
 | 12 V DC 1 | Car socket | 12 V regulated | 10 A shared with 12 V DC 2 | Router, lights, radio |
 | 12 V DC 2 | 5.5 x 2.1 mm barrel | 12 V regulated | As above | |
-| AC out | One regional socket behind a GFCI or RCD | 230 V 50 Hz or 120 V 60 Hz, pure sine | 300 W continuous, 600 W for 1 s | Auto-off; never to be connected to household wiring |
+| AC out | One 230 V socket behind a 30 mA RCD | 230 V 50 Hz, pure sine | 300 W continuous, 600 W for 1 s | Auto-off; never to be connected to household wiring |
 | Total output | | | 400 W | Host limit to keep pack current and heat in range |
 
 ## Key design choices
 
-All are proposed, awaiting Amish.
+All of these were decided by Amish on 2026-09-25 (go with recommendation), PBX-DDR-001, unless marked otherwise.
 
-- **Removable SwapCell pack, with a fixed internal pack as fallback.** A removable SwapCell pack is the point of the design: one battery moves between PowerBox, SunSpoke and the SwapCell dock, and a worn pack is replaced without discarding the box. The fallback is a fixed internal 12.8 V LiFePO4 pack (about 30 Ah, 384 Wh, about $110), with a 12 V inverter and no CAN. It is safer chemistry, cheaper, fits the $450 budget with the pack included and does not depend on SwapCell's schedule, but it loses swapping and sharing. Recommendation: removable SwapCell pack, with the fixed-pack variant kept as a documented fallback.
-- **Side-loading horizontal bay.** A vertical, top-loading bay would make the case about 450 mm tall. Laying the pack along the case length with a door on the end keeps the case low and stable. Recommendation: horizontal side-loading bay.
-- **One DC input with maximum power point tracking.** A single buck-boost input covers a solar panel and SunSpoke's panel. Two independent inputs would allow two panels at the same time, for about $30 more. Recommendation: one DC input for the first build.
-- **Grid charging only through a certified external charger.** Keeps mains-input electronics out of the box, reuses the SwapCell dock charger class, and means the box has no AC inlet. Recommendation: external charger brick.
-- **A 300 W AC outlet with a DC-only variant.** AC is what users expect, but it brings mains voltage into the home, costs about $92 and wastes energy at idle. Recommendation: include 300 W AC with auto-off, and document a DC-only variant for lights, phones and routers.
-- **Aluminium enclosure.** Aluminium spreads heat and delays a fire better than a rugged plastic case, at similar cost if folded locally. Recommendation: folded aluminium.
-- **Pass-through operation.** Users will want to charge from solar while running the router. The SwapCell v0.2 behavior rules allow charge only with a dock heartbeat and do not define a host that charges and discharges at once. Recommendation: ask SwapCell for a "station" host type with a combined charge and discharge mode, rather than work around it locally.
-- **Budget.** Recommendation: keep $450 for the PowerBox parts excluding the pack, and report the with-pack cost (about $805) openly. Alternative: raise the budget to about $850 to include one pack. Proposed, awaiting Amish.
+- **Removable SwapCell pack, with a fixed internal pack as fallback.** One battery moves between PowerBox, SunSpoke and the SwapCell dock, and a worn pack is replaced without discarding the box. The fixed 12.8 V LiFePO4 pack (about 30 Ah, 384 Wh, about $110) with a 12 V inverter and no CAN stays only as a documented fallback.
+- **Side-loading horizontal bay.** Laying the pack along the case length with a door on the end keeps the case low and stable; a top-loading bay would make it about 450 mm tall.
+- **One DC input with maximum power point tracking.** A second independent input (about $30 more) only if users need two panels at once.
+- **Grid charging only through a certified external charger.** No mains-input electronics in the box and no AC inlet. The brick can be omitted where a SwapCell dock is on hand ($399 of parts).
+- **A 300 W, 230 V AC outlet, with a DC-only variant.** The DC-only variant saves about $92 and removes all mains voltage from the box. 120 V 60 Hz is a later variant.
+- **Folded aluminium enclosure.**
+- **No human-powered input now.** A pedal generator could later be a separate repo that plugs into the DC input.
+- **Station host on SwapCell interface v0.3.** Wake through the coded INTERLOCK loop (item W), charge-discharge mode 4 as a station host (item C) and a class D latch catch with the door as a second stop (item V). These replace the keep-alive cell and local pass-through workarounds considered at TRL 2.
+- **Budget.** `budget_usd` stays at $450 and covers the PowerBox parts, including the grid charger; the SwapCell pack is priced once in the SwapCell BOM.
+- **Wake button, 30 A buck and fuse ratings.** Engineering proposals from PBX-CAL-001, awaiting Amish's confirmation.
 
 ![Exploded view](../media/exploded.png)
 
@@ -151,27 +161,30 @@ All are proposed, awaiting Amish.
 
 > **Safety:** PowerBox is standalone only. Never connect the AC outlet to a wall outlet, household wiring, a distribution board or a transfer switch. Back-feeding can kill utility workers repairing lines during an outage, can damage the box and the home's wiring, and is illegal.
 
-> **Safety:** The SwapCell pack is a 468 Wh lithium-ion battery. Use it only with the SwapCell BMS, keep the 40 A pack fuse in place, and never charge a damaged, swollen or wet pack. Charge on a non-combustible surface, away from exits, beds and children, and do not cover the box while charging. Keep a smoke alarm in the room.
+> **Safety:** The SwapCell pack is a 468 Wh lithium-ion battery that can deliver about 500 A into a short. Use it only with the SwapCell BMS, keep the pack's fuse and PowerBox's 30 A main fuse in place, and never charge a damaged, swollen or wet pack. Charge on a non-combustible surface, away from exits, beds and children, and do not cover the box while charging. Keep a smoke alarm in the room.
 
-> **Safety:** The AC outlet carries mains voltage (230 V or 120 V). It must be behind a GFCI or RCD, and for the protection to work the inverter's output neutral must be bonded to the case and the protective earth pin, as in a vehicle or boat installation. Many small inverters have a floating output where a GFCI will not trip. This must be confirmed for the chosen inverter at TRL 3.
+> **Safety:** The AC outlet carries 230 V. It is behind a 30 mA RCD, and for the RCD to work the inverter's output neutral must be bonded to the case and the protective earth pin, as in a vehicle or boat installation. This needs an inverter whose output is isolated from its DC input; many small inverters float or are not isolated. This must be confirmed from the chosen inverter's datasheet before any build.
 
 - **No back-feed by design.** There is no AC inlet on the box, and grid charging uses a certified external charger with a DC plug, so no cable can join PowerBox's AC output to a live circuit through an ordinary plug. The user guide and labels must still warn against double-male cords and improvised connections.
 - **Extra-low-voltage bus.** The battery side stays at 54.6 V or less, below the 60 V DC limit for extra-low voltage, so only the inverter output and the charger brick input are at mains voltage.
-- **Ventilation.** The inverter can shed about 41 W and the controller about 12 W. A thermostatic fan pulls air through filtered intake slots on the right end and out through the left end and lid. The host derates or shuts outputs down if internal temperature exceeds a limit, and the pack enforces its own temperature limits. The case must not be used in a closed cupboard or bag.
-- **Cords and connectors.** Keyed Powerpole connectors prevent the charger and DC inputs from being swapped. Input and output cords must be rated for their current, kept out of walkways and never run under rugs. The 12 V car socket is fused at 10 A.
+- **Fuse ratings.** Every fuse on the 48 V side must be rated for 60 V DC or more and at least 1 kA breaking capacity, because a short at the pack could draw about 496 A (PBX-CAL-001 section 6).
+- **Coded interlock.** The receptacle must carry the 10 kΩ coding resistor. A direct link from INTERLOCK to SGND reads as a fault and the pack stays dead, which fails safe. The wake button opens the loop, so pressing it while the box is running cuts the output briefly; it is recessed to prevent accidental presses.
+- **Charging while in use.** In mode 4 PowerBox acts as a charger. The host keeps net charge at or below 5.0 A and the pack voltage at or below 54.6 V, and limits the solar controller whenever the fixed 5 A grid charger is connected. The pack refuses charge below 0 °C and above 45 °C cell temperature.
+- **Ventilation.** At full load while charging the case holds about 60 W of heat. A thermostatic fan pulls air through filtered intake slots on the right end and out through the left end and lid. The host derates or shuts outputs down above an internal temperature limit, and the pack enforces its own limits. The case must not be used in a closed cupboard or bag.
+- **Cords and connectors.** Keyed Powerpole connectors prevent the charger and DC inputs from being swapped. Input and output cords must be rated for their current, kept out of walkways and never run under rugs. The 12 V sockets are fused at 10 A.
 - **Pack handling.** The bay door keeps fingers away from the connector, and the SwapCell interlock keeps the pack output dead until it is fully seated.
 - **Not a medical or life-safety supply.** PowerBox must not be relied on for oxygen concentrators or other life-support equipment.
 
-## Open questions for TRL 3
+## Open questions
 
-- **Waking the pack from a battery-only host.** SwapCell's WAKE pin needs 5 to 15 V from the host, but with the pack asleep and no charger connected, PowerBox has no other source. Options: a small keep-alive cell in PowerBox, SwapCell waking on interlock closure, or a wake button on the pack. Raise with SwapCell; do not change the interface locally.
-- **Pass-through charging** needs a SwapCell host mode that allows charge and discharge together (see design choices).
-- Confirm inverter idle draw, efficiency at light load and whether its output neutral can be bonded for GFCI or RCD operation.
-- Confirm that the buck-boost controller stays at or above 90 % efficiency at 40 W and tracks a panel's changing maximum power point without hunting (R6, at risk).
-- Choose the AC region first (230 V 50 Hz or 120 V 60 Hz). Proposed: 230 V, awaiting Amish.
-- The evening profile misses R2 by about 5 %. Options: accept 1.9 evenings, lower the discharge cut-off to 5 % (about 445 Wh, 2.0 evenings but more cell wear), or revise the reference profile with users.
-- Where to place the charge controller relative to the pack, so its heat does not warm the cells.
-- Should the display count energy delivered, for a community charging point that charges per phone?
-- Validate the load profile, pack-swap routine and price with users through a local partner.
+Items that remain open after PBX-DDR-001. None of them is TRL 4 work to be started now; TRL 4 is on hold by Amish's instruction.
+
+- **R2 shortfall (1.87 evenings).** Relax R2, discharge to 3.5 % (a 5 % cut-off gives only 1.97 evenings), or revise the evening profile with users (about 189 Wh at the loads). Proposed, awaiting Amish.
+- **Legacy-to-station transition.** SwapCell interface v0.3 does not say whether a pack in legacy discharge accepts a station heartbeat and moves to mode 2 or 4 without opening its output. PowerBox's host is powered from the pack and depends on this. Raised with SwapCell; not changed locally.
+- **Inverter selection.** Confirm idle draw, light-load efficiency and an isolated output whose neutral can be bonded for the RCD.
+- **Charge controller selection (R6, at risk).** Confirm 90 % or more at 12 V and 200 W and at 40 W, and stable tracking.
+- **Budget margin (R11, at risk).** $1 of margin on indicative prices; named supplier quotes are needed.
+- **Theft resistance** and **energy metering for charging points.** Proposed, awaiting Amish.
+- **First co-design partner.** Left open; the portfolio picks partners per area later. The load profile, pack-swap routine and price must be validated with users.
 
 Concept media: [blueprint sheet](../media/concept-blueprint.pdf), [interactive 3D model](../media/viewer.html).

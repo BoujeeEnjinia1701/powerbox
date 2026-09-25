@@ -1,0 +1,13 @@
+id,value,target,status
+R1,419 Wh usable (407 Wh with minimum cells),400 Wh or more,Met
+R2,1.87 evenings (225 Wh per evening from the pack),2 evenings,Not met
+R3,DC in 12 to 60 V 200 W MPPT; charger in; pack swap; SunSpoke panel on DC in,Four sources,Met (design review)
+R4,2.1 h,3 h or less,Met
+R5,634 Wh per clear day; full in 0.70 day,Full in one clear day,Met
+R6,90.5 % worst case (model); MPPT stability not analysed,90 % or more from 40 to 200 W; stable MPPT,At risk
+R7,Outputs as specified; 12 V buck 30 A for 26.5 A demand; pack 11.5 A at 400 W,"Output set in R7, 400 W total",Met (design review)
+R8,Off 3.2 %/month; ready 0.6 W; inverter auto-off,5 %/month; 1.0 W; auto-off,Met
+R9,No AC inlet; DC bus 54.6 V; RCD needs bonded inverter neutral,No back-feed path; 60 V or less,Met (design review)
+R10,8.6 kg; 482 x 276 x 278 mm,10 kg; 500 x 300 x 280 mm,Met
+R11,$449 excluding the pack,$450 or less,At risk
+R12,"Door, runners and class D catch allow a one-hand swap; display reads PACK_STATUS and PACK_LIMITS",30 s swap; status display,Not verifiable at TRL 3

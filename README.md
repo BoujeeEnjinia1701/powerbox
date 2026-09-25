@@ -1,8 +1,8 @@
 # PowerBox
 
-![TRL 2](https://img.shields.io/badge/TRL-2%20of%209-0F766E) ![Hardware: CERN-OHL-S-2.0](https://img.shields.io/badge/hardware-CERN--OHL--S--2.0-111827) ![Software: MIT](https://img.shields.io/badge/software-MIT-111827)
+![TRL 3](https://img.shields.io/badge/TRL-3%20of%209-0F766E) ![Hardware: CERN-OHL-S-2.0](https://img.shields.io/badge/hardware-CERN--OHL--S--2.0-111827) ![Software: MIT](https://img.shields.io/badge/software-MIT-111827)
 
-**Area:** CleanTech · **TRL:** 2 of 9 (concept formulated) · **Prototype budget:** about $450 USD · **Difficulty:** 3 of 5
+**Area:** CleanTech · **TRL:** 3 of 9 (proof of concept on paper) · **Prototype budget:** $450 USD, excluding the shared SwapCell pack · **Difficulty:** 3 of 5
 
 Standalone multi-input power station built around a SwapCell battery pack. It charges from a solar panel, the grid or a SunSpoke bike, and powers devices through USB, 12 V DC and a small AC outlet. It never connects to household wiring.
 
@@ -18,15 +18,17 @@ When the power goes out, households need a small, safe store of electricity for 
 
 Standalone multi-input power station built around a SwapCell battery pack. It charges from a solar panel, the grid or a SunSpoke bike, and powers devices through USB, 12 V DC and a small AC outlet. It never connects to household wiring.
 
-Full design precis: [docs/02-concept.md](docs/02-concept.md)
+It builds to SwapCell interface v0.3 as a station host: it wakes the pack through a coded INTERLOCK loop and can run loads while charging from solar. The sizing note shows 419 Wh usable per pack, 1.87 evenings of the reference load (short of the two-evening target), a 2.1 h grid charge, 8.6 kg with the pack and $449 of PowerBox parts.
+
+Full design precis: [docs/02-concept.md](docs/02-concept.md) · Sizing: [docs/04-calcs/01-sizing.md](docs/04-calcs/01-sizing.md) · General arrangement: [cad/drawings/PBX-DWG-001.pdf](cad/drawings/PBX-DWG-001.pdf)
 
 ## Key components
 
-- SwapCell 48 V pack or 12.8 V LiFePO4 pack
-- Multi-input charge controller (12 to 60 V DC and solar input with MPPT, external AC charger)
+- Removable SwapCell 48 V pack (interface v0.3), with a fixed 12.8 V LiFePO4 pack as a documented fallback
+- Multi-input charge controller (12 to 60 V DC and solar input with MPPT, external certified charger)
 - USB-A and USB-C PD outlets
-- 12 V DC outlets
-- 300 W pure sine inverter with its own AC outlet
+- 12 V DC outlets from a 30 A buck converter
+- 300 W, 230 V pure sine inverter with its own AC outlet behind a 30 mA RCD
 - State-of-charge display
 - Enclosure with ventilation and handles
 

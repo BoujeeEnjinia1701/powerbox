@@ -3,9 +3,9 @@ doc_id: PBX-PRB-001
 title: PowerBox problem statement
 project: PowerBox
 doc_type: Problem statement
-version: "0.3"
+version: "0.4"
 status: Draft
-date: '2026-09-24'
+date: '2026-09-25'
 author: Amish Chadha
 license: CERN-OHL-S-2.0
 revisions:
@@ -21,6 +21,10 @@ revisions:
   date: '2026-09-24'
   author: Amish Chadha
   change: Removed StepGen as a charging source after StepGen became a walking vehicle (Amish, 2026-09-24)
+- version: "0.4"
+  date: '2026-09-25'
+  author: Amish Chadha
+  change: TRL 3. SwapCell interface v0.3, budget scope and AC region decided by Amish (PBX-DDR-001); open questions updated
 ---
 
 # PowerBox problem statement
@@ -37,7 +41,7 @@ Commercial portable power stations solve part of this, but they have three gaps 
 - **Charging assumes a working grid or a large solar array.** Few charge well from a small panel, and none are designed to share a battery with an e-bike or a village charging hub.
 - **Overselling.** Marketing implies a box can run a fridge or kettle. A household that buys on that promise and then drains the battery in an hour loses trust in the whole category.
 
-PowerBox is a standalone power station built around the portfolio's SwapCell pack, so the same battery can move between a PowerBox, a SunSpoke e-bike and a SwapCell dock. It charges from a solar panel, the grid or a charged pack brought home from the bike, and it is honest about scale: a 200 W panel stores about 635 Wh on a clear day, and one pack runs lights, phones, a radio and a router through an outage, not a fridge or a kettle.
+PowerBox is a standalone power station built around the portfolio's SwapCell pack, so the same battery can move between a PowerBox, a SunSpoke e-bike and a SwapCell dock. It charges from a solar panel, the grid or a charged pack brought home from the bike, and it is honest about scale: a 200 W panel delivers about 634 Wh to the pack on a clear day, and one pack runs lights, phones, a radio and a router through an outage, not a fridge or a kettle.
 
 ## Users and context
 
@@ -52,8 +56,8 @@ PowerBox is a standalone power station built around the portfolio's SwapCell pac
 
 ## Constraints
 
-- Garage-buildable prototype. Concept budget about $450 USD for the PowerBox parts; see the requirements for whether the SwapCell pack is included.
-- Built around the SwapCell interface (v0.2 draft): 13S lithium-ion pack, about 46.8 V nominal (39.0 to 54.6 V), about 468 Wh, 340 x 90 x 80 mm body, blind-mate connector with CAN. PowerBox must not change the interface locally; conflicts go back to SwapCell.
+- Garage-buildable prototype. Budget $450 USD for the PowerBox parts, excluding the SwapCell pack, which is priced once in the SwapCell project (decided by Amish, 2026-09-25).
+- Built around SwapCell interface v0.3: 13S lithium-ion pack, 46.8 V nominal (39.0 to 54.6 V), 468 Wh nameplate, 340 x 90 x 80 mm body (393 mm overall), blind-mate connector with CAN, wake through a 10 kΩ coded INTERLOCK loop (item W), a station host type with a charge-discharge mode (item C) and latch classes (item V). PowerBox must not change the interface locally; conflicts go back to SwapCell.
 - Standalone only. PowerBox must never connect to household wiring, a wall outlet or a distribution board. Back-feeding endangers line workers and is illegal almost everywhere.
 - Carryable by one adult: a case with a single handle, small enough for a shelf or under a bed.
 - Safe indoors: lithium cells, a mains-voltage AC outlet and hot power electronics all sit in a living space, often near children.
@@ -80,9 +84,10 @@ No link is given where a specific reference has not been verified.
 
 ## Open questions
 
-- Which users to involve first, and through which partner (an NGO running community charging points, a solar home system distributor, or a university group in an outage-prone city)? Proposed, awaiting Amish.
-- Which region to design the AC outlet for first (230 V 50 Hz or 120 V 60 Hz), which also fixes the plug type and GFCI or RCD standard? Proposed: 230 V 50 Hz with an RCD, awaiting Amish.
-- Is theft resistance (a lockable pack door) a priority for informal settlement and community charging users?
+- Which users to involve first, and through which partner (an NGO running community charging points, a solar home system distributor, or a university group in an outage-prone city)? Proposed, awaiting Amish; the portfolio picks partners per area later.
+- AC region first: 230 V 50 Hz with a 30 mA RCD. Decided by Amish, 2026-09-25 (PBX-DDR-001); 120 V 60 Hz is a later variant.
+- Is theft resistance (a lockable pack door) a priority for informal settlement and community charging users? Proposed, awaiting Amish.
+- Is one pack for 1.87 evenings enough, or should the reference evening change? (R2 is not met; PBX-DDR-001 item 13.)
 
 ## User research and co-design
 

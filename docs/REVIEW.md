@@ -1,5 +1,63 @@
 # Review note: PowerBox
 
+## Session 2026-09-25: TRL 3
+
+### What was done
+
+- `docs/decisions/0001-trl2-review-decisions.md` (PBX-DDR-001 v0.1): Amish's 2026-09-25 decisions (items 1 to 12) and the items still open (13 to 18).
+- `docs/04-calcs/01-sizing.md` (PBX-CAL-001 v0.1) with `docs/04-calcs/sizing.py` and `docs/04-calcs/results.csv`: energy, charging, converter efficiency, station mode and wake against SwapCell interface v0.3, outputs and pack current, fuses and pre-charge, standby, thermal, mass, cost and runtime, with a results table for R1 to R12.
+- `cad/src/model.py`: parametric build123d model (case, lid, handle, SwapCell v0.3 pack envelope with plug, handle zone and latch pawl, bay with runners, top rail, class D catch and receptacle, door, electronics, panels, fan). Exports `cad/step/` and `cad/stl/` (assembly, enclosure, pack bay, reference pack) and runs a clash check (none found).
+- `cad/src/sheets.py` and `cad/drawings/PBX-DWG-001.svg`, `.pdf`, `.png`: general arrangement at Rev P1, marked not for fabrication. PBX-DWG-001 was free because the concept blueprint uses PBX-DWG-010.
+- `bom/bom.csv` (18 lines, every line priced with a supplier or supplier type) and `bom/bom-notes.md`.
+- `cad/src/concept_media.py` now builds from `model.py`; all media regenerated (hero, blueprint, cutaway, exploded, flow, `model.glb`, `viewer.html`) and checked by eye; temporary `media/_views*` folders deleted.
+- `docs/01-problem.md`, `docs/02-concept.md` and `docs/03-requirements.md` moved to v0.4 (they were already at v0.3 after the StepGen change on 2026-09-24), with decisions recorded, SwapCell interface v0.3 and numbers from PBX-CAL-001. The requirements table now has a status column.
+- `project.yaml`: trl 3, trl_target 3, trl_evidence updated. `README.md`: TRL badge, budget scope, TRL 3 summary and key components. `budget_usd` stays at 450.
+
+### Requirements (PBX-CAL-001)
+
+| ID | Result | Status |
+| --- | --- | --- |
+| R2 | 1.87 evenings per pack (225 Wh per evening from the pack, 419 Wh usable) | **Not met** |
+| R6 | 90.5 % at 12 V and 200 W in a loss model; 93 % or more elsewhere; MPPT stability not analysed | At risk |
+| R11 | $449 of PowerBox parts against $450 | At risk |
+| R12 | 30 s swap and status display by design; needs users | Not verifiable at TRL 3 |
+| R1, R4, R5, R8, R10 | 419 Wh; 2.1 h grid; full in 0.70 solar day; 3.2 % per month off and 0.6 W ready; 8.6 kg and 482 x 276 x 278 mm | Met |
+| R3, R7, R9 | Sources, outputs and back-feed rules | Met (design review) |
+
+Corrections to TRL 2 numbers: the 48 V to 12 V buck was undersized (26.5 A needed, 20 A fitted; now 30 A); usable energy 421 to 419 Wh; a 5 % cut-off gives 1.97 evenings, not 2.0; mass 8.3 to 8.6 kg; PowerBox parts $435 to $449; pack price $370 to $414.
+
+SwapCell interface v0.3 closes both TRL 2 interface issues: PowerBox's receptacle carries the 10 kΩ INTERLOCK coding resistor (item W), so a sleeping pack wakes without a keep-alive cell, and PowerBox is a station host (type 3) that requests mode 4 to charge while running loads (item C). The worst net charge current in station mode is 4.48 A, inside the 5.0 A limit. The bay uses a class D catch (item V).
+
+### Decisions recorded (PBX-DDR-001)
+
+Decided by Amish, 2026-09-25, go with recommendation: removable SwapCell pack (fixed LiFePO4 pack as fallback); horizontal side-loading bay; one DC input with MPPT; grid charging only through a certified external charger; 300 W AC outlet with auto-off and a documented DC-only variant; folded aluminium enclosure; 230 V 50 Hz with a 30 mA RCD first; budget kept at $450 for the PowerBox parts, excluding the pack (priced once in SwapCell); no human-powered input now. Cross-cutting approvals cited as SwapCell interface v0.3 items W, C and V.
+
+### Still awaiting Amish
+
+- R2 shortfall: relax R2 to 1.87 evenings, discharge to 3.5 %, or revise the reference evening with users (about 189 Wh at the loads). No recommendation was made at TRL 2, so none is recorded as decided.
+- First co-design partner (portfolio rule: chosen per area later).
+- Theft resistance (lockable door) and energy metering for charging points.
+- Engineering proposals from this session: recessed normally closed wake button in the INTERLOCK loop, 30 A buck, fuse ratings.
+- For SwapCell (not changed locally): may a pack in legacy discharge accept a station heartbeat and move to mode 2 or 4 without opening its output? PowerBox's host is powered from the pack and depends on this.
+
+### Safety concerns
+
+- RCD function depends on an inverter with an output isolated from its DC input, so its neutral can be bonded to the case and earth pin. Not yet confirmed from a datasheet.
+- A short at the pack could draw about 496 A; every 48 V fuse needs a 60 V DC rating and at least 1 kA breaking capacity.
+- In station mode PowerBox is a charger: the host must hold net charge at or below 5.0 A, especially when the fixed 5 A grid charger and solar are both connected.
+- The wake button opens the INTERLOCK loop; pressed while running it drops the output, so it is recessed.
+- Back-feeding through improvised double-male cords remains a user risk; labels and the guide must warn.
+- About 60 W of heat at full load while charging needs the fan; not for closed cupboards or bags. Not for life-support equipment.
+
+### Other notes
+
+- No TRL 4 material exists in the repo (`build-log/` holds only its README; `electronics/` and `firmware/` are empty). None was created.
+- No unchecked citations were listed; prior work in PBX-PRB-001 carries no links.
+
+### Recommended next step
+
+TRL 4 is on hold by Amish's instruction, so the next step is a decision, not a build: Amish to choose how to handle R2 and confirm the engineering proposals, and SwapCell to answer the legacy-to-station question. For the record only, TRL 4 would need a bench test article of the bay and receptacle, named inverter and charge controller parts with datasheets confirming neutral bonding and 90 % efficiency at 40 W and 12 V, a lab test report (TST, environment: lab) and build log entries.
+
 ## Session 2026-09-24: remove StepGen as a charging source
 
 ### What changed
