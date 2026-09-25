@@ -1,5 +1,16 @@
 # Review note: PowerBox
 
+## Session 2026-09-24: remove StepGen as a charging source
+
+### What changed
+
+- StepGen removed as a charging source in `project.yaml`, `README.md`, `docs/01-problem.md` (v0.3), `docs/02-concept.md` (v0.3), `docs/03-requirements.md` (v0.3) and `cad/src/concept_media.py`; media and `docs/pdf/` regenerated. Why: Amish decided on 2026-09-24 that StepGen becomes a walking-treadmill vehicle driven by a hub motor on a SwapCell pack, so it no longer generates power for PowerBox. A pack can still move between PowerBox and StepGen, as with SunSpoke.
+- The DC input stays, with MPPT, for a solar panel, SunSpoke's panel or any 12 to 60 V DC source. R3 now lists solar and other DC sources; R6 is now "Use DC and solar input efficiently at low power" (90 % or more from 40 to 200 W, stable tracking). The StepGen rows in Table 2 and the human-power safety bullet are gone. Budget, TRL and other design content are unchanged.
+
+### Proposed, awaiting Amish
+
+- **Human-powered charging in future.** Options: (a) no human-powered input for PowerBox; (b) a pedal generator as a separate future repo that plugs into the existing DC input. Recommendation: not now; stay within the current scope.
+
 ## Session 2026-09-24: /populate to a strong TRL 2
 
 ### What was done
@@ -21,7 +32,6 @@
 | Reference evening (203 Wh at the loads) | 225 Wh from the pack; about 1.9 evenings per pack | R2 **not met** (target 2) |
 | Grid charge, 10 to 100 % | about 2.1 h | R4 met |
 | Solar, 200 W panel | about 635 Wh per clear day; full in one day | R5 met |
-| StepGen | about 55 to 90 Wh stored per hour; 2.5 to 4 h to refill one evening; 5 to 8 h to full | R6 at risk (efficiency at 40 W unconfirmed) |
 | Inverter idle if left on | about 190 Wh per day | Auto-off needed (R8) |
 | Standby, ready | about 0.6 W | R8 met |
 | Mass and size | about 8.3 kg with pack; 482 x 276 x 278 mm overall | R10 met, tight on height |
@@ -34,7 +44,7 @@ Requirements not met or at risk: R2 is missed by about 5 %; R6 is at risk until 
 
 1. Removable SwapCell pack (recommended), with a fixed internal 12.8 V LiFePO4 pack (about 384 Wh, about $110) kept as a documented fallback.
 2. Horizontal side-loading pack bay with an end door, rather than a tall top-loading bay.
-3. One DC input with MPPT for StepGen, solar and SunSpoke's panel; a second input later if users need both at once (about $30 more).
+3. One DC input with MPPT for solar and SunSpoke's panel; a second input later if users need both at once (about $30 more).
 4. Grid charging only through a certified external 54.6 V, 5 A charger brick; no AC inlet on the box.
 5. Include the 300 W AC outlet with auto-off, and document a DC-only variant (saves about $92, no mains voltage).
 6. Folded aluminium enclosure over a rugged plastic case.
@@ -55,10 +65,6 @@ Requirements not met or at risk: R2 is missed by about 5 %; R6 is at risk until 
 - A 468 Wh lithium-ion pack in a living space: fused, BMS-protected, charged on a non-combustible surface, with ventilation and temperature cut-offs. The charge controller sits on a shelf above the pack; its heat path needs checking.
 - Inverter heat (about 41 W at full load) needs the fan; the box must not be used in a closed cupboard or bag.
 - PowerBox must not be relied on for life-support equipment.
-
-### Problems noted
-
-- StepGen's own figure (60 to 100 Wh per hour) implies a sustained 60 to 100 W, while its stated range starts at 40 W (about 36 Wh per hour stored). StepGen's precis should state the power a typical user sustains for an hour.
 
 ### Recommended next step
 

@@ -83,7 +83,7 @@ ac = box(70, 175, PF - 16, PF - 4, 70, 170)
 # 13 State-of-charge display, top left of the panel
 display = box(-175, -95, PF - 7, PF - 4, 170, 188)
 
-# 14 Input panel on the +X end: DC input (StepGen or solar) and grid charger port
+# 14 Input panel on the +X end: DC input (solar or SunSpoke panel) and grid charger port
 inputs = box(L / 2, L / 2 + 4, -115, -15, 120, 195)
 for y in (-100, -55):
     inputs = inputs + box(L / 2 + 4, L / 2 + 18, y, y + 30, 140, 175)
@@ -119,7 +119,7 @@ render_all(
     parts, project="PowerBox", title="Power station concept", dwg_no="PBX-DWG-010",
     key_figures=["One SwapCell pack: about 420 Wh usable (estimate)",
                  "Evening load 203 Wh: about 1.9 evenings (estimate)",
-                 "Full charge: grid 2.1 h, 200 W solar 1 day, StepGen 5 to 8 h (est.)",
+                 "Full charge: grid 2.1 h, 200 W solar 1 day (est.)",
                  "300 W pure sine AC with GFCI; USB-C PD, USB-A, 12 V",
                  "About 482 x 276 x 278 mm overall, 8.3 kg with pack (est.)",
                  "Never connects to household wiring"],

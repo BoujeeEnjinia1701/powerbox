@@ -4,7 +4,7 @@
 
 **Area:** CleanTech · **TRL:** 2 of 9 (concept formulated) · **Prototype budget:** about $450 USD · **Difficulty:** 3 of 5
 
-Standalone multi-input power station built around a SwapCell battery pack. It charges from StepGen, a solar panel, the grid or a SunSpoke bike, and powers devices through USB, 12 V DC and a small AC outlet. It never connects to household wiring.
+Standalone multi-input power station built around a SwapCell battery pack. It charges from a solar panel, the grid or a SunSpoke bike, and powers devices through USB, 12 V DC and a small AC outlet. It never connects to household wiring.
 
 ![PowerBox concept](media/hero.png)
 
@@ -12,18 +12,18 @@ Standalone multi-input power station built around a SwapCell battery pack. It ch
 
 ## Problem
 
-When the power goes out, households need a small, safe store of electricity for lights, phones, radio and internet, charged from whatever source is available: human power, a solar panel or the grid when it is up. Design with, not for: requirements must come from co-design sessions and field trials with the intended users through a local partner.
+When the power goes out, households need a small, safe store of electricity for lights, phones, radio and internet, charged from whatever source is available: a solar panel, the grid when it is up or a charged pack brought home from an e-bike. Design with, not for: requirements must come from co-design sessions and field trials with the intended users through a local partner.
 
 ## Concept
 
-Standalone multi-input power station built around a SwapCell battery pack. It charges from StepGen, a solar panel, the grid or a SunSpoke bike, and powers devices through USB, 12 V DC and a small AC outlet. It never connects to household wiring.
+Standalone multi-input power station built around a SwapCell battery pack. It charges from a solar panel, the grid or a SunSpoke bike, and powers devices through USB, 12 V DC and a small AC outlet. It never connects to household wiring.
 
 Full design precis: [docs/02-concept.md](docs/02-concept.md)
 
 ## Key components
 
 - SwapCell 48 V pack or 12.8 V LiFePO4 pack
-- Multi-input charge controller (DC human power, solar MPPT, AC charger)
+- Multi-input charge controller (12 to 60 V DC and solar input with MPPT, external AC charger)
 - USB-A and USB-C PD outlets
 - 12 V DC outlets
 - 300 W pure sine inverter with its own AC outlet

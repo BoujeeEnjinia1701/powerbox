@@ -3,7 +3,7 @@ doc_id: PBX-PRC-001
 title: PowerBox design precis
 project: PowerBox
 doc_type: Design precis
-version: "0.2"
+version: "0.3"
 status: Draft
 date: '2026-09-24'
 author: Amish Chadha
@@ -17,11 +17,15 @@ revisions:
   date: '2026-09-24'
   author: Amish Chadha
   change: Populate to TRL 2 (architecture, first-order numbers, input and output specification, safety, media)
+- version: "0.3"
+  date: '2026-09-24'
+  author: Amish Chadha
+  change: Removed StepGen as a charging source after StepGen became a walking vehicle (Amish, 2026-09-24)
 ---
 
 # PowerBox design precis
 
-PowerBox is an aluminium carry case about the size of a small toolbox (460 x 260 x 220 mm body) with a SwapCell pack sliding into a bay through a side door. A charge controller takes DC from StepGen or a solar panel, a certified external charger takes grid power, and a charged pack from a SunSpoke bike can simply be swapped in. Power leaves through USB-C PD, USB-A, 12 V sockets and one 300 W pure sine AC outlet protected by a GFCI or RCD. It never connects to household wiring. First-order numbers suggest one pack gives about 420 Wh usable, enough for about 1.9 evenings of lights, phones, radio and a router, and the PowerBox parts cost about $435 without the pack.
+PowerBox is an aluminium carry case about the size of a small toolbox (460 x 260 x 220 mm body) with a SwapCell pack sliding into a bay through a side door. A charge controller takes DC from a solar panel, a certified external charger takes grid power, and a charged pack from a SunSpoke bike can simply be swapped in. Power leaves through USB-C PD, USB-A, 12 V sockets and one 300 W pure sine AC outlet protected by a GFCI or RCD. It never connects to household wiring. First-order numbers suggest one pack gives about 420 Wh usable, enough for about 1.9 evenings of lights, phones, radio and a router, and the PowerBox parts cost about $435 without the pack.
 
 ![Hero render](../media/hero.png)
 
@@ -30,9 +34,9 @@ PowerBox is an aluminium carry case about the size of a small toolbox (460 x 260
 ## How it works
 
 1. **Charge.** Energy comes in through one of three paths, all controlled by the host controller:
-   - **DC input** (StepGen or a solar panel, 12 to 60 V, up to 200 W) goes through a buck-boost charge controller that tracks the source's maximum power point and charges the pack at up to 54.6 V.
+   - **DC input** (a solar panel or another 12 to 60 V DC source, up to 200 W) goes through a buck-boost charge controller that tracks the source's maximum power point and charges the pack at up to 54.6 V.
    - **Grid** goes through a certified external 54.6 V, 5 A charger brick with a DC plug. PowerBox itself has no AC inlet, so it cannot be plugged into anything that would back-feed.
-   - **SunSpoke** charges the pack while riding or at its own 100 W panel. The rider brings the charged SwapCell pack home and swaps it in, which takes about 30 s. SunSpoke's panel can also plug into the DC input directly.
+   - **SunSpoke** charges the pack while riding or at its own 100 W panel. The rider brings the charged SwapCell pack home and swaps it in, which takes about 30 s. SunSpoke's panel can also plug into the DC input directly. StepGen, now a walking vehicle, runs on the same SwapCell pack, so a pack can move between PowerBox and StepGen in the same way.
 2. **Store.** The SwapCell pack (13S2P lithium-ion, 46.8 V nominal, about 468 Wh) sits in a bay with guide rails and mates through the SwapCell blind-mate connector. The host controller runs the SwapCell CAN handshake: the pack enables its output only when seated, with the interlock closed and a valid host heartbeat.
 3. **Convert and deliver.** The 39 to 54.6 V bus feeds a 48 V to 12 V buck converter for the 12 V sockets and the USB-C PD and USB-A modules, and a 48 V input, 300 W pure sine inverter for the single AC outlet.
 4. **Inform.** A small display shows state of charge, input and output power and estimated time remaining, read from the pack's CAN messages. The host switches the inverter off after 10 min below 5 W, because its idle draw would otherwise drain the pack.
@@ -84,9 +88,6 @@ Table 2. Energy, charge times, size and cost.
 | Grid charge, 10 to 100 % | about 2.1 h; about 490 Wh from the wall | 439 Wh into the pack at 5 A (about 270 W) in CC, then CV; charger 90 % | R4 met (3 h) |
 | Solar, 200 W panel | about 635 Wh per clear day; full in one day, or about 3 h of strong sun | 4.5 peak sun hours, 0.75 derating for heat, dust and angle, 94 % controller | R5 met |
 | Solar, SunSpoke 100 W panel | about 315 Wh per clear day; one evening's use in about 0.7 day | Same basis | |
-| StepGen, per hour of stepping | about 55 to 90 Wh stored | StepGen's estimate of 60 to 100 Wh at its output, times 94 % and 96 % | |
-| StepGen, one evening's use | about 2.5 to 4 h of stepping | 225 Wh at 55 to 90 Wh per hour | |
-| StepGen, 10 to 100 % | about 5 to 8 h of stepping; about 12 h at 40 W | 421 Wh at 55 to 90 Wh per hour | |
 | SunSpoke pack swap | about 30 s | Open door, pull pack by its handle, insert charged pack, close door | R12 met, to confirm with users |
 | Inverter efficiency | about 88 % at 200 to 300 W, 85 % at 60 W, 75 % at 20 W; idle draw 6 to 10 W | Typical 48 V, 300 W units | |
 | Inverter idle, if left on | about 190 Wh per day, nearly half the pack | 8 W for 24 h | Auto-off after 10 min below 5 W (R8) |
@@ -118,7 +119,7 @@ Table 4. Input and output specification (proposed).
 
 | Port | Type and connector | Voltage | Power or current | Notes |
 | --- | --- | --- | --- | --- |
-| DC in | Anderson PP45, red and black | 12 to 60 V DC | 200 W maximum, about 15 A at 12 V | StepGen, solar panel or SunSpoke panel; MPPT; TVS and reverse-polarity protection; one source at a time |
+| DC in | Anderson PP45, red and black | 12 to 60 V DC | 200 W maximum, about 15 A at 12 V | Solar panel or SunSpoke panel; MPPT; TVS and reverse-polarity protection; one source at a time |
 | Charger in | Anderson PP45, keyed differently from DC in | 54.6 V DC from the certified brick | 5 A | Grid charging only through the external charger |
 | Pack | SwapCell blind-mate connector | 39.0 to 54.6 V | 20 A continuous available; PowerBox uses 12 A or less | CAN 2.0B at 250 kbit/s; 120 Ω termination in PowerBox |
 | USB-C PD 1 | USB-C | 5 to 20 V | 100 W | Laptops |
@@ -135,7 +136,7 @@ All are proposed, awaiting Amish.
 
 - **Removable SwapCell pack, with a fixed internal pack as fallback.** A removable SwapCell pack is the point of the design: one battery moves between PowerBox, SunSpoke and the SwapCell dock, and a worn pack is replaced without discarding the box. The fallback is a fixed internal 12.8 V LiFePO4 pack (about 30 Ah, 384 Wh, about $110), with a 12 V inverter and no CAN. It is safer chemistry, cheaper, fits the $450 budget with the pack included and does not depend on SwapCell's schedule, but it loses swapping and sharing. Recommendation: removable SwapCell pack, with the fixed-pack variant kept as a documented fallback.
 - **Side-loading horizontal bay.** A vertical, top-loading bay would make the case about 450 mm tall. Laying the pack along the case length with a door on the end keeps the case low and stable. Recommendation: horizontal side-loading bay.
-- **One DC input with maximum power point tracking.** A single buck-boost input covers StepGen, solar and SunSpoke's panel. Two independent inputs would allow solar and StepGen at the same time, for about $30 more. Recommendation: one DC input for the first build.
+- **One DC input with maximum power point tracking.** A single buck-boost input covers a solar panel and SunSpoke's panel. Two independent inputs would allow two panels at the same time, for about $30 more. Recommendation: one DC input for the first build.
 - **Grid charging only through a certified external charger.** Keeps mains-input electronics out of the box, reuses the SwapCell dock charger class, and means the box has no AC inlet. Recommendation: external charger brick.
 - **A 300 W AC outlet with a DC-only variant.** AC is what users expect, but it brings mains voltage into the home, costs about $92 and wastes energy at idle. Recommendation: include 300 W AC with auto-off, and document a DC-only variant for lights, phones and routers.
 - **Aluminium enclosure.** Aluminium spreads heat and delays a fire better than a rugged plastic case, at similar cost if folded locally. Recommendation: folded aluminium.
@@ -159,7 +160,6 @@ All are proposed, awaiting Amish.
 - **Ventilation.** The inverter can shed about 41 W and the controller about 12 W. A thermostatic fan pulls air through filtered intake slots on the right end and out through the left end and lid. The host derates or shuts outputs down if internal temperature exceeds a limit, and the pack enforces its own temperature limits. The case must not be used in a closed cupboard or bag.
 - **Cords and connectors.** Keyed Powerpole connectors prevent the charger and DC inputs from being swapped. Input and output cords must be rated for their current, kept out of walkways and never run under rugs. The 12 V car socket is fused at 10 A.
 - **Pack handling.** The bay door keeps fingers away from the connector, and the SwapCell interlock keeps the pack output dead until it is fully seated.
-- **Human power.** StepGen is moving machinery with its own safety section in its design; PowerBox limits input current so a generator cannot over-charge the pack.
 - **Not a medical or life-safety supply.** PowerBox must not be relied on for oxygen concentrators or other life-support equipment.
 
 ## Open questions for TRL 3
@@ -167,7 +167,7 @@ All are proposed, awaiting Amish.
 - **Waking the pack from a battery-only host.** SwapCell's WAKE pin needs 5 to 15 V from the host, but with the pack asleep and no charger connected, PowerBox has no other source. Options: a small keep-alive cell in PowerBox, SwapCell waking on interlock closure, or a wake button on the pack. Raise with SwapCell; do not change the interface locally.
 - **Pass-through charging** needs a SwapCell host mode that allows charge and discharge together (see design choices).
 - Confirm inverter idle draw, efficiency at light load and whether its output neutral can be bonded for GFCI or RCD operation.
-- Confirm that the buck-boost controller stays at or above 90 % efficiency at 40 W and tracks StepGen's varying voltage without hunting (R6, at risk).
+- Confirm that the buck-boost controller stays at or above 90 % efficiency at 40 W and tracks a panel's changing maximum power point without hunting (R6, at risk).
 - Choose the AC region first (230 V 50 Hz or 120 V 60 Hz). Proposed: 230 V, awaiting Amish.
 - The evening profile misses R2 by about 5 %. Options: accept 1.9 evenings, lower the discharge cut-off to 5 % (about 445 Wh, 2.0 evenings but more cell wear), or revise the reference profile with users.
 - Where to place the charge controller relative to the pack, so its heat does not warm the cells.
