@@ -1,8 +1,19 @@
 item,qty,spec,supplier,unit_cost_usd,make_buy,notes
-SwapCell 48 V pack or 12.8 V LiFePO4 pack,,,,,,
-"Multi-input charge controller (DC human power, solar MPPT, AC charger)",,,,,,
-USB-A and USB-C PD outlets,,,,,,
-12 V DC outlets,,,,,,
-300 W pure sine inverter with its own AC outlet,,,,,,
-State-of-charge display,,,,,,
-Enclosure with ventilation and handles,,,,,,
+1 Enclosure body,1,"Folded 1.2 mm aluminium tub, 460 x 260 x 220 mm, pack door opening and intake slots",Local sheet metal shop,35.00,make,Indicative price; aluminium over a plastic case proposed for fire and heat reasons (awaiting Amish)
+2 Lid with exhaust slots,1,"1.2 mm aluminium, 460 x 260 mm with folded edges and exhaust slots",Local sheet metal shop,12.00,make,Indicative price
+3 Carry handle,1,"Folding steel or aluminium bar handle, rated 15 kg or more",Hardware store,8.00,buy,Indicative price
+4 SwapCell pack (reference),1,"SwapCell interface v0.2: 13S2P 21700 lithium-ion, 46.8 V nominal, about 468 Wh, 340 x 90 x 80 mm",SwapCell project,0.00,make,NOT INCLUDED in the PowerBox total; about $370 in parts per the SwapCell BOM; shared with SunSpoke and the SwapCell dock
+5 Pack bay and blind-mate receptacle,1,"Aluminium floor and shelf, printed guide rails, SwapCell dock-side receptacle on a floating mount",SwapCell project and self,30.00,make,Indicative price; receptacle is the SwapCell item 9 part
+6 Pack bay door,1,"Hinged aluminium door with magnetic catch and optional padlock eye",Local sheet metal shop,6.00,make,Indicative price
+7 Multi-input charge controller,1,"Buck-boost DC-DC, 12 to 60 V in, 200 W, CC-CV to 54.6 V set by the host; MPPT in host firmware; input TVS and reverse-polarity protection",Electronics distributor,30.00,buy,Indicative price; off-the-shelf buck-boost module class
+8 Host controller,1,"ESP32 with CAN transceiver, 120 ohm termination, two relays or contactor driver, current sensors on input and output",Electronics distributor,28.00,buy,Indicative price
+9 300 W pure sine inverter,1,"48 V DC input (40 to 60 V), 300 W continuous, 600 W surge, THD 3 % or less, 230 V 50 Hz or 120 V 60 Hz, certified, remote on/off",Inverter supplier,70.00,buy,Indicative price; region variant awaiting Amish
+10 DC-DC converter 48 V to 12 V,1,"Non-isolated buck, 36 to 60 V in, 12 V 20 A out, efficiency about 94 %",Electronics distributor,20.00,buy,Indicative price
+11 Output panel,1,"Panel with 1 x USB-C PD 100 W, 1 x USB-C PD 60 W, 2 x USB-A 12 W, 2 x 12 V sockets (5.5 mm barrel and car socket), main switch",Electronics distributor,45.00,buy,Indicative price; USB modules fed from the 12 V bus
+12 AC outlet with GFCI or RCD,1,"Single outlet with 30 mA RCD (230 V) or 5 mA GFCI (120 V), regional socket type",Electrical supplier,22.00,buy,Indicative price
+13 State-of-charge display,1,"2.4 in TFT or e-paper, driven by the host",Electronics distributor,10.00,buy,Indicative price
+14 Input panel,1,"2 x Anderson Powerpole PP45 (DC in and charger in), labelled, with dust caps",Electronics distributor,14.00,buy,Indicative price
+15 Exhaust fan and grille,1,"80 mm 12 V fan, thermostatic control from the host, dust filter on intake slots",Electronics distributor,10.00,buy,Indicative price
+16 Protection and wiring,1,"40 A pack fuse, DC breaker on the inverter feed, pre-charge resistor, fuses per output, 10 AWG and 18 AWG wire, lugs",Electronics distributor,35.00,buy,Indicative price; not modelled
+17 Grid charger,1,"Certified 54.6 V 5 A CC-CV lithium-ion charger brick, universal AC input, Powerpole DC lead",Charger supplier,50.00,buy,Indicative price; same class as the SwapCell dock charger; not modelled
+18 Hardware and consumables,1,"Fasteners, rubber feet, gaskets, labels, heat-shrink",Hardware store,10.00,buy,Indicative price; not modelled

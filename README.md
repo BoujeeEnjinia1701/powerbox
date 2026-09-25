@@ -6,6 +6,10 @@
 
 Standalone multi-input power station built around a SwapCell battery pack. It charges from StepGen, a solar panel, the grid or a SunSpoke bike, and powers devices through USB, 12 V DC and a small AC outlet. It never connects to household wiring.
 
+![PowerBox concept](media/hero.png)
+
+[Interactive 3D model](media/viewer.html) · [Concept blueprint (PDF)](media/concept-blueprint.pdf) · [Review note](docs/REVIEW.md)
+
 ## Problem
 
 When the power goes out, households need a small, safe store of electricity for lights, phones, radio and internet, charged from whatever source is available: human power, a solar panel or the grid when it is up. Design with, not for: requirements must come from co-design sessions and field trials with the intended users through a local partner.
