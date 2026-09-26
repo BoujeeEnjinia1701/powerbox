@@ -3,7 +3,7 @@ doc_id: PBX-DDR-001
 title: PowerBox TRL 2 review decisions
 project: PowerBox
 doc_type: Design decision record
-version: "0.1"
+version: "0.2"
 status: Draft
 date: '2026-09-25'
 author: Amish Chadha
@@ -13,12 +13,16 @@ revisions:
   date: '2026-09-25'
   author: Amish Chadha
   change: Record Amish's 2026-09-25 decisions on the TRL 2 review and the move to SwapCell interface v0.3
+- version: "0.2"
+  date: '2026-09-25'
+  author: Amish Chadha
+  change: Recommendations accepted by Amish (DDR-002)
 ---
 
 # 0001: TRL 2 review decisions
 
 - **Date:** 2026-09-25
-- **Status:** accepted (items 1 to 12); items 13 to 18 remain proposed, awaiting Amish
+- **Status:** accepted (items 1 to 12; item 17 accepted by PBX-DDR-002); items 13 to 16 and 18 remain proposed, awaiting Amish
 
 ## Context
 
@@ -53,7 +57,7 @@ Each item in Table 1 is "Decided by Amish, 2026-09-25: go with recommendation" u
 
 ### Items that remain open
 
-These had no recommendation, or depend on users or on SwapCell, so they stay **Proposed, awaiting Amish**.
+These had no recommendation, or depend on users or on SwapCell, so they stay **Proposed, awaiting Amish**. Item 17 had a recommendation and was decided on 2026-09-25 (PBX-DDR-002).
 
 *Table 2. Open items.*
 
@@ -63,7 +67,7 @@ These had no recommendation, or depend on users or on SwapCell, so they stay **P
 | 14 | First co-design partner (NGO running community charging points, solar home system distributor, or university group) | Proposed, awaiting Amish. Portfolio rule: partners are chosen per area later |
 | 15 | Theft resistance: is a lockable pack door a priority? The door carries a padlock eye either way | Proposed, awaiting Amish. No recommendation |
 | 16 | Energy metering on the display for charging points that charge per phone | Proposed, awaiting Amish. No recommendation |
-| 17 | TRL 3 engineering proposals made in this session: a recessed normally closed wake button in series with the coding resistor, the 30 A buck, and the fuse ratings in PBX-CAL-001 | Engineering proposals, awaiting Amish's confirmation |
+| 17 | TRL 3 engineering proposals made in this session: a recessed normally closed wake button in series with the coding resistor, the 30 A buck, and the fuse ratings in PBX-CAL-001 | Decided by Amish, 2026-09-25: go with recommendation (PBX-DDR-002) |
 | 18 | Clarification requested from SwapCell: may a pack in legacy discharge (state 5) accept a station heartbeat and move to mode 2 or 4 without opening its output? PowerBox's host is powered from the pack and depends on this | Raised with SwapCell; not changed locally |
 
 ## Consequences

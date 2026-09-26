@@ -3,7 +3,7 @@ doc_id: PBX-PRC-001
 title: PowerBox design precis
 project: PowerBox
 doc_type: Design precis
-version: "0.4"
+version: "0.5"
 status: Draft
 date: '2026-09-25'
 author: Amish Chadha
@@ -25,6 +25,10 @@ revisions:
   date: '2026-09-25'
   author: Amish Chadha
   change: TRL 3. SwapCell interface v0.3 (wake, station mode, latch class); Amish's decisions recorded (PBX-DDR-001); numbers checked against PBX-CAL-001; 30 A buck; general arrangement PBX-DWG-001
+- version: "0.5"
+  date: '2026-09-25'
+  author: Amish Chadha
+  change: Recommendations accepted by Amish (DDR-002)
 ---
 
 # PowerBox design precis
@@ -151,7 +155,7 @@ All of these were decided by Amish on 2026-09-25 (go with recommendation), PBX-D
 - **No human-powered input now.** A pedal generator could later be a separate repo that plugs into the DC input.
 - **Station host on SwapCell interface v0.3.** Wake through the coded INTERLOCK loop (item W), charge-discharge mode 4 as a station host (item C) and a class D latch catch with the door as a second stop (item V). These replace the keep-alive cell and local pass-through workarounds considered at TRL 2.
 - **Budget.** `budget_usd` stays at $450 and covers the PowerBox parts, including the grid charger; the SwapCell pack is priced once in the SwapCell BOM.
-- **Wake button, 30 A buck and fuse ratings.** Engineering proposals from PBX-CAL-001, awaiting Amish's confirmation.
+- **Wake button, 30 A buck and fuse ratings.** Proposed in PBX-CAL-001 and decided by Amish, 2026-09-25: go with recommendation (PBX-DDR-002). A recessed, normally closed wake button in series with the 10 kΩ coding resistor; a 30 A (360 W) 48 V to 12 V buck; every 48 V fuse rated 60 V DC or more with at least 1 kA breaking capacity, as in PBX-CAL-001 Table 3.
 
 ![Exploded view](../media/exploded.png)
 
@@ -177,7 +181,7 @@ All of these were decided by Amish on 2026-09-25 (go with recommendation), PBX-D
 
 ## Open questions
 
-Items that remain open after PBX-DDR-001. None of them is TRL 4 work to be started now; TRL 4 is on hold by Amish's instruction.
+Items that remain open after PBX-DDR-001 and PBX-DDR-002. None of them is TRL 4 work to be started now; TRL 4 is on hold by Amish's instruction.
 
 - **R2 shortfall (1.87 evenings).** Relax R2, discharge to 3.5 % (a 5 % cut-off gives only 1.97 evenings), or revise the evening profile with users (about 189 Wh at the loads). Proposed, awaiting Amish.
 - **Legacy-to-station transition.** SwapCell interface v0.3 does not say whether a pack in legacy discharge accepts a station heartbeat and moves to mode 2 or 4 without opening its output. PowerBox's host is powered from the pack and depends on this. Raised with SwapCell; not changed locally.

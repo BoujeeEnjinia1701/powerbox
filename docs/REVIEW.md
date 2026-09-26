@@ -1,5 +1,45 @@
 # Review note: PowerBox
 
+## Session 2026-09-25: recommendations accepted
+
+### Decisions applied
+
+Amish wrote on 2026-09-25: "i accept all your recommendations, go with them across all repos." Every PowerBox item marked awaiting Amish that carried a recommendation is now "Decided by Amish, 2026-09-25: go with recommendation", recorded in `docs/decisions/0002-recommendations-accepted.md` (PBX-DDR-002 v0.1).
+
+| Item | Before | After | Numbers |
+| --- | --- | --- | --- |
+| Recessed normally closed wake button in the INTERLOCK loop | Engineering proposal, awaiting Amish | Decided | No change; already in BOM line 11 and the model |
+| 48 V to 12 V buck | 30 A proposed (20 A at TRL 2) | Decided at 30 A | 20 A (240 W) at TRL 2, 30 A (360 W) now, for 26.5 A demand; $30, already in the BOM |
+| Fuse ratings | Proposed in PBX-CAL-001 Table 3 | Decided | 30 A main fuse, 60 V DC or more, 1 kA breaking; 20 A inverter breaker; unchanged |
+| TRL 2 list items 1 to 8 and human-powered charging | Already decided in PBX-DDR-001 but still worded "Proposed, awaiting Amish" in this note | Wording updated below | None |
+
+What changed: PBX-PRC-001 v0.4 to v0.5 (item 17 status and the fuse ratings in the key design choices); PBX-DDR-001 v0.1 to v0.2 (item 17 decided); PBX-DDR-002 v0.1 added; `project.yaml` trl_evidence lists DDR-002; README gains the concept rationale, burning platform, where it could be used and what sparked the idea sections. The budget stays at $450 (PowerBox parts, pack excluded). No requirement, calculation, BOM line, model geometry or drawing changed, because the accepted items were already designed in at TRL 3; PBX-CAL-001 stays at v0.1 and PBX-DWG-001 at Rev P1. All PDFs, drawing sheets and media were regenerated so the footer shows designmolecule.com.
+
+### Requirement status (PBX-CAL-001, unchanged)
+
+| ID | Result | Status |
+| --- | --- | --- |
+| R2 | 1.87 evenings per pack | **Not met** |
+| R6 | 90.5 % worst case in the loss model | At risk |
+| R11 | $449 against $450 | At risk |
+| R12 | Swap time and display need users | Not verifiable at TRL 3 |
+| R1, R3, R4, R5, R7, R8, R9, R10 | As in the TRL 3 session below | Met (R3, R7, R9 by design review) |
+
+### Still awaiting Amish (no recommendation)
+
+- R2 shortfall (PBX-DDR-001 item 13): relax R2, discharge to 3.5 %, or revise the reference evening with users.
+- First co-design partner (item 14).
+- Theft resistance, a lockable pack door (item 15).
+- Energy metering for charging points (item 16).
+
+### Cross-repo actions
+
+- **SwapCell:** answer whether a pack in legacy discharge (state 5) may accept a station heartbeat and move to mode 2 or 4 without opening its output (PBX-DDR-001 item 18). PowerBox's host is powered from the pack and depends on this. Not changed locally.
+
+### TRL 4
+
+TRL 4 remains on hold by Amish's instruction. `trl: 3` and `trl_target: 3` are unchanged. Buying and wiring the fuses, buck and wake button, and any bench test, are TRL 4 and were not started.
+
 ## Session 2026-09-25: TRL 3
 
 ### What was done
@@ -32,12 +72,11 @@ SwapCell interface v0.3 closes both TRL 2 interface issues: PowerBox's receptacl
 
 Decided by Amish, 2026-09-25, go with recommendation: removable SwapCell pack (fixed LiFePO4 pack as fallback); horizontal side-loading bay; one DC input with MPPT; grid charging only through a certified external charger; 300 W AC outlet with auto-off and a documented DC-only variant; folded aluminium enclosure; 230 V 50 Hz with a 30 mA RCD first; budget kept at $450 for the PowerBox parts, excluding the pack (priced once in SwapCell); no human-powered input now. Cross-cutting approvals cited as SwapCell interface v0.3 items W, C and V.
 
-### Still awaiting Amish
+### Still awaiting Amish (as of this session; see the 2026-09-25 recommendations session above for the current list)
 
 - R2 shortfall: relax R2 to 1.87 evenings, discharge to 3.5 %, or revise the reference evening with users (about 189 Wh at the loads). No recommendation was made at TRL 2, so none is recorded as decided.
 - First co-design partner (portfolio rule: chosen per area later).
 - Theft resistance (lockable door) and energy metering for charging points.
-- Engineering proposals from this session: recessed normally closed wake button in the INTERLOCK loop, 30 A buck, fuse ratings.
 - For SwapCell (not changed locally): may a pack in legacy discharge accept a station heartbeat and move to mode 2 or 4 without opening its output? PowerBox's host is powered from the pack and depends on this.
 
 ### Safety concerns
@@ -65,9 +104,9 @@ TRL 4 is on hold by Amish's instruction, so the next step is a decision, not a b
 - StepGen removed as a charging source in `project.yaml`, `README.md`, `docs/01-problem.md` (v0.3), `docs/02-concept.md` (v0.3), `docs/03-requirements.md` (v0.3) and `cad/src/concept_media.py`; media and `docs/pdf/` regenerated. Why: Amish decided on 2026-09-24 that StepGen becomes a walking-treadmill vehicle driven by a hub motor on a SwapCell pack, so it no longer generates power for PowerBox. A pack can still move between PowerBox and StepGen, as with SunSpoke.
 - The DC input stays, with MPPT, for a solar panel, SunSpoke's panel or any 12 to 60 V DC source. R3 now lists solar and other DC sources; R6 is now "Use DC and solar input efficiently at low power" (90 % or more from 40 to 200 W, stable tracking). The StepGen rows in Table 2 and the human-power safety bullet are gone. Budget, TRL and other design content are unchanged.
 
-### Proposed, awaiting Amish
+### Decided (was proposed, awaiting Amish)
 
-- **Human-powered charging in future.** Options: (a) no human-powered input for PowerBox; (b) a pedal generator as a separate future repo that plugs into the existing DC input. Recommendation: not now; stay within the current scope.
+- **Human-powered charging in future.** Decided by Amish, 2026-09-25: go with recommendation (no human-powered input now; PBX-DDR-001 item 9). Options: (a) no human-powered input for PowerBox; (b) a pedal generator as a separate future repo that plugs into the existing DC input. Recommendation: not now; stay within the current scope.
 
 ## Session 2026-09-24: /populate to a strong TRL 2
 
@@ -98,7 +137,9 @@ TRL 4 is on hold by Amish's instruction, so the next step is a decision, not a b
 
 Requirements not met or at risk: R2 is missed by about 5 %; R6 is at risk until a converter is chosen and its efficiency at 40 W is known; R11 is met only because the pack is excluded.
 
-### Proposed, awaiting Amish
+### Proposed at TRL 2; status after 2026-09-25
+
+Items 1 to 8 are now "Decided by Amish, 2026-09-25: go with recommendation" (PBX-DDR-001 items 1 to 8). Items 9 and 10 had no recommendation and remain "Proposed, awaiting Amish".
 
 1. Removable SwapCell pack (recommended), with a fixed internal 12.8 V LiFePO4 pack (about 384 Wh, about $110) kept as a documented fallback.
 2. Horizontal side-loading pack bay with an end door, rather than a tall top-loading bay.
@@ -108,8 +149,8 @@ Requirements not met or at risk: R2 is missed by about 5 %; R6 is at risk until 
 6. Folded aluminium enclosure over a rugged plastic case.
 7. AC region first: 230 V 50 Hz with a 30 mA RCD.
 8. Budget: keep $450 for PowerBox parts excluding the pack (recommended), or raise to about $850 to include one pack. `project.yaml` is unchanged at $450.
-9. R2 shortfall: accept 1.9 evenings, allow discharge to 5 % (about 2.0 evenings, more cell wear), or revise the load profile with users.
-10. First co-design partner: an NGO running community charging points, a solar home system distributor, or a university group in an outage-prone city.
+9. R2 shortfall (still proposed, awaiting Amish): accept 1.9 evenings, allow discharge to 5 % (about 2.0 evenings, more cell wear), or revise the load profile with users.
+10. First co-design partner (still proposed, awaiting Amish): an NGO running community charging points, a solar home system distributor, or a university group in an outage-prone city.
 
 ### Interface issues to raise with SwapCell (not changed locally)
 
