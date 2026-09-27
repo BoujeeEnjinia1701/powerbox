@@ -168,3 +168,33 @@ Items 1 to 8 are now "Decided by Amish, 2026-09-25: go with recommendation" (PBX
 ### Recommended next step
 
 Review this note and the media. If approved, run `/advance-trl3` to size the converters, inverter and fuses by calculation, confirm the inverter's GFCI or RCD compatibility and idle draw, settle the SwapCell wake and pass-through questions with the SwapCell design, and produce the parametric model and drawing sheet.
+
+## Session 2026-09-26: product appearance model and photoreal renders
+
+Amish chose this repo for the first batch of product renders on 2026-09-26. This session adds an appearance model for photoreal, product-style renders. It changes no requirement, calculation, BOM line, drawing or `cad/src/model.py`.
+
+### What was added
+
+- `cad/src/product_model.py`: `product_parts()` returns 82 parts (46 shell, 20 internal, 4 accessory, 12 context), each with a colour, a render material, a BOM line and an explode offset. It imports `PARAMS`, `pack_frame()` and the model.py geometry, so every main dimension and interface is unchanged (460 x 260 x 220 mm case, 12 mm lid, SwapCell v0.3 pack envelope, plug, handle, latch pawl, bay, receptacle and all panel and component envelopes). model.py has no `derived()`; `pack_frame()` plays that role.
+- Appearance detail: filleted case and lid corners with a parting-line groove at the lid joint; stadium exhaust slots and four lid screws; folding handle with hinge posts, ferrules and a ribbed rubber grip; output panel with USB-C PD and USB-A ports, 12 V car socket and barrel jack, rocker main switch with a lit indicator, the recessed wake button, printed port marks and a teal accent band; display with a lit state-of-charge readout; AC outlet module with socket recess, earth clips, RCD test and reset buttons and a lit status light; Anderson PP45 input panel with red and black housings and printed marks; pack bay door with a clear window onto the SwapCell pack, pull, padlock eye, hinge knuckles and catch strip; ringed fan grille; rubber feet; name plate.
+- Internals for the exploded view: filleted SwapCell pack with lid-face ribs, label, plug, rubber handle and latch pawl; bay runners, rail, shelf, catch bracket and receptacle; finned charge controller; host board with ESP32 shield and relays; finned inverter and buck converter; fan; intake dust filter.
+- Accessory: the grid charger brick (BOM 17) with its Powerpole DC lead, shown only in the exploded view.
+- Context: a compact oak bench top, a small solar panel on a folding stand behind the case wired to the DC IN Powerpole, and a phone charging from USB-C.
+- `TITLE` and `RENDER_VIEWS`: hero (front right, 30 deg elevation, with context), exploded (front right, 28 deg) and detail (front, 12 deg, shell only, framing the output panel).
+- README hero image now points to `media/render-hero.png` with a link to `media/render-exploded.png`. The render files are produced later by the orchestrator.
+
+### Differences from model.py (each Proposed, awaiting Amish)
+
+1. **Rubber feet.** Four 2 mm rubber feet (BOM 18) sit under the case floor, so the overall height becomes 280 mm and uses the 2 mm spare in R10. Recommendation: recess the feet into dimples in the folded floor so R10 keeps its margin.
+2. **Window in the pack bay door.** The door (BOM 6) has a 26 x 76 mm clear polycarbonate window so the pack is visible. It is not in model.py or the BOM. Recommendation: keep it as a render option only until TRL 4; a window adds cost and a sealing detail.
+3. **Door hardware.** The padlock eye is a separate tab beside the pull (model.py folds it into the pull block), and the hinge knuckles are drawn on the back edge of the door (model.py does not say which edge). Recommendation: hinge on the back edge so the door opens toward the user at the front.
+4. **Finish and colour.** The case is shown powder-coated light grey with a dark lid, dark panels and a teal accent. The BOM gives bare 5052 aluminium. Recommendation: powder coat, priced within the BOM 1 and 2 lines at TRL 4.
+5. **AC socket type.** The 230 V outlet is drawn with a round, earth-clip recess (CEE 7/3 style). The BOM does not name a socket type. Recommendation: choose the socket type with the first co-design partner's country.
+6. **Lit main switch.** The rocker main switch carries a lit indicator; BOM 11 names a plain main switch. Recommendation: accept, since a lit switch shows the box is on and costs little.
+7. **Grid charger size.** The charger brick is drawn at 170 x 72 x 42 mm, an assumption; model.py does not model BOM 17.
+
+Powerpole housings, USB ports and sockets are drawn inside the model.py envelopes at appearance scale, not at connector-datasheet dimensions.
+
+### Scope
+
+This is an appearance model only, with no tolerances and no fabrication detail. `trl` stays 3, `trl_target` stays 3, and TRL 4 remains on hold.
