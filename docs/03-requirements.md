@@ -3,9 +3,9 @@ doc_id: PBX-REQ-001
 title: PowerBox requirements
 project: PowerBox
 doc_type: Requirements
-version: "0.4"
+version: "0.5"
 status: Draft
-date: '2026-09-25'
+date: '2026-10-01'
 author: Amish Chadha
 license: CERN-OHL-S-2.0
 revisions:
@@ -25,11 +25,15 @@ revisions:
   date: '2026-09-25'
   author: Amish Chadha
   change: TRL 3. Record Amish's decisions (PBX-DDR-001), including the 230 V AC region and a budget that excludes the pack; SwapCell interface v0.3; status from PBX-CAL-001
+- version: "0.5"
+  date: '2026-10-01'
+  author: Amish Chadha
+  change: R10 and R11 status for the constructable design (PBX-DDR-003, PBX-CAL-001 v0.2); budget treated as a value-engineering target
 ---
 
 # PowerBox requirements
 
-These requirements are checked by calculation in PBX-CAL-001 (TRL 3). They are still proposals, not user-validated needs, and will be revised after co-design sessions. On paper, eight are met; **R2 is not met** (1.87 evenings), R6 and R11 are at risk, and R12 cannot be verified until users try a pack swap. The Status column gives the TRL 3 result.
+These requirements are checked by calculation in PBX-CAL-001 (TRL 3). They are still proposals, not user-validated needs, and will be revised after co-design sessions. On paper, eight are met; **R2 is not met** (1.87 evenings), R6 is at risk, R11 is reported against its value-engineering target (USD 32 over), and R12 cannot be verified until users try a pack swap. The Status column gives the TRL 3 result.
 
 | ID | Requirement | Target | Verification (TRL 3 or later) | Status (PBX-CAL-001) |
 | --- | --- | --- | --- | --- |
@@ -42,8 +46,8 @@ These requirements are checked by calculation in PBX-CAL-001 (TRL 3). They are s
 | R7 | Provide the outputs households use | 2 x USB-C PD (one 100 W, one 60 W), 2 x USB-A (12 W each), 2 x 12 V DC (10 A shared), 1 x AC outlet, 230 V 50 Hz, 300 W continuous pure sine (THD 3 % or less) behind a 30 mA RCD; total output limited to 400 W | Design review against the output specification table | Met (design review) |
 | R8 | Waste little energy when idle | Off: 5 % or less of pack energy per month, including cell self-discharge. Ready (display on, outputs off): 1.0 W or less. Inverter switches itself off after 10 min below 5 W | Standby budget calculation; later measurement | Met, 3.2 % per month off, 0.6 W ready |
 | R9 | Never back-feed household wiring | No AC input connector that can mate with an AC output; AC output only through a 30 mA RCD outlet with the inverter neutral bonded to the case; grid charging only through a certified external charger with a DC plug; DC bus 60 V or less | Design review and safety checklist | Met (design review) |
-| R10 | Be carried by one adult | 10 kg (22 lb) or less with pack; 500 x 300 x 280 mm or smaller including handle; one top handle | Massing model, then weighing | Met, 8.6 kg, 482 x 276 x 278 mm |
-| R11 | Stay within the concept budget | PowerBox parts $450 or less, including the grid charger and excluding the SwapCell pack, which is priced once in the SwapCell BOM (decided by Amish, 2026-09-25) | Priced BOM | At risk, $449 |
+| R10 | Be carried by one adult | 10 kg (22 lb) or less with pack; 500 x 300 x 280 mm or smaller including handle; one top handle | Massing model, then weighing | Met, 9.4 kg, 480 x 279 x 275 mm (constructable design) |
+| R11 | Keep to the value-engineering target | PowerBox parts against a value-engineering target of USD 450 (a hypothetical control target, not a limit; Amish, 2026-10-01), including the grid charger and excluding the SwapCell pack, which is priced once in the SwapCell BOM (decided by Amish, 2026-09-25) | Priced BOM | USD 482, USD 32 over the target |
 | R12 | Swap packs and show status simply | Pack swapped by hand in 30 s or less without tools; display shows state of charge, input and output power and estimated time remaining, read from the SwapCell interface v0.3 CAN messages; a sleeping pack wakes through the INTERLOCK loop (v0.3 item W) | Design review; later timed trial with users | Not verifiable at TRL 3 |
 
 ## Assumptions
@@ -61,5 +65,5 @@ Table 1. Reference evening load profile (6 pm to 11 pm outage). Proposed for rev
 - The SwapCell pack is the reference 13S2P pack of SwapCell interface v0.3: 46.8 V nominal, 39.0 to 54.6 V, 468 Wh nameplate and 466 Wh at 0.2C (SWC-CAL-001). PowerBox is a station host (v0.3 item C) and its receptacle carries the 10 kΩ INTERLOCK coding resistor (item W).
 - Solar input spends much of the day well below the panel rating (morning, evening and cloud), so the DC input often runs at 40 to 100 W.
 - Refrigerators, kettles and other high-power or high-surge loads are out of scope (see PBX-PRB-001).
-- Budget: the $450 in `project.yaml` covers the PowerBox itself (decided by Amish, 2026-09-25, PBX-DDR-001). A household that needs its own pack also buys a SwapCell pack, priced once in the SwapCell BOM at about $414 in prototype parts.
+- Budget: the USD 450 value-engineering target in `project.yaml` covers the PowerBox itself (decided by Amish, 2026-09-25, PBX-DDR-001). A household that needs its own pack also buys a SwapCell pack, priced once in the SwapCell BOM at about $414 in prototype parts.
 - R2: whether to relax R2, lower the cut-off to 3.5 % or revise the profile is proposed, awaiting Amish (PBX-DDR-001 item 13).

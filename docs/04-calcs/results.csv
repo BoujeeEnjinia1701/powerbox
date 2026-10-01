@@ -8,6 +8,6 @@ R6,90.5 % worst case (model); MPPT stability not analysed,90 % or more from 40 t
 R7,Outputs as specified; 12 V buck 30 A for 26.5 A demand; pack 11.5 A at 400 W,"Output set in R7, 400 W total",Met (design review)
 R8,Off 3.2 %/month; ready 0.6 W; inverter auto-off,5 %/month; 1.0 W; auto-off,Met
 R9,No AC inlet; DC bus 54.6 V; RCD needs bonded inverter neutral,No back-feed path; 60 V or less,Met (design review)
-R10,8.6 kg; 482 x 276 x 278 mm,10 kg; 500 x 300 x 280 mm,Met
-R11,$449 excluding the pack,$450 or less,At risk
+R10,9.4 kg; 480 x 279 x 275 mm,10 kg; 500 x 300 x 280 mm,Met
+R11,USD 482 excluding the pack,Value-engineering target USD 450,Over the target by USD 32
 R12,"Door, runners and class D catch allow a one-hand swap; display reads PACK_STATUS and PACK_LIMITS",30 s swap; status display,Not verifiable at TRL 3

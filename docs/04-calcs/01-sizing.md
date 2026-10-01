@@ -3,9 +3,9 @@ doc_id: PBX-CAL-001
 title: PowerBox sizing calculations
 project: PowerBox
 doc_type: Calculation note
-version: "0.1"
+version: "0.2"
 status: Draft
-date: '2026-09-25'
+date: '2026-10-01'
 author: Amish Chadha
 license: CERN-OHL-S-2.0
 revisions:
@@ -13,11 +13,15 @@ revisions:
   date: '2026-09-25'
   author: Amish Chadha
   change: First TRL 3 sizing note (energy, charging, converter efficiency, outputs, fuses, pre-charge, station mode, standby, wake, thermal, mass, cost) against SwapCell interface v0.3
+- version: "0.2"
+  date: '2026-10-01'
+  author: Amish Chadha
+  change: Mass, size and cost of the constructable design (PBX-DDR-003); budget treated as a value-engineering target
 ---
 
 # PowerBox sizing calculations
 
-On paper, PowerBox meets eight of its twelve requirements. **R2 is not met**: one SwapCell pack runs the reference evening 1.87 times, not twice. R6 (DC input efficiency) and R11 (budget, $449 against $450) are **at risk**, and R12 (swap time) cannot be verified until users try it. Two TRL 2 figures were wrong and are corrected here: the 48 V to 12 V converter was too small for the full DC output set (26.5 A needed, 20 A fitted, now 30 A), and the mass rises from about 8.3 to 8.6 kg with the SwapCell v0.3 pack and the real sheet areas. SwapCell interface v0.3 removes both TRL 2 interface blockers: PowerBox wakes the pack through its INTERLOCK loop and runs loads while charging in station mode.
+On paper, PowerBox meets eight of its twelve requirements. **R2 is not met**: one SwapCell pack runs the reference evening 1.87 times, not twice. R6 (DC input efficiency) is **at risk**, R11 (cost) is reported against a value-engineering target (USD 482 against USD 450, USD 32 over), and R12 (swap time) cannot be verified until users try it. Version 0.2 reprices and reweighs the constructable design of PBX-DDR-003: 9.42 kg with the pack (R10 still met) and 480 x 279 x 275 mm overall. Two TRL 2 figures were wrong and are corrected here: the 48 V to 12 V converter was too small for the full DC output set (26.5 A needed, 20 A fitted, now 30 A), and the mass rises from about 8.3 to 8.6 kg with the SwapCell v0.3 pack and the real sheet areas. SwapCell interface v0.3 removes both TRL 2 interface blockers: PowerBox wakes the pack through its INTERLOCK loop and runs loads while charging in station mode.
 
 Every number here is printed by `docs/04-calcs/sizing.py` (run from the repo root: `python docs/04-calcs/sizing.py`), which also writes `docs/04-calcs/results.csv`. The script reads the case dimensions from `cad/src/model.py` and the costs from `bom/bom.csv`. All values are first-principles estimates; nothing is measured.
 
@@ -118,29 +122,34 @@ At full output while charging at 200 W, the case holds 41 W from the inverter, 6
 
 ## 10. Mass and size (R10)
 
-*Table 4. Mass budget.*
+*Table 4. Mass budget of the constructable design (PBX-DDR-003).*
 
 | Part | Mass (kg) | Basis |
 | --- | --- | --- |
 | SwapCell pack | 2.85 | SWC-CAL-001 |
-| Enclosure body | 1.41 | 1.2 mm aluminium over 0.436 m² |
-| Lid | 0.44 | 1.2 mm aluminium, 12 mm skirt |
+| Enclosure body | 1.22 | 1.2 mm aluminium over 0.436 m², less 0.071 m² of openings, plus 0.012 m² of corner tabs |
+| Lid | 0.47 | 1.2 mm aluminium, 464.4 x 264.4 mm with a 16 mm skirt |
 | Handle | 0.20 | Estimate |
+| Handle doubler | 0.05 | 2 mm aluminium, 240 x 40 mm |
 | Inverter | 1.20 | Typical 300 W unit |
-| Bay, runners and receptacle | 0.40 | Estimate |
+| Shelf and brackets | 0.53 | 2 mm shelf and 3 mm brackets, aluminium, model volumes |
+| Runners and top rail | 0.21 | Printed PETG, model volumes, 65 % fill |
+| Receptacle and catch | 0.15 | Estimate |
 | Charge controller | 0.30 | Estimate |
 | DC-DC converter, 30 A | 0.35 | Estimate |
-| Panels, sockets and outlet | 0.40 | Estimate |
-| Wiring and fuses | 0.60 | Estimate |
-| Fan, host and display | 0.30 | Estimate |
-| Door and hardware | 0.15 | Estimate |
-| **Total** | **8.61 (19.0 lb)** | R10 limit 10 kg |
+| Panel plates | 0.35 | 2 mm aluminium, model volumes |
+| Sockets, outlet and display | 0.30 | Estimate |
+| Wiring, fuses and protection plate | 0.64 | Estimate |
+| Fan, host and filter | 0.30 | Estimate |
+| Door, hinge, latch and staple | 0.14 | Estimate |
+| Fixings and feet | 0.15 | Counted from the model |
+| **Total** | **9.42 (20.8 lb)** | R10 limit 10 kg; concept design 8.61 kg |
 
-The parametric model gives an overall envelope of **482 x 276 x 278 mm** (460 x 260 x 220 mm body, 12 mm lid, 46 mm handle), which meets the 500 x 300 x 280 mm limit, with 2 mm to spare in height. The pack needs 393 mm plus 22 mm for the receptacle and 8 mm of clearance: 423 mm of the 458 mm inside. The charger brick adds about 0.8 kg when carried. R10 is met.
+The constructable design weighs 0.81 kg more than the concept, mostly in the shelf, brackets and runners that the concept drew without thickness or fixings and the 2 mm panel plates. The margin to R10 is 0.58 kg. The parametric model gives an overall envelope of **480 x 279 x 275 mm** (460 x 260 x 220 mm body; 8 mm feet; lid skirt over the walls; 46 mm handle), which meets the 500 x 300 x 280 mm limit with 5 mm to spare in height. The pack needs 393 mm plus 22 mm for the receptacle and 8 mm of clearance: 423 mm of the 458 mm inside. The charger brick adds about 0.8 kg when carried. R10 is met.
 
 ## 11. Cost (R11)
 
-`bom/bom.csv` totals **$449** for 18 lines, excluding the SwapCell pack, which Amish decided on 2026-09-25 is priced once in the SwapCell BOM (about $414). The margin against the $450 budget is $1, and every price is indicative, so **R11 is at risk**. A household or charging point with a SwapCell dock can omit the grid charger, bringing the parts to $399. For reference only, one PowerBox with its own pack is about $863.
+Value-engineering target: USD 450 (a hypothetical control target, not a limit; Amish, 2026-10-01). Estimated cost of the constructable design: **USD 482** for 18 BOM lines, excluding the SwapCell pack, which Amish decided on 2026-09-25 is priced once in the SwapCell BOM (about $414). That is **USD 32 over the target**; the concept design was USD 449. Making the design constructable added USD 33: rivet nuts and window cut-outs in the body, a deeper lid skirt, the handle doubler, the shelf, brackets, runners and rail, the door hinge, cam latch and staple, the filter frame, the protection plate and more fixings. A household or charging point with a SwapCell dock can omit the grid charger, bringing the parts to USD 432. For reference only, one PowerBox with its own pack is about USD 896. The savings worth trying are listed in the design decisions register (PBX-DEC-001).
 
 ## 12. Runtime
 
@@ -167,7 +176,7 @@ Energy flow per usable cycle (DC input to loads, evening mix): 470 Wh at the DC 
 | --- | --- | --- | --- |
 | R2 | 1.87 evenings (225 Wh per evening from the pack) | 2 evenings | **Not met** |
 | R6 | 90.5 % worst case (model); MPPT stability not analysed | 90 % or more from 40 to 200 W; stable MPPT | At risk |
-| R11 | $449 excluding the pack | $450 or less | At risk |
+| R11 | USD 482 excluding the pack | Value-engineering target USD 450 | Over the target by USD 32 |
 | R12 | Door, runners and class D catch; display reads PACK_STATUS and PACK_LIMITS | 30 s swap; status display | Not verifiable at TRL 3 |
 | R1 | 419 Wh usable (407 Wh with minimum cells) | 400 Wh or more | Met |
 | R3 | DC in 12 to 60 V 200 W MPPT; charger in; pack swap; SunSpoke panel | Four sources | Met (design review) |
@@ -176,7 +185,7 @@ Energy flow per usable cycle (DC input to loads, evening mix): 470 Wh at the DC 
 | R7 | Outputs as specified; 30 A buck for 26.5 A; pack 11.5 A at 400 W | R7 output set, 400 W total | Met (design review) |
 | R8 | Off 3.2 % per month; ready 0.6 W; inverter auto-off | 5 % per month; 1.0 W; auto-off | Met |
 | R9 | No AC inlet; DC bus 54.6 V; RCD needs a bonded inverter neutral | No back-feed path; 60 V or less | Met (design review) |
-| R10 | 8.6 kg; 482 x 276 x 278 mm | 10 kg; 500 x 300 x 280 mm | Met |
+| R10 | 9.4 kg; 480 x 279 x 275 mm | 10 kg; 500 x 300 x 280 mm | Met |
 
 ## 14. Checks against earlier documents
 

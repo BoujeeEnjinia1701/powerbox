@@ -1,4 +1,4 @@
-"""PowerBox sizing calculations, PBX-CAL-001 v0.1 (TRL 3).
+"""PowerBox sizing calculations, PBX-CAL-001 v0.2 (TRL 3).
 
 Run from the repo root:  python docs/04-calcs/sizing.py
 Prints every number quoted in docs/04-calcs/01-sizing.md and writes docs/04-calcs/results.csv.
@@ -228,31 +228,50 @@ print(f"Fan off, evening losses {q_eve:.1f} W over UA {ua:.1f} W/K (area {area:.
 print(f"Pack I2R at 5 A charge {I_CHG ** 2 * R_PACK:.2f} W")
 
 # ---------------------------------------------------------------- 9. Mass and size (R10)
+# Constructable design (PBX-DDR-003): sheet parts from their areas, openings deducted; printed parts
+# from their model volumes. Volumes come from cad/src/model.py (build_components).
 t_m = P["sheet_t"] / 1000
 rho = 2700
-m_body = (L * D + 2 * L * H + 2 * D * H) * t_m * rho
-m_lid = (L * D + 2 * (L + D) * P["lid_h"] / 1000) * t_m * rho
-mass = {"SwapCell pack": PACK_MASS, "Enclosure body": m_body, "Lid": m_lid, "Handle": 0.20,
-        "Inverter": 1.20, "Bay, runners, receptacle": 0.40, "Charge controller": 0.30, "DC-DC 30 A": 0.35,
-        "Panels, sockets, outlet": 0.40, "Wiring and fuses": 0.60, "Fan, host, display": 0.30, "Door and hardware": 0.15}
+openings = (99 * 96 + 360 * 140 + 78 * 55 + 6 * 90 * 5 + math.pi * 38 ** 2) / 1e6      # m2: door, output and input windows, slots
+tabs = 4 * P["tab_w"] * (P["tab_top"] - 4) / 1e6                                 # m2: corner tabs
+m_body = (L * D + 2 * L * H + 2 * D * H - openings + tabs) * t_m * rho
+c_l = (P["lid_clear"] + P["sheet_t"]) / 1000
+lo, do = L + 2 * c_l, D + 2 * c_l
+m_lid = (lo * do + 2 * (lo + do) * P["lid_h"] / 1000) * t_m * rho
+V_SHELF, V_BRACKETS = 142.5, 34.1 + 21.1          # cm3, 2 mm shelf, 3 mm catch and receptacle brackets (model)
+V_PRINTED = 4 * 53.3 + 2 * 20.8                     # cm3, floor runners and top rail (model)
+V_PLATES = 116.7 + 14.0                             # cm3, output and input panel plates, 2 mm (model)
+FILL = 0.65                                         # printed PETG, 4 walls and 40 % infill
+mass = {"SwapCell pack": PACK_MASS, "Enclosure body": m_body, "Lid": m_lid, "Handle": 0.20, "Handle doubler": 0.05,
+        "Inverter": 1.20, "Shelf and brackets": (V_SHELF + V_BRACKETS) * 2.7e-3, "Runners and rail": V_PRINTED * 1.27e-3 * FILL,
+        "Receptacle and catch": 0.15, "Charge controller": 0.30, "DC-DC 30 A": 0.35, "Panel plates": V_PLATES * 2.7e-3,
+        "Sockets, outlet, display": 0.30, "Wiring, fuses, protection plate": 0.64, "Fan, host, filter": 0.30,
+        "Door, hinge, latch, staple": 0.14, "Fixings and feet": 0.15}
 m_tot = sum(mass.values())
 print("\nMass budget (kg): " + ", ".join(f"{k} {v:.2f}" for k, v in mass.items()))
-print(f"Total {m_tot:.2f} kg ({m_tot * 2.2046:.1f} lb); grid charger brick about 0.8 kg extra")
-ovl = P["case_l"] + 18 + 4                        # input connectors 18 mm proud on +X, fan grille 4 mm on -X
-ovd = P["case_d"] + 16
-ovh = P["case_h"] + P["lid_h"] + P["handle_post_h"] + 4 + P["handle_r"]
-print(f"Overall {ovl:.0f} x {ovd:.0f} x {ovh:.0f} mm (model bounding box 482.0 x 276.0 x 278.0); "
+print(f"Total {m_tot:.2f} kg ({m_tot * 2.2046:.1f} lb); grid charger brick about 0.8 kg extra; "
+      f"concept design 8.61 kg; margin to 10 kg {10 - m_tot:.2f} kg")
+ovl = P["case_l"] + 4 + P["panel_t"] + 14           # fan grille 4 mm on -X; input panel plate and Powerpoles 16 mm on +X
+ovd = P["case_d"] / 2 + P["panel_t"] + 12 + P["case_d"] / 2 + P["lid_clear"] + P["sheet_t"] + 2.8   # AC outlet front to lid screw heads
+ovh = P["foot_h"] + P["case_h"] + P["sheet_t"] + P["handle_post_h"] + 4 + P["handle_r"]
+print(f"Overall {ovl:.1f} x {ovd:.1f} x {ovh:.1f} mm (model bounding box 480.2 x 279.0 x 275.2); "
       f"pack bay length needed {PACK_OVERALL:.0f} + 22 receptacle + 8 clear = {PACK_OVERALL + 30:.0f} mm "
       f"of {P['case_l'] - 2 * P['sheet_t']:.0f} mm inside")
 res("R10", f"{m_tot:.1f} kg; {ovl:.0f} x {ovd:.0f} x {ovh:.0f} mm", "10 kg; 500 x 300 x 280 mm", "Met")
 
 # ---------------------------------------------------------------- 10. Cost (R11)
+# budget_usd is a value-engineering target, not a limit (Amish, 2026-10-01; STANDARDS section 18)
+TARGET = 450.0
 bom = list(csv.DictReader((ROOT / "bom/bom.csv").open()))
 total = sum(float(r["qty"]) * float(r["unit_cost_usd"]) for r in bom)
 no_brick = total - 50.0
-print(f"\nBOM: {len(bom)} lines, total ${total:.2f} excluding the SwapCell pack; budget $450; margin ${450 - total:.2f}")
-print(f"Without the grid charger (dock on hand) ${no_brick:.2f}; with one pack (reference only) ${total + PACK_COST:.2f}")
-res("R11", f"${total:.0f} excluding the pack", "$450 or less", "At risk" if 450 - total < 20 else "Met")
+dv = total - TARGET
+word = f"USD {abs(dv):.0f} {'over' if dv > 0 else 'under'} the target"
+print(f"\nBOM: {len(bom)} lines. Value-engineering target: USD {TARGET:.0f}. Estimated cost of the constructable design: "
+      f"USD {total:.2f} excluding the SwapCell pack ({word}); concept design USD 449.00")
+print(f"Without the grid charger (dock on hand) USD {no_brick:.2f}; with one pack (reference only) USD {total + PACK_COST:.2f}")
+res("R11", f"USD {total:.0f} excluding the pack", f"Value-engineering target USD {TARGET:.0f}",
+    f"{'Over' if dv > 0 else 'Under'} the target by USD {abs(dv):.0f}")
 
 # ---------------------------------------------------------------- 11. Swap and display (R12)
 res("R12", "Door, runners and class D catch allow a one-hand swap; display reads PACK_STATUS and PACK_LIMITS",

@@ -1,5 +1,57 @@
 # Review note: PowerBox
 
+## Session 2026-10-01: design for construction and prototype build plan (kit 1.7.0)
+
+### What was done
+
+- Kit 1.7.0 installed (`.kit/`, `.claude/commands/`); `CLAUDE.md` now matches `.kit/CLAUDE.md`.
+- Constructability review of `cad/src/model.py` with build123d checks. The concept passed its clash check but could not be built: the lid sat on the wall edges, the pack floated 1 mm above its runners with nothing guiding its sides, the shelf, catch bracket and receptacle had no fixings, the door was a solid block, the panels had nowhere for the module bodies, and the protection parts had no place.
+- `cad/src/model.py` rewritten as 45 components (`build_components()`), with 64 constructability checks (`python cad/src/model.py --check`), all passing, including a check that the pack slides out through the end opening. STEP and STL regenerated in `cad/step/` and `cad/stl/`.
+- `docs/decisions/0003-design-for-construction.md` (PBX-DDR-003 v0.1, Draft): every change, made under Amish's 2026-09-30 instruction to make the design physically buildable; open for his review.
+- `bom/bom.csv`: lines 1, 2, 3, 5, 6, 15, 16 and 18 repriced and respecified; `bom/bom-notes.md` updated.
+- PBX-CAL-001 v0.2 (`docs/04-calcs/01-sizing.md`, `sizing.py`, `results.csv`): mass, size and cost of the constructable design; the budget reported as a value-engineering target. PBX-REQ-001 v0.5 and PBX-PRC-001 v0.6 follow.
+- PBX-DWG-001 Rev P2 (`cad/src/sheets.py`); concept media regenerated (`media/hero.png`, `concept-blueprint`, `cutaway.png`, `exploded.png`, `flow.png`, `model.glb`, `viewer.html`).
+- `cad/src/build_plan_media.py`: overview, 13 making sketches (PBX-DWG-101 to 113), 3 hole layouts, 11 joint close-ups, 15 step pictures and the wiring diagram (step 11), all drawn from the model.
+- `docs/05-build-plan.md` (PBX-BLD-001 v0.1) and `docs/06-design-decisions.md` (PBX-DEC-001 v0.1).
+- `project.yaml`: `design_state: constructable`; build plan, register, DDR-003, overview and the media script added to `trl_evidence`. README: links line and a "Building the prototype" section.
+
+### Design changes made for construction (PBX-DDR-003)
+
+1. Lid: the top rests on the walls and a 16 mm skirt hangs outside them with a 1 mm gap; six M4 screws into rivet nuts.
+2. Handle: four M5 bolts through the lid and a 2 mm doubler plate.
+3. Floor runners: four printed L-section lengths; the pack rests on them and the lips stand 1 mm off its sides; M4 screws from below into heat-set inserts. Top guide rail in two printed lengths screwed to the shelf.
+4. Shelf: 2 mm folded aluminium (was a 4 mm slab), rear and end flanges riveted to the walls, front flange down, screwed to the catch bracket.
+5. Catch bracket: 3 mm folded channel screwed to the floor and the shelf, catch bolted to its web.
+6. Receptacle: on a 3 mm folded angle bracket screwed to the floor.
+7. Door: 1.2 mm sheet on a piano hinge at its front edge, thumb-turn cam latch and padlock hasp and staple, in place of the magnetic catch that had no room.
+8. Output and input panels: 2 mm plates over windows in the walls, four M4 screws each; the 12 V and barrel sockets moved up 15 mm to clear the inverter.
+9. Protection plate for the main fuse, inverter breaker and relay; fuse block placed; floor holes for the inverter and converter; host on standoffs.
+10. Riveted corner tabs on the folded tub.
+11. Printed intake filter frame; the six exhaust slots behind the fan replaced by one 76 mm hole.
+12. 8 mm self-adhesive rubber feet.
+
+### Key results
+
+- Mass 9.42 kg with the pack (was 8.61 kg); R10 met with 0.58 kg to spare. Overall 480 x 279 x 275 mm (was 482 x 276 x 278 mm).
+- Value-engineering target: USD 450. Estimated cost of the constructable design: USD 482 (USD 32 over the target); the concept was USD 449.
+- Requirement status otherwise unchanged: R2 not met (1.87 evenings), R6 at risk, R12 not verifiable at TRL 3, the rest met on paper.
+
+### Proposed, awaiting Amish
+
+All in the design decisions register (`docs/06-design-decisions.md`): accepting PBX-DDR-003 as a whole; the door hinge edge (front, as modelled, against the renders' back edge); theft resistance (thumb turn or keyed latch); the 0.58 kg mass margin; and the items carried over (R2, co-design partner, metering, SwapCell legacy-to-station question, finish, AC socket type, door window, lit switch).
+
+### Safety concerns
+
+- Unchanged from TRL 3: RCD function needs an inverter with an isolated, bondable output neutral; every 48 V fuse 60 V DC or more and 1 kA breaking; no back-feed; ventilation. New: the blade fuse block must be rated for the 48 V bus (58 V DC or more), and the 230 V wiring in the build plan is done or checked by a qualified electrician.
+
+### Stale media (made on Amish's Mac)
+
+The photoreal renders (`media/render-*.png`), `media/card.png`, `media/social-preview.png` and `cad/src/product_model.py` still show the concept lid, door (back-edge hinge, magnetic catch), panels and fan-end slots. They were not regenerated here and need updating with `/render-product`.
+
+### Recommended next step
+
+Amish to review PBX-DDR-003 and the open decisions in PBX-DEC-001. TRL 4 (buying parts and building to PBX-BLD-001) stays on hold.
+
 ## Session 2026-09-25: recommendations accepted
 
 ### Decisions applied

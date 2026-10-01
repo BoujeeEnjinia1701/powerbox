@@ -2,9 +2,11 @@
 
 Prices are indicative TRL 3 estimates with a supplier or supplier type for each line; named quotes are still needed before any purchase (TRL 4 work, on hold by Amish's instruction). Item numbers match the exploded view (`media/exploded.png`), the components table in `docs/02-concept.md` and the general arrangement PBX-DWG-001. Items 16 to 18 are in the BOM but not modelled.
 
-**Total: $449.00 for the PowerBox parts, against the $450 budget.** The margin is $1, so R11 is at risk (PBX-CAL-001 section 11). The total is printed by `docs/04-calcs/sizing.py`, which reads this file.
+**Value-engineering target: USD 450. Estimated cost of the constructable design: USD 482.00 for the PowerBox parts (USD 32 over the target).** The target is a hypothetical control target, not a limit (Amish, 2026-10-01). The concept design was USD 449.00; making it constructable (PBX-DDR-003) added USD 33 (PBX-CAL-001 v0.2 section 11). The total is printed by `docs/04-calcs/sizing.py`, which reads this file.
 
 **The SwapCell pack is not included.** Amish decided on 2026-09-25 that a shared SwapCell pack is priced once, in the SwapCell BOM (about $414 in prototype parts), and excluded from each dependent kit budget. Line 4 is therefore listed at $0.00. For reference only, one PowerBox with its own pack is about $863 in parts.
+
+Changes for the constructable design (PBX-DDR-003, 2026-10-01): lines 1, 2, 3, 5, 6, 15, 16 and 18 repriced for rivet nuts and windows in the body, the deeper lid skirt, the handle doubler, the shelf, brackets, runners and rail, the door hinge, cam latch and staple, the filter frame, the protection plate and the counted fixings (USD 33 in all). Making sketches PBX-DWG-101 to 113 are named in the notes column.
 
 Changes from TRL 2:
 
@@ -14,6 +16,6 @@ Changes from TRL 2:
 - Line 16: fuse and breaker ratings from PBX-CAL-001 section 6, including a pre-charge relay and resistor for the inverter. About $1 more.
 - Lines 9 and 12: 230 V 50 Hz with a 30 mA RCD (decided by Amish, 2026-09-25); the inverter output must be isolated so its neutral can be bonded.
 
-The grid charger (line 17, $50) is the same class of certified 54.6 V, 5 A charger as the SwapCell dock charger. A household or charging point that already has a SwapCell dock can omit it, bringing the PowerBox parts to $399.
+The grid charger (line 17, $50) is the same class of certified 54.6 V, 5 A charger as the SwapCell dock charger. A household or charging point that already has a SwapCell dock can omit it, bringing the PowerBox parts to USD 432 (USD 399 for the concept design).
 
-The largest cost drivers are the inverter ($70), the grid charger ($50), the output panel ($46) and protection and wiring ($36). The DC-only variant without the inverter and AC outlet saves about $92 and removes all mains voltage from the box.
+The largest cost drivers are the inverter ($70), the grid charger ($50), the output panel ($46) and protection and wiring ($38). The DC-only variant without the inverter and AC outlet saves about $92 and removes all mains voltage from the box.

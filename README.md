@@ -2,13 +2,13 @@
 
 ![TRL 3](https://img.shields.io/badge/TRL-3%20of%209-0F766E) ![Hardware: CERN-OHL-S-2.0](https://img.shields.io/badge/hardware-CERN--OHL--S--2.0-111827) ![Software: MIT](https://img.shields.io/badge/software-MIT-111827) [![DOI](https://zenodo.org/badge/1386435013.svg)](https://zenodo.org/badge/latestdoi/1386435013) [![REUSE compliant](https://github.com/BoujeeEnjinia1701/powerbox/actions/workflows/reuse.yml/badge.svg)](https://github.com/BoujeeEnjinia1701/powerbox/actions/workflows/reuse.yml) [![Archived in Software Heritage](https://archive.softwareheritage.org/badge/origin/https://github.com/BoujeeEnjinia1701/powerbox/)](https://archive.softwareheritage.org/browse/origin/?origin_url=https://github.com/BoujeeEnjinia1701/powerbox)
 
-**Area:** CleanTech · **TRL:** 3 of 9 (proof of concept on paper) · **Prototype budget:** $450 USD, excluding the shared SwapCell pack · **Difficulty:** 3 of 5
+**Area:** CleanTech · **TRL:** 3 of 9 (proof of concept on paper) · **Value-engineering target:** USD 450, excluding the shared SwapCell pack (estimated cost USD 482) · **Difficulty:** 3 of 5
 
 Standalone multi-input power station built around a SwapCell battery pack. It charges from a solar panel, the grid or a SunSpoke bike, and powers devices through USB, 12 V DC and a small AC outlet. It never connects to household wiring.
 
 ![PowerBox: portable power station built around a swappable SwapCell battery, product render](media/render-hero.png)
 
-[Exploded render](media/render-exploded.png) · [Detail render](media/render-detail.png) · [Interactive 3D model](media/viewer.html) · [Concept blueprint (PDF)](media/concept-blueprint.pdf) · [Review note](docs/REVIEW.md)
+[Exploded render](media/render-exploded.png) · [Detail render](media/render-detail.png) · [Interactive 3D model](media/viewer.html) · [Concept blueprint (PDF)](media/concept-blueprint.pdf) · [General arrangement (PDF)](cad/drawings/PBX-DWG-001.pdf) · [Prototype build plan](docs/05-build-plan.md) · [Design decisions](docs/06-design-decisions.md) · [Review note](docs/REVIEW.md)
 
 ## Concept rationale
 
@@ -58,7 +58,7 @@ When the power goes out, households need a small, safe store of electricity for 
 
 Standalone multi-input power station built around a SwapCell battery pack. It charges from a solar panel, the grid or a SunSpoke bike, and powers devices through USB, 12 V DC and a small AC outlet. It never connects to household wiring.
 
-It builds to SwapCell interface v0.3 as a station host: it wakes the pack through a coded INTERLOCK loop and can run loads while charging from solar. The sizing note shows 419 Wh usable per pack, 1.87 evenings of the reference load (short of the two-evening target), a 2.1 h grid charge, 8.6 kg with the pack and $449 of PowerBox parts.
+It builds to SwapCell interface v0.3 as a station host: it wakes the pack through a coded INTERLOCK loop and can run loads while charging from solar. The sizing note shows 419 Wh usable per pack, 1.87 evenings of the reference load (short of the two-evening target), a 2.1 h grid charge, 9.4 kg with the pack for the constructable design, and USD 482 of PowerBox parts against a USD 450 value-engineering target.
 
 Full design precis: [docs/02-concept.md](docs/02-concept.md) · Sizing: [docs/04-calcs/01-sizing.md](docs/04-calcs/01-sizing.md) · General arrangement: [cad/drawings/PBX-DWG-001.pdf](cad/drawings/PBX-DWG-001.pdf)
 
@@ -73,6 +73,12 @@ Full design precis: [docs/02-concept.md](docs/02-concept.md) · Sizing: [docs/04
 - Enclosure with ventilation and handles
 
 The working bill of materials is in [bom/bom.csv](bom/bom.csv).
+
+## Building the prototype
+
+![PowerBox prototype: every component pulled apart and numbered in build order](docs/05-build-plan/overview.png)
+
+The [prototype build plan](docs/05-build-plan.md) (PBX-BLD-001) shows, in pictures, how to make each of PowerBox's 23 components and put them together in sixteen steps; nothing has been built yet. The made parts are a folded aluminium case, lid and shelf, two folded brackets, a door and two panel plates cut from sheet, and printed runners, a guide rail and a filter frame; the power modules are bought and wired at block level. Writing the plan made the design buildable: the lid now fits over the walls, the pack rests on guided runners, the shelf, brackets and receptacle are fixed, the door has a hinge, cam latch and padlock hasp, and the sockets sit in panel plates over windows in the walls (PBX-DDR-003, open for Amish's review). Every picture is drawn from the model, which checks that each part touches what it should and clears what it should not.
 
 ## Safety
 
