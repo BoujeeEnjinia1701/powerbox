@@ -3,9 +3,9 @@ doc_id: PBX-DDR-002
 title: PowerBox recommendations accepted
 project: PowerBox
 doc_type: Design decision record
-version: "0.1"
+version: "0.2"
 status: Draft
-date: '2026-09-25'
+date: '2026-10-02'
 author: Amish Chadha
 license: CERN-OHL-S-2.0
 revisions:
@@ -13,12 +13,16 @@ revisions:
   date: '2026-09-25'
   author: Amish Chadha
   change: Recommendations accepted by Amish (DDR-002)
+- version: "0.2"
+  date: '2026-10-02'
+  author: Amish Chadha
+  change: "Items 13 to 16 and 18 decided by Amish on 2026-10-02 (PBX-DEC-001)"
 ---
 
 # 0002: Recommendations accepted
 
 - **Date:** 2026-09-25
-- **Status:** accepted for every item that carried a recommendation; items without one remain proposed, awaiting Amish
+- **Status:** accepted for every item that carried a recommendation; items without one remained proposed at this record and were decided by Amish on 2026-10-02 (PBX-DEC-001): "i approve your recommendations for all 555 open decisions."
 
 ## Context
 
@@ -39,15 +43,15 @@ The budget is unchanged: `budget_usd` stays at $450 for the PowerBox parts, excl
 
 ## Items still open
 
-*Table 2. Items with no recommendation: "Proposed, awaiting Amish".*
+*Table 2. Items with no recommendation at this record; decided by Amish on 2026-10-02.*
 
 | # | Item | Why it stays open |
 | --- | --- | --- |
-| 13 | R2 shortfall (1.87 evenings against 2): relax R2, discharge to 3.5 %, or revise the reference evening with users (about 189 Wh at the loads) | No recommendation was made |
-| 14 | First co-design partner | No preference stated; the portfolio picks partners per area later |
-| 15 | Theft resistance (lockable pack door) | No recommendation |
-| 16 | Energy metering on the display for charging points | No recommendation |
-| 18 | SwapCell clarification: may a pack in legacy discharge (state 5) accept a station heartbeat and move to mode 2 or 4 without opening its output? | A question for SwapCell, not a recommendation; listed as a cross-repo action in `docs/REVIEW.md` |
+| 13 | R2 shortfall (1.87 evenings against 2): relax R2, discharge to 3.5 %, or revise the reference evening with users (about 189 Wh at the loads) | No recommendation was made Decided by Amish, 2026-10-02 (PBX-DEC-001, item 5): R2 restated as 1.8 evenings (1.81 with minimum-capacity cells), the 10 % cut-off kept, the reference evening revisited with the first partner's users. |
+| 14 | First co-design partner | No preference stated; the portfolio picks partners per area later Decided by Amish, 2026-10-02 (PBX-DEC-001, item 6): a partner in a 230 V, 50 Hz region that runs or supplies community charging or solar home systems; first candidate type to approach, a solar distribution charity such as SolarAid (Zambia and Malawi). Nothing is agreed. |
+| 15 | Theft resistance (lockable pack door) | No recommendation Decided by Amish, 2026-10-02 (PBX-DEC-001, item 3): thumb-turn cam latch plus padlock hasp for the prototype; a keyed cam latch if the first partner runs an unattended or shared charging point. |
+| 16 | Energy metering on the display for charging points | No recommendation Decided by Amish, 2026-10-02 (PBX-DEC-001, item 7): energy and sessions counted per port in the host firmware and shown on the display, approximate and not for billing. |
+| 18 | SwapCell clarification: may a pack in legacy discharge (state 5) accept a station heartbeat and move to mode 2 or 4 without opening its output? | A question for SwapCell, not a recommendation; listed as a cross-repo action in `docs/REVIEW.md` Decided by Amish, 2026-10-02 (PBX-DEC-001, item 8): kept with SwapCell as one cross-repo action shared with MotionCore, answer needed before PowerBox's interface is frozen; if no, a small hold-up capacitor for the host. |
 
 ## Consequences
 

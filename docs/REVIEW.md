@@ -1,5 +1,52 @@
 # Review note: PowerBox
 
+## Session 2026-10-02: open decisions decided by Amish
+
+Amish wrote on 2026-10-02: "i approve your recommendations for all 555 open decisions." Every open decision in this repo's register was decided as recommended and moved to "Decisions made" in `docs/06-design-decisions.md`, dated 2026-10-02.
+
+### Decisions recorded
+
+12 decisions recorded (register items 1 to 12). The register's "Open decisions" section now reads: "None. All open decisions were decided on 2026-10-02."
+
+### Documents changed
+
+- `docs/06-design-decisions.md` v0.2
+- `docs/decisions/0003-design-for-construction.md` v0.2
+- `docs/decisions/0001-trl2-review-decisions.md` v0.3
+- `docs/decisions/0002-recommendations-accepted.md` v0.2
+- `docs/03-requirements.md` v0.6
+- `docs/04-calcs/01-sizing.md` v0.3
+- `docs/02-concept.md` v0.7
+- `docs/01-problem.md` v0.5
+- `docs/05-build-plan.md` v0.2
+- `README.md` (R2 wording and DDR-003 status; not a controlled document)
+
+PDFs re-rendered with `python3 .kit/render.py`. The CAD model, BOM quantities and prices, and pictures were not changed.
+
+### Follow-up actions to carry approved decisions into the design
+
+1. Decision 1 (build plan pictures and renders): Update `cad/src/product_model.py` to the constructable design (lid skirt, runners, door with hinge, cam latch and hasp, panel plates, 76 mm fan hole, feet) and regenerate `media/render-*.png`, `media/card.png` and `media/social-preview.png` on Amish's Mac.
+2. Decision 2 (build plan pictures and renders): Show the door hinged on its front edge in the appearance model and renders (they show a back-edge hinge).
+3. Decision 5 (calculations): Change the R2 target in `docs/04-calcs/sizing.py` to 1.8 evenings and rerun, so that PBX-CAL-001 matches the hand-edited v0.3.
+4. Decision 7 (documents): Add per-port energy and session counting, labelled approximate and not for billing, to the host firmware notes and display layout in `firmware/` when the host firmware is written.
+5. Decision 8 (documents): Raise the legacy-to-station transition with the SwapCell project as one action shared with MotionCore; if the answer is no, size a hold-up capacitor for the host. SwapCell and MotionCore were not edited.
+6. Decision 9 (build plan pictures and renders): Render the case as bare 5052 aluminium (the renders show powder coat), or caption the powder coat as a possible product finish.
+7. Decision 10 (model): Size the AC outlet cut-out in the output panel plate for the first partner's national socket once the partner's country is known, in `cad/src/model.py` and the panel plate making sketch.
+8. Decision 10 (BOM): Name the national socket type in BOM line 12 once the partner's country is known.
+9. Decision 11 (build plan pictures and renders): Remove the window from the pack bay door in the appearance model and renders.
+10. Decision 12 (BOM): Change the main switch in BOM line 11 to a lit rocker switch (about USD 1 more) and rerun the cost line.
+11. Decision 12 (model): Check the switch cut-out in the output panel plate against the chosen lit rocker switch in `cad/src/model.py`.
+
+### Points found in the review
+
+- Item 5: R2 at 1.87 evenings is for typical cells; with minimum-capacity cells it is 1.81 (PBX-CAL-001), which none of the register's options mention.
+- Item 9's recommendation to powder coat (from REVIEW.md 2026-09-26) did not consider that the case is the earth bond for the RCD; coating needs masked bond points.
+- Item 8 is the same SwapCell question as MotionCore's (its 'To confirm' item 8); it should be tracked once with SwapCell.
+- REVIEW.md 2026-09-26 items 1 (rubber feet) and 7 (grid charger size) are not in the register; item 1 is resolved by PBX-DDR-003, P12 (8 mm feet, height still within R10), and item 7 can be closed as render-only.
+- Item 2's options repeat REVIEW.md 2026-09-26 item 3, which recommended the back edge; that recommendation is now superseded and should be marked so.
+
+TRL 4 remains on hold by Amish's instruction.
+
 ## Session 2026-10-01: design for construction and prototype build plan (kit 1.7.0)
 
 ### What was done

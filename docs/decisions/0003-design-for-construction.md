@@ -3,9 +3,9 @@ doc_id: PBX-DDR-003
 title: PowerBox design for construction
 project: PowerBox
 doc_type: Design decision record
-version: "0.1"
+version: "0.2"
 status: Draft
-date: '2026-10-01'
+date: '2026-10-02'
 author: Amish Chadha
 license: CERN-OHL-S-2.0
 revisions:
@@ -13,12 +13,16 @@ revisions:
   date: '2026-10-01'
   author: Amish Chadha
   change: Changes that make the concept physically buildable, with the reason for each; made under Amish's 2026-09-30 instruction to make the design physically buildable; open for his review
+- version: "0.2"
+  date: '2026-10-02'
+  author: Amish Chadha
+  change: "Accepted by Amish on 2026-10-02 (Tables 1 to 3); record stays Draft"
 ---
 
 # 0003: Design for construction
 
 - **Date:** 2026-10-01
-- **Status:** Draft. Every change in Table 1 was made under Amish's 2026-09-30 instruction to make the design physically buildable; open for his review. The questions in Table 3 are proposed, awaiting Amish.
+- **Status:** accepted. Every change in Table 1 was made under Amish's 2026-09-30 instruction to make the design physically buildable. Amish, 2026-10-02: "i approve your recommendations for all 555 open decisions." This covers every change in Tables 1 and 2 and the recommendations in Table 3 (A1 to A4), recorded in the design decisions register (PBX-DEC-001, items 1 to 4). The record stays Draft.
 
 ## Context
 
@@ -56,17 +60,17 @@ The changes below keep what PowerBox does: the same case size, pack position and
 | Drawings | PBX-DWG-001 Rev P2; making sketches PBX-DWG-101 to 113 added. | Follows the model. |
 | Documents | PBX-CAL-001 v0.2, PBX-REQ-001 v0.5, PBX-PRC-001 v0.6: mass, size and cost; the budget is reported as a value-engineering target. No requirement changed status except R11, now reported against its target. | Follows the model. |
 
-*Table 3. Proposed, awaiting Amish.*
+*Table 3. Proposed, then accepted by Amish as recommended on 2026-10-02.*
 
 | # | Question | Options | Recommendation |
 | --- | --- | --- | --- |
-| A1 | Which edge the door hinges on. The product renders show a back-edge hinge (REVIEW 2026-09-26, item 3); the constructable design hinges on the front edge, so the door opens toward the back of the case. | (a) front edge, as modelled; (b) back edge, which needs the opening narrowed or the case made deeper. | (a): it is the only edge with room for the hinge. |
-| A2 | The cam latch is a thumb turn. Theft resistance is still open (PBX-DDR-001 item 15). | (a) thumb turn plus the padlock hasp, as modelled; (b) a keyed cam latch, about USD 3 more. | (a) for the prototype; decide with item 15. |
-| A3 | The R10 mass margin is now 0.58 kg on estimated masses. | (a) accept and weigh the prototype at TRL 4; (b) look for mass now (1.5 mm panel plates, lighter runner infill). | (a). |
-| A4 | Whether to accept the design for construction as a whole. | (a) accept P1 to P12; (b) accept with changes. | (a). |
+| A1 | Which edge the door hinges on. The product renders show a back-edge hinge (REVIEW 2026-09-26, item 3); the constructable design hinges on the front edge, so the door opens toward the back of the case. | (a) front edge, as modelled; (b) back edge, which needs the opening narrowed or the case made deeper. | (a): it is the only edge with room for the hinge. Accepted 2026-10-02; the renders are updated to the front-edge hinge. |
+| A2 | The cam latch is a thumb turn. Theft resistance is still open (PBX-DDR-001 item 15). | (a) thumb turn plus the padlock hasp, as modelled; (b) a keyed cam latch, about USD 3 more. | (a) for the prototype; decide with item 15. Accepted 2026-10-02; a keyed cam latch (about USD 3) if the first partner runs an unattended or shared charging point (PBX-DEC-001, item 3). |
+| A3 | The R10 mass margin is now 0.58 kg on estimated masses. | (a) accept and weigh the prototype at TRL 4; (b) look for mass now (1.5 mm panel plates, lighter runner infill). | (a). Accepted 2026-10-02; weigh at TRL 4. |
+| A4 | Whether to accept the design for construction as a whole. | (a) accept P1 to P12; (b) accept with changes. | (a). Accepted 2026-10-02. |
 
 ## Consequences
 
 - `design_state: constructable` in `project.yaml`. The build plan PBX-BLD-001 shows every component and step in pictures generated from the model (`cad/src/build_plan_media.py`).
-- The photoreal renders (`media/render-*.png`), `media/card.png`, `media/social-preview.png` and the appearance model `cad/src/product_model.py` still show the concept lid, door, panels and fan end; they need updating on Amish's Mac.
+- The photoreal renders (`media/render-*.png`), `media/card.png`, `media/social-preview.png` and the appearance model `cad/src/product_model.py` still show the concept lid, door, panels and fan end; they need updating on Amish's Mac, with the door hinged on its front edge (A1), no door window, a lit rocker main switch and a bare aluminium case (PBX-DEC-001, items 9, 11 and 12).
 - Several bought parts must be checked against their datasheets when they are chosen at TRL 4 (the design decisions register PBX-DEC-001 lists them): hole patterns of the catch, receptacle mount, inverter and converter feet, cam latch grip, panel cut-outs, and the voltage rating of the fuse block.

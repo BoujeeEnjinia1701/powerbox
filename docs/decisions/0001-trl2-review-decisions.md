@@ -3,9 +3,9 @@ doc_id: PBX-DDR-001
 title: PowerBox TRL 2 review decisions
 project: PowerBox
 doc_type: Design decision record
-version: "0.2"
+version: "0.3"
 status: Draft
-date: '2026-09-25'
+date: '2026-10-02'
 author: Amish Chadha
 license: CERN-OHL-S-2.0
 revisions:
@@ -17,12 +17,16 @@ revisions:
   date: '2026-09-25'
   author: Amish Chadha
   change: Recommendations accepted by Amish (DDR-002)
+- version: "0.3"
+  date: '2026-10-02'
+  author: Amish Chadha
+  change: "Items 13 to 16 and 18 decided by Amish on 2026-10-02 (PBX-DEC-001)"
 ---
 
 # 0001: TRL 2 review decisions
 
 - **Date:** 2026-09-25
-- **Status:** accepted (items 1 to 12; item 17 accepted by PBX-DDR-002); items 13 to 16 and 18 remain proposed, awaiting Amish
+- **Status:** accepted (items 1 to 12; item 17 accepted by PBX-DDR-002); items 13 to 16 and 18 remained proposed at this record and were decided by Amish on 2026-10-02 as recommended in the design decisions register (PBX-DEC-001, items 3 and 5 to 8): "i approve your recommendations for all 555 open decisions."
 
 ## Context
 
@@ -57,18 +61,18 @@ Each item in Table 1 is "Decided by Amish, 2026-09-25: go with recommendation" u
 
 ### Items that remain open
 
-These had no recommendation, or depend on users or on SwapCell, so they stay **Proposed, awaiting Amish**. Item 17 had a recommendation and was decided on 2026-09-25 (PBX-DDR-002).
+These had no recommendation, or depend on users or on SwapCell, so they stayed **Proposed, awaiting Amish** at this record. All five were decided by Amish on 2026-10-02 (PBX-DEC-001). Item 17 had a recommendation and was decided on 2026-09-25 (PBX-DDR-002).
 
 *Table 2. Open items.*
 
 | # | Item | Status |
 | --- | --- | --- |
-| 13 | R2 shortfall (1.87 evenings against 2). Options: accept 1.87 evenings and relax R2; discharge to 3.5 % (a 5 % cut-off now gives only 1.97); or revise the reference profile with users (it must fall to about 189 Wh at the loads) | Proposed, awaiting Amish. No recommendation was made at TRL 2 |
-| 14 | First co-design partner (NGO running community charging points, solar home system distributor, or university group) | Proposed, awaiting Amish. Portfolio rule: partners are chosen per area later |
-| 15 | Theft resistance: is a lockable pack door a priority? The door carries a padlock eye either way | Proposed, awaiting Amish. No recommendation |
-| 16 | Energy metering on the display for charging points that charge per phone | Proposed, awaiting Amish. No recommendation |
+| 13 | R2 shortfall (1.87 evenings against 2). Options: accept 1.87 evenings and relax R2; discharge to 3.5 % (a 5 % cut-off now gives only 1.97); or revise the reference profile with users (it must fall to about 189 Wh at the loads) | Decided by Amish, 2026-10-02 (PBX-DEC-001, item 5): R2 restated as 1.8 evenings (1.81 with minimum-capacity cells), the 10 % cut-off kept, the reference evening revisited with the first partner's users. |
+| 14 | First co-design partner (NGO running community charging points, solar home system distributor, or university group) | Decided by Amish, 2026-10-02 (PBX-DEC-001, item 6): a partner in a 230 V, 50 Hz region that runs or supplies community charging or solar home systems; first candidate type to approach, a solar distribution charity such as SolarAid (Zambia and Malawi). Nothing is agreed. |
+| 15 | Theft resistance: is a lockable pack door a priority? The door carries a padlock eye either way | Decided by Amish, 2026-10-02 (PBX-DEC-001, item 3): thumb-turn cam latch plus padlock hasp for the prototype; a keyed cam latch if the first partner runs an unattended or shared charging point. |
+| 16 | Energy metering on the display for charging points that charge per phone | Decided by Amish, 2026-10-02 (PBX-DEC-001, item 7): energy and sessions counted per port in the host firmware and shown on the display, approximate and not for billing. |
 | 17 | TRL 3 engineering proposals made in this session: a recessed normally closed wake button in series with the coding resistor, the 30 A buck, and the fuse ratings in PBX-CAL-001 | Decided by Amish, 2026-09-25: go with recommendation (PBX-DDR-002) |
-| 18 | Clarification requested from SwapCell: may a pack in legacy discharge (state 5) accept a station heartbeat and move to mode 2 or 4 without opening its output? PowerBox's host is powered from the pack and depends on this | Raised with SwapCell; not changed locally |
+| 18 | Clarification requested from SwapCell: may a pack in legacy discharge (state 5) accept a station heartbeat and move to mode 2 or 4 without opening its output? PowerBox's host is powered from the pack and depends on this | Decided by Amish, 2026-10-02 (PBX-DEC-001, item 8): kept with SwapCell as one cross-repo action shared with MotionCore, answer needed before PowerBox's interface is frozen; if no, a small hold-up capacitor for the host. |
 
 ## Consequences
 

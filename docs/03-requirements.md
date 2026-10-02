@@ -3,9 +3,9 @@ doc_id: PBX-REQ-001
 title: PowerBox requirements
 project: PowerBox
 doc_type: Requirements
-version: "0.5"
+version: "0.6"
 status: Draft
-date: '2026-10-01'
+date: '2026-10-02'
 author: Amish Chadha
 license: CERN-OHL-S-2.0
 revisions:
@@ -29,16 +29,20 @@ revisions:
   date: '2026-10-01'
   author: Amish Chadha
   change: R10 and R11 status for the constructable design (PBX-DDR-003, PBX-CAL-001 v0.2); budget treated as a value-engineering target
+- version: "0.6"
+  date: '2026-10-02'
+  author: Amish Chadha
+  change: "R2 restated as 1.8 evenings (Amish, 2026-10-02, PBX-DEC-001 item 5); met on paper"
 ---
 
 # PowerBox requirements
 
-These requirements are checked by calculation in PBX-CAL-001 (TRL 3). They are still proposals, not user-validated needs, and will be revised after co-design sessions. On paper, eight are met; **R2 is not met** (1.87 evenings), R6 is at risk, R11 is reported against its value-engineering target (USD 32 over), and R12 cannot be verified until users try a pack swap. The Status column gives the TRL 3 result.
+These requirements are checked by calculation in PBX-CAL-001 (TRL 3). They are still proposals, not user-validated needs, and will be revised after co-design sessions. On paper, nine are met, including R2 as restated by Amish on 2026-10-02 (1.87 evenings against 1.8); R6 is at risk, R11 is reported against its value-engineering target (USD 32 over), and R12 cannot be verified until users try a pack swap. The Status column gives the TRL 3 result.
 
 | ID | Requirement | Target | Verification (TRL 3 or later) | Status (PBX-CAL-001) |
 | --- | --- | --- | --- | --- |
 | R1 | Store useful energy in one SwapCell pack | 400 Wh or more usable at the pack terminals, using 10 to 100 % state of charge | Calculation from SwapCell capacity and the host's discharge cut-off | Met, 419 Wh |
-| R2 | Run a household through outage evenings | Two evenings of the reference load profile (Table 1, 203 Wh at the loads) on one full pack | Energy budget calculation including conversion losses and standby | **Not met**, 1.87 evenings |
+| R2 | Run a household through outage evenings | 1.8 evenings of the reference load profile (Table 1, 203 Wh at the loads) on one full pack, at the pack's 10 % cut-off (restated from 2 evenings by Amish on 2026-10-02, PBX-DEC-001 item 5) | Energy budget calculation including conversion losses and standby | Met on paper: 1.87 evenings (1.81 with minimum-capacity cells) |
 | R3 | Accept four charging sources | (a) DC input 12 to 60 V, up to 200 W, with maximum power point tracking for a solar panel or another DC source; (b) grid through a certified external charger; (c) SunSpoke by swapping in a charged SwapCell pack; (d) SunSpoke's 100 W panel through the DC input | Design review against the input specification table | Met (design review) |
 | R4 | Recharge quickly from the grid | 10 to 100 % in 3 h or less | Charger rating and SwapCell charge curve | Met, 2.1 h |
 | R5 | Recharge from solar in a day | 10 to 100 % in one clear day (4.5 peak sun hours) with a 200 W panel | Solar yield calculation | Met, full in 0.70 day |
@@ -66,4 +70,4 @@ Table 1. Reference evening load profile (6 pm to 11 pm outage). Proposed for rev
 - Solar input spends much of the day well below the panel rating (morning, evening and cloud), so the DC input often runs at 40 to 100 W.
 - Refrigerators, kettles and other high-power or high-surge loads are out of scope (see PBX-PRB-001).
 - Budget: the USD 450 value-engineering target in `project.yaml` covers the PowerBox itself (decided by Amish, 2026-09-25, PBX-DDR-001). A household that needs its own pack also buys a SwapCell pack, priced once in the SwapCell BOM at about $414 in prototype parts.
-- R2: whether to relax R2, lower the cut-off to 3.5 % or revise the profile is proposed, awaiting Amish (PBX-DDR-001 item 13).
+- R2: decided by Amish on 2026-10-02 (PBX-DEC-001, item 5): 1.8 evenings, which covers minimum-capacity cells (1.81); the 10 % cut-off is kept, since discharging to 3.5 % would shorten the shared SwapCell pack's life. The 203 Wh reference evening is not yet validated and is revisited with the first partner's users.

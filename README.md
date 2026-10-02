@@ -58,7 +58,7 @@ When the power goes out, households need a small, safe store of electricity for 
 
 Standalone multi-input power station built around a SwapCell battery pack. It charges from a solar panel, the grid or a SunSpoke bike, and powers devices through USB, 12 V DC and a small AC outlet. It never connects to household wiring.
 
-It builds to SwapCell interface v0.3 as a station host: it wakes the pack through a coded INTERLOCK loop and can run loads while charging from solar. The sizing note shows 419 Wh usable per pack, 1.87 evenings of the reference load (short of the two-evening target), a 2.1 h grid charge, 9.4 kg with the pack for the constructable design, and USD 482 of PowerBox parts against a USD 450 value-engineering target.
+It builds to SwapCell interface v0.3 as a station host: it wakes the pack through a coded INTERLOCK loop and can run loads while charging from solar. The sizing note shows 419 Wh usable per pack, 1.87 evenings of the reference load (1.81 with minimum-capacity cells, against a 1.8-evening target), a 2.1 h grid charge, 9.4 kg with the pack for the constructable design, and USD 482 of PowerBox parts against a USD 450 value-engineering target.
 
 Full design precis: [docs/02-concept.md](docs/02-concept.md) · Sizing: [docs/04-calcs/01-sizing.md](docs/04-calcs/01-sizing.md) · General arrangement: [cad/drawings/PBX-DWG-001.pdf](cad/drawings/PBX-DWG-001.pdf)
 
@@ -78,7 +78,7 @@ The working bill of materials is in [bom/bom.csv](bom/bom.csv).
 
 ![PowerBox prototype: every component pulled apart and numbered in build order](docs/05-build-plan/overview.png)
 
-The [prototype build plan](docs/05-build-plan.md) (PBX-BLD-001) shows, in pictures, how to make each of PowerBox's 23 components and put them together in sixteen steps; nothing has been built yet. The made parts are a folded aluminium case, lid and shelf, two folded brackets, a door and two panel plates cut from sheet, and printed runners, a guide rail and a filter frame; the power modules are bought and wired at block level. Writing the plan made the design buildable: the lid now fits over the walls, the pack rests on guided runners, the shelf, brackets and receptacle are fixed, the door has a hinge, cam latch and padlock hasp, and the sockets sit in panel plates over windows in the walls (PBX-DDR-003, open for Amish's review). Every picture is drawn from the model, which checks that each part touches what it should and clears what it should not.
+The [prototype build plan](docs/05-build-plan.md) (PBX-BLD-001) shows, in pictures, how to make each of PowerBox's 23 components and put them together in sixteen steps; nothing has been built yet. The made parts are a folded aluminium case, lid and shelf, two folded brackets, a door and two panel plates cut from sheet, and printed runners, a guide rail and a filter frame; the power modules are bought and wired at block level. Writing the plan made the design buildable: the lid now fits over the walls, the pack rests on guided runners, the shelf, brackets and receptacle are fixed, the door has a hinge, cam latch and padlock hasp, and the sockets sit in panel plates over windows in the walls (PBX-DDR-003, accepted by Amish on 2026-10-02). Every picture is drawn from the model, which checks that each part touches what it should and clears what it should not.
 
 ## Safety
 

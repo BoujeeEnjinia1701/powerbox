@@ -3,9 +3,9 @@ doc_id: PBX-CAL-001
 title: PowerBox sizing calculations
 project: PowerBox
 doc_type: Calculation note
-version: "0.2"
+version: "0.3"
 status: Draft
-date: '2026-10-01'
+date: '2026-10-02'
 author: Amish Chadha
 license: CERN-OHL-S-2.0
 revisions:
@@ -17,11 +17,15 @@ revisions:
   date: '2026-10-01'
   author: Amish Chadha
   change: Mass, size and cost of the constructable design (PBX-DDR-003); budget treated as a value-engineering target
+- version: "0.3"
+  date: '2026-10-02'
+  author: Amish Chadha
+  change: "R2 status from Amish's 2026-10-02 restatement (1.8 evenings, PBX-DEC-001 item 5): met on paper. Figures not rerun; sizing.py still prints the 2-evening target"
 ---
 
 # PowerBox sizing calculations
 
-On paper, PowerBox meets eight of its twelve requirements. **R2 is not met**: one SwapCell pack runs the reference evening 1.87 times, not twice. R6 (DC input efficiency) is **at risk**, R11 (cost) is reported against a value-engineering target (USD 482 against USD 450, USD 32 over), and R12 (swap time) cannot be verified until users try it. Version 0.2 reprices and reweighs the constructable design of PBX-DDR-003: 9.42 kg with the pack (R10 still met) and 480 x 279 x 275 mm overall. Two TRL 2 figures were wrong and are corrected here: the 48 V to 12 V converter was too small for the full DC output set (26.5 A needed, 20 A fitted, now 30 A), and the mass rises from about 8.3 to 8.6 kg with the SwapCell v0.3 pack and the real sheet areas. SwapCell interface v0.3 removes both TRL 2 interface blockers: PowerBox wakes the pack through its INTERLOCK loop and runs loads while charging in station mode.
+On paper, PowerBox meets nine of its twelve requirements. One SwapCell pack runs the reference evening 1.87 times (1.81 with minimum-capacity cells), short of the two evenings first set; on 2026-10-02 Amish restated R2 as 1.8 evenings (PBX-DEC-001, item 5), so **R2 is met on paper**. R6 (DC input efficiency) is **at risk**, R11 (cost) is reported against a value-engineering target (USD 482 against USD 450, USD 32 over), and R12 (swap time) cannot be verified until users try it. Version 0.2 reprices and reweighs the constructable design of PBX-DDR-003: 9.42 kg with the pack (R10 still met) and 480 x 279 x 275 mm overall. Two TRL 2 figures were wrong and are corrected here: the 48 V to 12 V converter was too small for the full DC output set (26.5 A needed, 20 A fitted, now 30 A), and the mass rises from about 8.3 to 8.6 kg with the SwapCell v0.3 pack and the real sheet areas. SwapCell interface v0.3 removes both TRL 2 interface blockers: PowerBox wakes the pack through its INTERLOCK loop and runs loads while charging in station mode.
 
 Every number here is printed by `docs/04-calcs/sizing.py` (run from the repo root: `python docs/04-calcs/sizing.py`), which also writes `docs/04-calcs/results.csv`. The script reads the case dimensions from `cad/src/model.py` and the costs from `bom/bom.csv`. All values are first-principles estimates; nothing is measured.
 
@@ -52,7 +56,7 @@ Every number here is printed by `docs/04-calcs/sizing.py` (run from the repo roo
 
 The pack holds 419 Wh between 10 and 100 % state of charge (407 Wh with cells at their datasheet minimum), which meets R1.
 
-The reference evening draws 224.8 Wh from the pack: 164.9 Wh for the 12 V loads through the buck, 54.9 Wh for phone charging through the buck and USB modules, and 5.0 Wh for the host, display and idle converters over 5 h. One pack therefore gives **1.87 evenings (1.81 with minimum cells), and R2 is not met**. Two evenings need 449.6 Wh, which means discharging to 3.5 % state of charge. The TRL 2 note said a 5 % cut-off would reach 2.0 evenings; with the SwapCell v0.3 energy of 466 Wh it reaches 1.97, so that option alone does not meet R2 either. At the 10 % cut-off the evening would have to fall to 209.7 Wh from the pack, about 189 Wh at the loads. The choice between these is open (see PBX-DDR-001).
+The reference evening draws 224.8 Wh from the pack: 164.9 Wh for the 12 V loads through the buck, 54.9 Wh for phone charging through the buck and USB modules, and 5.0 Wh for the host, display and idle converters over 5 h. One pack therefore gives **1.87 evenings (1.81 with minimum cells)**: R2 at two evenings was not met, and R2 as restated on 2026-10-02 (1.8 evenings) is met on paper. Two evenings need 449.6 Wh, which means discharging to 3.5 % state of charge. The TRL 2 note said a 5 % cut-off would reach 2.0 evenings; with the SwapCell v0.3 energy of 466 Wh it reaches 1.97, so that option alone does not meet R2 either. At the 10 % cut-off the evening would have to fall to 209.7 Wh from the pack, about 189 Wh at the loads. Amish chose on 2026-10-02 to restate R2 as 1.8 evenings, keep the 10 % cut-off and revisit the reference evening with users (PBX-DEC-001, item 5).
 
 ## 3. Charging (R3 to R6)
 
@@ -174,7 +178,7 @@ Energy flow per usable cycle (DC input to loads, evening mix): 470 Wh at the DC 
 
 | ID | Value | Target | Status |
 | --- | --- | --- | --- |
-| R2 | 1.87 evenings (225 Wh per evening from the pack) | 2 evenings | **Not met** |
+| R2 | 1.87 evenings (225 Wh per evening from the pack); 1.81 with minimum cells | 1.8 evenings (restated 2026-10-02) | Met on paper |
 | R6 | 90.5 % worst case (model); MPPT stability not analysed | 90 % or more from 40 to 200 W; stable MPPT | At risk |
 | R11 | USD 482 excluding the pack | Value-engineering target USD 450 | Over the target by USD 32 |
 | R12 | Door, runners and class D catch; display reads PACK_STATUS and PACK_LIMITS | 30 s swap; status display | Not verifiable at TRL 3 |

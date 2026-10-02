@@ -3,9 +3,9 @@ doc_id: PBX-PRB-001
 title: PowerBox problem statement
 project: PowerBox
 doc_type: Problem statement
-version: "0.4"
+version: "0.5"
 status: Draft
-date: '2026-09-25'
+date: '2026-10-02'
 author: Amish Chadha
 license: CERN-OHL-S-2.0
 revisions:
@@ -25,6 +25,10 @@ revisions:
   date: '2026-09-25'
   author: Amish Chadha
   change: TRL 3. SwapCell interface v0.3, budget scope and AC region decided by Amish (PBX-DDR-001); open questions updated
+- version: "0.5"
+  date: '2026-10-02'
+  author: Amish Chadha
+  change: "Open questions on the first partner, theft resistance and R2 answered by Amish's 2026-10-02 decisions"
 ---
 
 # PowerBox problem statement
@@ -84,10 +88,10 @@ No link is given where a specific reference has not been verified.
 
 ## Open questions
 
-- Which users to involve first, and through which partner (an NGO running community charging points, a solar home system distributor, or a university group in an outage-prone city)? Proposed, awaiting Amish; the portfolio picks partners per area later.
+- Which users to involve first, and through which partner (an NGO running community charging points, a solar home system distributor, or a university group in an outage-prone city)? Decided by Amish, 2026-10-02: a partner in a 230 V, 50 Hz region that runs or supplies community charging or solar home systems where outages are routine; the first candidate type to approach is a solar distribution charity such as SolarAid, which works in Zambia and Malawi. Nothing is agreed.
 - AC region first: 230 V 50 Hz with a 30 mA RCD. Decided by Amish, 2026-09-25 (PBX-DDR-001); 120 V 60 Hz is a later variant.
-- Is theft resistance (a lockable pack door) a priority for informal settlement and community charging users? Proposed, awaiting Amish.
-- Is one pack for 1.87 evenings enough, or should the reference evening change? (R2 is not met; PBX-DDR-001 item 13.)
+- Is theft resistance (a lockable pack door) a priority for informal settlement and community charging users? Decided by Amish, 2026-10-02: a thumb-turn cam latch with a padlock hasp for the prototype, and a keyed cam latch where the partner runs an unattended or shared charging point.
+- Is one pack for 1.87 evenings enough, or should the reference evening change? R2 was restated as 1.8 evenings by Amish on 2026-10-02 (PBX-DDR-001 item 13); the reference evening is still to be checked with the first partner's users.
 
 ## User research and co-design
 

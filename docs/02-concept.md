@@ -3,9 +3,9 @@ doc_id: PBX-PRC-001
 title: PowerBox design precis
 project: PowerBox
 doc_type: Design precis
-version: "0.6"
+version: "0.7"
 status: Draft
-date: '2026-10-01'
+date: '2026-10-02'
 author: Amish Chadha
 license: CERN-OHL-S-2.0
 revisions:
@@ -33,11 +33,15 @@ revisions:
   date: '2026-10-01'
   author: Amish Chadha
   change: Constructable design (PBX-DDR-003), with lid, bay, door and panel details, mass, size and cost; budget treated as a value-engineering target
+- version: "0.7"
+  date: '2026-10-02'
+  author: Amish Chadha
+  change: "Decisions of 2026-10-02: R2 restated (met on paper), national AC socket with bonded earth, bare aluminium case, lit rocker switch, per-port metering, theft resistance, first candidate partner type, SwapCell transition action"
 ---
 
 # PowerBox design precis
 
-PowerBox is an aluminium carry case about the size of a small toolbox (460 x 260 x 220 mm body, 480 x 279 x 275 mm overall) with a SwapCell pack sliding into a bay through an end door. A charge controller takes DC from a solar panel, a certified external charger takes grid power, and a charged pack from a SunSpoke bike can simply be swapped in. Power leaves through USB-C PD, USB-A, 12 V sockets and one 300 W, 230 V pure sine AC outlet behind a 30 mA RCD. It never connects to household wiring. The sizing note PBX-CAL-001 shows one pack gives 419 Wh usable, which runs the reference evening of lights, phones, radio and a router **1.87 times, short of the two evenings in R2**. The constructable design (PBX-DDR-003) weighs about 9.4 kg with the pack. Value-engineering target: USD 450. Estimated cost of the constructable design: USD 482 without the pack (USD 32 over the target). How to build the prototype is in the build plan PBX-BLD-001.
+PowerBox is an aluminium carry case about the size of a small toolbox (460 x 260 x 220 mm body, 480 x 279 x 275 mm overall) with a SwapCell pack sliding into a bay through an end door. A charge controller takes DC from a solar panel, a certified external charger takes grid power, and a charged pack from a SunSpoke bike can simply be swapped in. Power leaves through USB-C PD, USB-A, 12 V sockets and one 300 W, 230 V pure sine AC outlet behind a 30 mA RCD. It never connects to household wiring. The sizing note PBX-CAL-001 shows one pack gives 419 Wh usable, which runs the reference evening of lights, phones, radio and a router **1.87 times (1.81 with minimum-capacity cells), above the 1.8 evenings of R2** as Amish restated it on 2026-10-02. The constructable design (PBX-DDR-003) weighs about 9.4 kg with the pack. Value-engineering target: USD 450. Estimated cost of the constructable design: USD 482 without the pack (USD 32 over the target). How to build the prototype is in the build plan PBX-BLD-001.
 
 PowerBox builds to **SwapCell interface v0.3**. It is a station host (item C), so it can run loads while charging from solar; its receptacle carries the 10 kΩ INTERLOCK coding resistor that wakes a sleeping pack (item W); and its bay uses a class D latch catch (item V).
 
@@ -55,7 +59,7 @@ PowerBox builds to **SwapCell interface v0.3**. It is a station host (item C), s
 3. **Wake and handshake.** Seating the pack closes the INTERLOCK loop through the receptacle's 10 kΩ coding resistor, which wakes the pack. With no heartbeat after 2 s the pack enters legacy discharge (15 A limit), which powers the host; the host then sends a station heartbeat (host type 3) requesting mode 2 (discharge) or mode 4 (charge-discharge). A pack that fell asleep in the bay is woken with a recessed wake button on the front panel, which briefly opens the INTERLOCK loop.
 4. **Convert and deliver.** The 39 to 54.6 V bus feeds a 48 V to 12 V, 30 A buck converter for the 12 V sockets and the USB-C PD and USB-A modules, and a 48 V input, 300 W pure sine inverter for the AC outlet. The inverter is switched in through its own relay and pre-charge resistor.
 5. **Charge while in use.** When a source and a load are both present the host requests mode 4 and keeps net charge current at or below 5.0 A. With the grid charger connected (a fixed 5 A), the host limits the solar controller to the present load current.
-6. **Inform.** A small display shows state of charge, input and output power and estimated time remaining, read from the pack's CAN messages. The host switches the inverter off after 10 min below 5 W and returns to off after 30 min idle.
+6. **Inform.** A small display shows state of charge, input and output power and estimated time remaining, read from the pack's CAN messages, and the energy and charge sessions counted per port, labelled as approximate and not for billing. The host switches the inverter off after 10 min below 5 W and returns to off after 30 min idle.
 7. **Protect.** A 30 A main fuse, a 20 A breaker on the inverter feed, per-output fuses, thermostatic fan control and the pack's own BMS limits guard against faults.
 
 ![Energy flow](../media/flow.png)
@@ -78,7 +82,7 @@ PowerBox builds to **SwapCell interface v0.3**. It is a station host (item C), s
 | 8 | Host controller | ESP32 with CAN transceiver, relays and current sensors | SwapCell station host; charge control, auto-off, display |
 | 9 | Inverter | 300 W pure sine, 48 V input, 600 W for 1 s, 230 V 50 Hz, output isolated so the neutral can be bonded | AC region decided by Amish, 2026-09-25 |
 | 10 | DC-DC converter | 48 V to 12 V, 30 A buck | Resized from 20 A by PBX-CAL-001 |
-| 11 | Output panel | USB-C PD 100 W and 60 W, 2 x USB-A, 2 x 12 V sockets, main switch, recessed wake button | Front face |
+| 11 | Output panel | USB-C PD 100 W and 60 W, 2 x USB-A, 2 x 12 V sockets, lit rocker main switch, recessed wake button | Front face |
 | 12 | AC outlet | Single 230 V outlet behind a 30 mA RCD | Only mains-voltage point on the box |
 | 13 | Display | 2.4 in TFT or e-paper | State of charge, power in and out, time left |
 | 14 | Input panel | 2 x Anderson Powerpole PP45: DC in, charger in | Right end, above the bay door |
@@ -100,7 +104,7 @@ All values come from PBX-CAL-001 (`docs/04-calcs/sizing.py`) and are paper estim
 | --- | --- | --- | --- |
 | Usable energy | 419 Wh (407 Wh with minimum cells) | 90 % of 466 Wh | R1 met (400 Wh) |
 | Reference evening (Table 1 of PBX-REQ-001) | 225 Wh from the pack | 165 Wh for 12 V loads at 94 %, 55 Wh for USB at 87 %, 5 Wh host and idle converters over 5 h | |
-| Evenings per pack | 1.87 | 419 / 225 | R2 **not met** (target 2) |
+| Evenings per pack | 1.87 | 419 / 225 | R2 met on paper (target 1.8, restated 2026-10-02) |
 | Grid charge, 10 to 100 % | 2.1 h; 492 Wh from the wall | 1.5 h CC at 5 A, then 0.6 h CV; charger 90 % | R4 met (3 h) |
 | Solar, 200 W panel | 634 Wh per clear day at the pack; full in 0.70 day | 4.5 peak sun hours, 0.75 derating, 94 % controller | R5 met |
 | Solar, SunSpoke 100 W panel | 317 Wh per clear day; one evening in 0.75 day | Same basis | |
@@ -143,7 +147,7 @@ All values come from PBX-CAL-001 (`docs/04-calcs/sizing.py`) and are paper estim
 | USB-A 1, 2 | USB-A | 5 V | 12 W each | Phones, lamps, radios |
 | 12 V DC 1 | Car socket | 12 V regulated | 10 A shared with 12 V DC 2 | Router, lights, radio |
 | 12 V DC 2 | 5.5 x 2.1 mm barrel | 12 V regulated | As above | |
-| AC out | One 230 V socket behind a 30 mA RCD | 230 V 50 Hz, pure sine | 300 W continuous, 600 W for 1 s | Auto-off; never to be connected to household wiring |
+| AC out | One 230 V socket behind a 30 mA RCD: the national socket of the first partner's country with its earth pin bonded to the case, never a universal socket | 230 V 50 Hz, pure sine | 300 W continuous, 600 W for 1 s | Auto-off; never to be connected to household wiring |
 | Total output | | | 400 W | Host limit to keep pack current and heat in range |
 
 ## Key design choices
@@ -173,6 +177,7 @@ All of these were decided by Amish on 2026-09-25 (go with recommendation), PBX-D
 
 > **Safety:** The AC outlet carries 230 V. It is behind a 30 mA RCD, and for the RCD to work the inverter's output neutral must be bonded to the case and the protective earth pin, as in a vehicle or boat installation. This needs an inverter whose output is isolated from its DC input; many small inverters float or are not isolated. This must be confirmed from the chosen inverter's datasheet before any build.
 
+- **AC socket and case finish.** The AC outlet is the national socket of the first partner's country, with its earth pin bonded to the case; never a multi-standard universal socket, which can accept a plug without a reliable earth contact and defeat the RCD arrangement. The case is the earth bond for the RCD: it stays bare 5052 aluminium for the prototype, and any later powder coat must leave the bond points bare (decided by Amish, 2026-10-02).
 - **No back-feed by design.** There is no AC inlet on the box, and grid charging uses a certified external charger with a DC plug, so no cable can join PowerBox's AC output to a live circuit through an ordinary plug. The user guide and labels must still warn against double-male cords and improvised connections.
 - **Extra-low-voltage bus.** The battery side stays at 54.6 V or less, below the 60 V DC limit for extra-low voltage, so only the inverter output and the charger brick input are at mains voltage.
 - **Fuse ratings.** Every fuse on the 48 V side must be rated for 60 V DC or more and at least 1 kA breaking capacity, because a short at the pack could draw about 496 A (PBX-CAL-001 section 6).
@@ -187,12 +192,12 @@ All of these were decided by Amish on 2026-09-25 (go with recommendation), PBX-D
 
 Items that remain open after PBX-DDR-001 and PBX-DDR-002. None of them is TRL 4 work to be started now; TRL 4 is on hold by Amish's instruction.
 
-- **R2 shortfall (1.87 evenings).** Relax R2, discharge to 3.5 % (a 5 % cut-off gives only 1.97 evenings), or revise the evening profile with users (about 189 Wh at the loads). Proposed, awaiting Amish.
-- **Legacy-to-station transition.** SwapCell interface v0.3 does not say whether a pack in legacy discharge accepts a station heartbeat and moves to mode 2 or 4 without opening its output. PowerBox's host is powered from the pack and depends on this. Raised with SwapCell; not changed locally.
+- **R2 (decided 2026-10-02).** Restated as 1.8 evenings; the 10 % cut-off is kept and the reference evening is revisited with the first partner's users.
+- **Legacy-to-station transition.** SwapCell interface v0.3 does not say whether a pack in legacy discharge accepts a station heartbeat and moves to mode 2 or 4 without opening its output. PowerBox's host is powered from the pack and depends on this. Kept with SwapCell as one cross-repo action shared with MotionCore, with an answer needed before PowerBox's interface is frozen; if the answer is no, a small hold-up capacitor for the host is planned across the mode change (decided by Amish, 2026-10-02).
 - **Inverter selection.** Confirm idle draw, light-load efficiency and an isolated output whose neutral can be bonded for the RCD.
 - **Charge controller selection (R6, at risk).** Confirm 90 % or more at 12 V and 200 W and at 40 W, and stable tracking.
 - **Value engineering (R11).** The constructable design is USD 32 over the USD 450 value-engineering target on indicative prices; the savings worth trying are in the design decisions register (PBX-DEC-001).
-- **Theft resistance** and **energy metering for charging points.** Proposed, awaiting Amish.
-- **First co-design partner.** Left open; the portfolio picks partners per area later. The load profile, pack-swap routine and price must be validated with users.
+- **Theft resistance and metering (decided 2026-10-02).** Thumb-turn cam latch and padlock hasp for the prototype, a keyed cam latch if the first partner runs an unattended or shared charging point; per-port energy and session counts on the display, not for billing.
+- **First co-design partner (decided 2026-10-02).** A partner in a 230 V, 50 Hz region that runs or supplies community charging or solar home systems; the first candidate type to approach is a solar distribution charity such as SolarAid, which works in Zambia and Malawi. Nothing is agreed. The load profile, pack-swap routine and price must be validated with users.
 
 Concept media: [blueprint sheet](../media/concept-blueprint.pdf), [interactive 3D model](../media/viewer.html).
