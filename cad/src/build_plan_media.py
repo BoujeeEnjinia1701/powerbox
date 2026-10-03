@@ -23,7 +23,7 @@ from model import PARAMS as P, build_components, derived, bx, fuse  # noqa: E402
 
 OUT = ROOT / "docs" / "05-build-plan"
 DWG = ROOT / "cad" / "drawings"
-DATE = "2026-10-01"
+DATE = "2026-10-02"
 D = derived(P)
 C = build_components(P)
 L, DD, H = P["case_l"], P["case_d"], P["case_h"]
@@ -256,7 +256,7 @@ def sheets(only=None):
           notes=["Cut 394 x 164 mm. Cut-outs from the panel cut-out layout picture,",
                  "  measured from the left and bottom edges:",
                  "  USB-C 16 x 8 (2), USB-A 13 x 5 (2), 12 V socket 24 diameter,",
-                 "  barrel socket 12, switch 21 x 26, wake button 12, AC outlet 60 x 60,",
+                 "  barrel socket 12, lit rocker switch 22 x 30, wake button 12, AC outlet 60 x 60,",
                  "  display 70 x 14. Check each against the part's datasheet first.",
                  "Four 4.5 mm screw holes: 6 and 388 from the left edge, 44 and 139 up.",
                  "Fit: the modules fit their cut-outs with their own nuts or clips; the",
@@ -475,7 +475,7 @@ def layouts():
     ax = fig.add_axes([0.03, 0.08, 0.6, 0.8]); ax.set_aspect("equal"); ax.set_axis_off()
     ax.add_patch(Rectangle((0, 0), px1 - px0, pz1 - pz0, fc="#E5E7EB", ec=INK, lw=1.2))
     lab = {(-140, 100): "12 V socket", (-90, 100): "barrel", (30, 165): "wake button", (122, 120): "AC outlet",
-           (-135, 179): "display", (-7.5, 165): "switch", (-141, 150): "USB-C 1", (-111, 150): "USB-C 2",
+           (-135, 179): "display", (-8, 165): "switch", (-141, 150): "USB-C 1", (-111, 150): "USB-C 2",
            (-77.5, 148.5): "USB-A 1", (-52.5, 148.5): "USB-A 2"}
     rows = []
     for kind, c, sz in H_:

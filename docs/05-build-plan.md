@@ -3,7 +3,7 @@ doc_id: PBX-BLD-001
 title: PowerBox prototype build plan
 project: PowerBox
 doc_type: Build plan
-version: "0.2"
+version: "0.3"
 status: Draft
 date: '2026-10-02'
 author: Amish Chadha
@@ -17,6 +17,10 @@ revisions:
     date: '2026-10-02'
     author: Amish Chadha
     change: "PBX-DDR-003 recorded as accepted; AC outlet stated as the national socket of the first partner's country with a bonded earth pin, never a universal socket (decided by Amish, 2026-10-02, PBX-DEC-001 item 10)"
+  - version: "0.3"
+    date: '2026-10-02'
+    author: Amish Chadha
+    change: "Lit rocker main switch and its 22 x 30 mm hole in the output panel plate; pictures redrawn from the updated model"
 ---
 
 # PowerBox prototype build plan
@@ -263,7 +267,7 @@ The shelf drops into the case onto the catch bracket's top flange, its deck top 
 
 *Figure 19. Every cut-out in the output panel plate, from the left and bottom edges.*
 
-**What it is and what it is made from.** The front panel that carries the two USB-C and two USB-A ports, the 12 V car socket and barrel socket, the main switch, the recessed wake button, the AC outlet with its residual current device (RCD) and the display. 5052 aluminium sheet 2 mm, 394 x 164.
+**What it is and what it is made from.** The front panel that carries the two USB-C and two USB-A ports, the 12 V car socket and barrel socket, the lit rocker main switch (a 22 x 30 mm hole), the recessed wake button, the AC outlet with its residual current device (RCD) and the display. 5052 aluminium sheet 2 mm, 394 x 164.
 
 **How to make it.**
 
@@ -419,7 +423,7 @@ Buy to specification, not brand. Line numbers are those of the bill of materials
 - **Pack bay parts (line 5).** Class D latch catch; SwapCell receptacle on its floating mount with the 10 kilohm INTERLOCK coding resistor (the SwapCell dock part); M3 and M4 heat-set inserts.
 - **Door hardware (line 6).** Stainless piano hinge about 100 long; thumb-turn cam latch for a 19 mm hole that grips 1.2 mm sheet with a tongue about 15 long; flush padlock staple.
 - **Power modules (lines 7 to 10).** As Table 2.
-- **Output modules (lines 11 to 13).** USB-C power delivery modules (100 W and 60 W), two USB-A modules, a 12 V car socket and a 5.5 x 2.1 mm barrel socket, a main switch, a recessed normally closed push button for the wake button, a single 230 V outlet with a 30 mA RCD (the national socket of the first partner's country with its earth pin bonded to the case, never a universal multi-standard socket), and a 2.4 inch display.
+- **Output modules (lines 11 to 13).** USB-C power delivery modules (100 W and 60 W), two USB-A modules, a 12 V car socket and a 5.5 x 2.1 mm barrel socket, a snap-in lit rocker main switch (22 x 30 mm panel hole), a recessed normally closed push button for the wake button, a single 230 V outlet with a 30 mA RCD (the national socket of the first partner's country with its earth pin bonded to the case, never a universal multi-standard socket), and a 2.4 inch display.
 - **Inputs (line 14).** Two panel-mount Anderson Powerpole PP45 housings with dust caps.
 - **Fan (line 15).** 80 mm 12 V fan, about 16 L/s free air, with a finger grille and a washable foam filter pad.
 - **Protection and wiring (line 16).** As Table 2, with 10, 12, 14, 18 and 24 AWG stranded wire, 1.5 mm² mains cable, lugs and ferrules.

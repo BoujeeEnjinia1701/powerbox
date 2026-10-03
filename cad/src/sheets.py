@@ -1,4 +1,4 @@
-"""PowerBox general arrangement drawing PBX-DWG-001 (Rev P2, constructable design PBX-DDR-003).
+"""PowerBox general arrangement drawing PBX-DWG-001 (Rev P3, constructable design PBX-DDR-003, decisions of 2026-10-02).
 
 Run from the repo root:  python cad/src/sheets.py
 Builds cad/drawings/PBX-DWG-001.svg, .pdf and .png from the parametric model.
@@ -19,10 +19,11 @@ work = ROOT / "cad/drawings/_views"
 views = project_views(asm, work)
 
 s = Sheet(project="PowerBox", title="General arrangement, SwapCell station", dwg_no="PBX-DWG-001",
-          rev="P2", author="Amish Chadha", date="2026-10-01", concept=True,
+          rev="P3", author="Amish Chadha", date="2026-10-02", concept=True,
           material="Case, lid, door: 1.2 mm 5052 Al; shelf 2 mm, brackets 3 mm Al; runners and rail printed PETG. See bom/bom.csv",
           revisions=[("P1", "Preliminary GA, SwapCell interface v0.3 (PBX-CAL-001)", "2026-09-25", "AC"),
-                     ("P2", "Constructable design, PBX-DDR-003", "2026-10-01", "AC")])
+                     ("P2", "Constructable design, PBX-DDR-003", "2026-10-01", "AC"),
+                     ("P3", "Lit rocker switch cut-out 22 x 30; R2 and decisions of 2026-10-02", "2026-10-02", "AC")])
 s.add_ortho(views, ["front", "top", "right"])
 s.add_svg(views["iso"], 276, 30, 140, 84, label="Isometric view", sublabel="Not to scale")
 s.add_notes("Key dimensions and interfaces (mm)", [
@@ -37,10 +38,10 @@ s.add_notes("Key dimensions and interfaces (mm)", [
     "Receptacle: floating mount, 10 kOhm INTERLOCK coding",
     "  resistor (v0.3 item W); 120 ohm CAN termination",
     "Station host type 3, mode 4 charge-discharge, 5.0 A max",
-    "Front: USB-C 100 + 60 W, 2 x USB-A, 2 x 12 V, 230 V RCD",
+    "Front: USB-C 100 + 60 W, 2 x USB-A, 2 x 12 V, lit switch, 230 V RCD",
     "+X end: DC in 12 to 60 V 200 W, charger in 54.6 V 5 A",
     "Main fuse 30 A, inverter breaker 20 A (PBX-CAL-001)",
-    "Mass about 9.4 kg with pack (PBX-CAL-001 v0.2)",
+    "Mass about 9.4 kg with pack (PBX-CAL-001 v0.4)",
     "PRELIMINARY, NOT FOR FABRICATION",
 ], x=276, y=128, width=140)
 s.save(ROOT / "cad/drawings/PBX-DWG-001")

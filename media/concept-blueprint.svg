@@ -89,10 +89,10 @@
       <line x1="-51.1" y1="15.4" x2="-51.1" y2="22.4" />
       <line x1="-66.1" y1="15.4" x2="-51.1" y2="15.4" />
       <line x1="-66.1" y1="15.4" x2="-66.1" y2="22.4" />
-      <line x1="-26.1" y1="50.4" x2="-1.1" y2="50.4" />
-      <line x1="-1.1" y1="20.4" x2="-1.1" y2="50.4" />
-      <line x1="-26.1" y1="20.4" x2="-1.1" y2="20.4" />
-      <line x1="-26.1" y1="20.4" x2="-26.1" y2="50.4" />
+      <line x1="-26.6" y1="51.9" x2="-1.6" y2="51.9" />
+      <line x1="-1.6" y1="18.9" x2="-1.6" y2="51.9" />
+      <line x1="-26.6" y1="18.9" x2="-1.6" y2="18.9" />
+      <line x1="-26.6" y1="18.9" x2="-26.6" y2="51.9" />
       <circle cx="23.9" cy="35.4" r="8.0" />
       <circle cx="23.9" cy="35.4" r="5.0" />
       <line x1="63.9" y1="-59.6" x2="63.9" y2="40.4" />
@@ -1162,10 +1162,10 @@
       <line x1="-51.1" y1="15.4" x2="-51.1" y2="22.4" />
       <line x1="-66.1" y1="15.4" x2="-51.1" y2="15.4" />
       <line x1="-66.1" y1="15.4" x2="-66.1" y2="22.4" />
-      <line x1="-26.1" y1="50.4" x2="-1.1" y2="50.4" />
-      <line x1="-1.1" y1="20.4" x2="-1.1" y2="50.4" />
-      <line x1="-26.1" y1="20.4" x2="-1.1" y2="20.4" />
-      <line x1="-26.1" y1="20.4" x2="-26.1" y2="50.4" />
+      <line x1="-26.6" y1="51.9" x2="-1.6" y2="51.9" />
+      <line x1="-1.6" y1="18.9" x2="-1.6" y2="51.9" />
+      <line x1="-26.6" y1="18.9" x2="-1.6" y2="18.9" />
+      <line x1="-26.6" y1="18.9" x2="-26.6" y2="51.9" />
       <line x1="85.9" y1="20.4" x2="145.9" y2="20.4" />
       <line x1="145.9" y1="-39.6" x2="145.9" y2="20.4" />
       <line x1="85.9" y1="-39.6" x2="85.9" y2="20.4" />
@@ -1198,10 +1198,10 @@
       <line x1="-65.1" y1="21.4" x2="-65.1" y2="16.4" />
       <line x1="-52.1" y1="21.4" x2="-52.1" y2="16.4" />
       <line x1="-65.1" y1="16.4" x2="-52.1" y2="16.4" />
-      <line x1="-24.1" y1="48.4" x2="-3.1" y2="48.4" />
-      <line x1="-24.1" y1="48.4" x2="-24.1" y2="22.4" />
-      <line x1="-3.1" y1="48.4" x2="-3.1" y2="22.4" />
-      <line x1="-24.1" y1="22.4" x2="-3.1" y2="22.4" />
+      <line x1="-25.1" y1="50.4" x2="-3.1" y2="50.4" />
+      <line x1="-25.1" y1="50.4" x2="-25.1" y2="20.4" />
+      <line x1="-3.1" y1="50.4" x2="-3.1" y2="20.4" />
+      <line x1="-25.1" y1="20.4" x2="-3.1" y2="20.4" />
       <circle cx="189.9" cy="-49.6" r="2.25" />
       <line x1="85.9" y1="20.4" x2="145.9" y2="20.4" />
       <line x1="85.9" y1="20.4" x2="85.9" y2="-39.6" />
@@ -1227,10 +1227,10 @@
       <line x1="-65.1" y1="16.4" x2="-65.1" y2="21.4" />
       <line x1="-52.1" y1="16.4" x2="-52.1" y2="21.4" />
       <line x1="-65.1" y1="16.4" x2="-52.1" y2="16.4" />
-      <line x1="-24.1" y1="48.4" x2="-3.1" y2="48.4" />
-      <line x1="-24.1" y1="22.4" x2="-24.1" y2="48.4" />
-      <line x1="-3.1" y1="22.4" x2="-3.1" y2="48.4" />
-      <line x1="-24.1" y1="22.4" x2="-3.1" y2="22.4" />
+      <line x1="-25.1" y1="50.4" x2="-3.1" y2="50.4" />
+      <line x1="-25.1" y1="20.4" x2="-25.1" y2="50.4" />
+      <line x1="-3.1" y1="20.4" x2="-3.1" y2="50.4" />
+      <line x1="-25.1" y1="20.4" x2="-3.1" y2="20.4" />
       <circle cx="23.9" cy="35.4" r="6.0" />
       <circle cx="23.9" cy="35.4" r="5.0" />
       <line x1="63.9" y1="-59.6" x2="63.9" y2="40.4" />
@@ -1766,9 +1766,9 @@
       <line x1="-66.1" y1="-130.1" x2="-66.1" y2="-126.3" />
       <line x1="-51.1" y1="-130.1" x2="-51.1" y2="-126.3" />
       <line x1="-66.1" y1="-130.1" x2="-51.1" y2="-130.1" />
-      <line x1="-26.1" y1="-134.1" x2="-26.1" y2="-126.3" />
-      <line x1="-1.1" y1="-134.1" x2="-1.1" y2="-126.3" />
-      <line x1="-26.1" y1="-134.1" x2="-1.1" y2="-134.1" />
+      <line x1="-26.6" y1="-134.1" x2="-26.6" y2="-126.3" />
+      <line x1="-1.6" y1="-134.1" x2="-1.6" y2="-126.3" />
+      <line x1="-26.6" y1="-134.1" x2="-1.6" y2="-134.1" />
       <path d="M 31.9,-128.1 L 31.699423,-128.1 L 31.107751,-128.1 L 30.154652,-128.1 L 28.887918,-128.1 L 27.37107,-128.1 L 25.680167,-128.1 L 23.9,-128.1 L 22.119833,-128.1 L 20.42893,-128.1 L 18.912082,-128.1 L 17.645348,-128.1 L 16.692249,-128.1 L 16.100577,-128.1 L 15.9,-128.1" />
       <line x1="31.9" y1="-126.3" x2="31.9" y2="-128.1" />
       <line x1="63.9" y1="-138.1" x2="63.9" y2="-126.3" />
@@ -2822,8 +2822,8 @@
       <line x1="-91.1" y1="-126.1" x2="-76.1" y2="-126.1" />
       <line x1="-66.1" y1="-126.1" x2="-51.1" y2="-126.1" />
       <line x1="-66.1" y1="-126.1" x2="-51.1" y2="-126.1" />
-      <line x1="-26.1" y1="-126.1" x2="-1.1" y2="-126.1" />
-      <line x1="-26.1" y1="-126.1" x2="-1.1" y2="-126.1" />
+      <line x1="-26.6" y1="-126.1" x2="-1.6" y2="-126.1" />
+      <line x1="-26.6" y1="-126.1" x2="-1.6" y2="-126.1" />
       <path d="M 192.15,-126.1 L 192.093588,-126.1 L 191.92718,-126.1 L 191.659121,-126.1 L 191.302852,-126.1 L 190.876238,-126.1 L 190.400672,-126.1 L 189.9,-126.1 L 189.399328,-126.1 L 188.923762,-126.1 L 188.497148,-126.1 L 188.140879,-126.1 L 187.87282,-126.1 L 187.706412,-126.1 L 187.65,-126.1" />
       <path d="M 187.65,-126.1 L 187.706412,-126.1 L 187.87282,-126.1 L 188.140879,-126.1 L 188.497148,-126.1 L 188.923762,-126.1 L 189.399328,-126.1 L 189.9,-126.1 L 190.400672,-126.1 L 190.876238,-126.1 L 191.302852,-126.1 L 191.659121,-126.1 L 191.92718,-126.1 L 192.093588,-126.1 L 192.15,-126.1" />
       <line x1="85.9" y1="-126.1" x2="145.9" y2="-126.1" />
@@ -2853,8 +2853,8 @@
       <line x1="-90.1" y1="-124.1" x2="-77.1" y2="-124.1" />
       <line x1="-65.1" y1="-124.1" x2="-52.1" y2="-124.1" />
       <line x1="-65.1" y1="-124.1" x2="-52.1" y2="-124.1" />
-      <line x1="-24.1" y1="-124.1" x2="-3.1" y2="-124.1" />
-      <line x1="-24.1" y1="-124.1" x2="-3.1" y2="-124.1" />
+      <line x1="-25.1" y1="-124.1" x2="-3.1" y2="-124.1" />
+      <line x1="-25.1" y1="-124.1" x2="-3.1" y2="-124.1" />
       <path d="M 192.15,-124.1 L 192.093588,-124.1 L 191.92718,-124.1 L 191.659121,-124.1 L 191.302852,-124.1 L 190.876238,-124.1 L 190.400672,-124.1 L 189.9,-124.1 L 189.399328,-124.1 L 188.923762,-124.1 L 188.497148,-124.1 L 188.140879,-124.1 L 187.87282,-124.1 L 187.706412,-124.1 L 187.65,-124.1" />
       <path d="M 187.65,-124.1 L 187.706412,-124.1 L 187.87282,-124.1 L 188.140879,-124.1 L 188.497148,-124.1 L 188.923762,-124.1 L 189.399328,-124.1 L 189.9,-124.1 L 190.400672,-124.1 L 190.876238,-124.1 L 191.302852,-124.1 L 191.659121,-124.1 L 191.92718,-124.1 L 192.093588,-124.1 L 192.15,-124.1" />
       <line x1="85.9" y1="-124.1" x2="145.9" y2="-124.1" />
@@ -2894,11 +2894,11 @@
       <line x1="-51.1" y1="-130.1" x2="-51.1" y2="-126.1" />
       <line x1="-66.1" y1="-130.1" x2="-66.1" y2="-126.1" />
       <line x1="-66.1" y1="-130.1" x2="-51.1" y2="-130.1" />
-      <line x1="-26.1" y1="-126.3" x2="-26.1" y2="-126.1" />
-      <line x1="-1.1" y1="-126.3" x2="-1.1" y2="-126.1" />
-      <line x1="-1.1" y1="-134.1" x2="-1.1" y2="-126.1" />
-      <line x1="-26.1" y1="-134.1" x2="-26.1" y2="-126.1" />
-      <line x1="-26.1" y1="-134.1" x2="-1.1" y2="-134.1" />
+      <line x1="-26.6" y1="-126.3" x2="-26.6" y2="-126.1" />
+      <line x1="-1.6" y1="-126.3" x2="-1.6" y2="-126.1" />
+      <line x1="-1.6" y1="-134.1" x2="-1.6" y2="-126.1" />
+      <line x1="-26.6" y1="-134.1" x2="-26.6" y2="-126.1" />
+      <line x1="-26.6" y1="-134.1" x2="-1.6" y2="-134.1" />
       <line x1="192.15" y1="-124.1" x2="192.15" y2="-126.1" />
       <line x1="85.9" y1="-126.1" x2="85.9" y2="-124.1" />
       <line x1="145.9" y1="-126.1" x2="145.9" y2="-124.1" />
@@ -2937,12 +2937,12 @@
       <line x1="-65.1" y1="-124.1" x2="-65.1" y2="-99.1" />
       <line x1="-52.1" y1="-124.1" x2="-52.1" y2="-99.1" />
       <line x1="-65.1" y1="-99.1" x2="-52.1" y2="-99.1" />
-      <line x1="-24.1" y1="-124.1" x2="-24.1" y2="-99.1" />
-      <line x1="-24.1" y1="-99.1" x2="-3.1" y2="-99.1" />
-      <line x1="-3.1" y1="-124.1" x2="-3.1" y2="-99.1" />
-      <line x1="-24.1" y1="-124.1" x2="-24.1" y2="-99.1" />
-      <line x1="-3.1" y1="-124.1" x2="-3.1" y2="-99.1" />
-      <line x1="-24.1" y1="-99.1" x2="-3.1" y2="-99.1" />
+      <line x1="-25.1" y1="-124.1" x2="-25.1" y2="-103.1" />
+      <line x1="-25.1" y1="-103.1" x2="-3.1" y2="-103.1" />
+      <line x1="-3.1" y1="-124.1" x2="-3.1" y2="-103.1" />
+      <line x1="-25.1" y1="-124.1" x2="-25.1" y2="-103.1" />
+      <line x1="-3.1" y1="-124.1" x2="-3.1" y2="-103.1" />
+      <line x1="-25.1" y1="-103.1" x2="-3.1" y2="-103.1" />
       <line x1="29.9" y1="-104.1" x2="29.9" y2="-124.1" />
       <path d="M 29.9,-104.1 L 29.749567,-104.1 L 29.305813,-104.1 L 28.590989,-104.1 L 27.640939,-104.1 L 26.503302,-104.1 L 25.235126,-104.1 L 23.9,-104.1 L 22.564874,-104.1 L 21.296698,-104.1 L 20.159061,-104.1 L 19.209011,-104.1 L 18.494187,-104.1 L 18.050433,-104.1 L 17.9,-104.1" />
       <path d="M 17.9,-104.1 L 18.050433,-104.1 L 18.494187,-104.1 L 19.209011,-104.1 L 20.159061,-104.1 L 21.296698,-104.1 L 22.564874,-104.1 L 23.9,-104.1 L 25.235126,-104.1 L 26.503302,-104.1 L 27.640939,-104.1 L 28.590989,-104.1 L 29.305813,-104.1 L 29.749567,-104.1 L 29.9,-104.1" />
@@ -3541,13 +3541,13 @@
       <line x1="-126.1" y1="-93.6" x2="-126.1" y2="70.4" />
       <line x1="-126.1" y1="70.4" x2="-125.3" y2="70.4" />
       <line x1="-126.1" y1="-93.6" x2="-125.3" y2="-93.6" />
-      <line x1="-134.1" y1="50.4" x2="-126.1" y2="50.4" />
-      <line x1="-134.1" y1="40.4" x2="-134.1" y2="50.4" />
+      <line x1="-134.1" y1="51.9" x2="-126.1" y2="51.9" />
+      <line x1="-134.1" y1="40.4" x2="-134.1" y2="51.9" />
       <path d="M -128.1,40.4 L -128.1,40.789029 L -128.1,41.156009 L -128.1,41.499437 L -128.1,41.81791 L -128.1,42.110123 L -128.1,42.374882 L -128.1,42.611103 L -128.1,42.817819 L -128.1,42.994185 L -128.1,43.139479 L -128.1,43.253106 L -128.1,43.334602 L -128.1,43.383634 L -128.1,43.4" />
       <line x1="-138.1" y1="-59.6" x2="-138.1" y2="40.4" />
       <line x1="-138.1" y1="40.4" x2="-126.1" y2="40.4" />
       <line x1="-138.1" y1="-59.6" x2="-126.1" y2="-59.6" />
-      <line x1="-129.1" y1="50.4" x2="-129.1" y2="58.4" />
+      <line x1="-129.1" y1="51.9" x2="-129.1" y2="58.4" />
       <line x1="-129.1" y1="58.4" x2="-126.1" y2="58.4" />
       <line x1="-114.1" y1="-9.6" x2="-114.1" y2="65.4" />
       <line x1="-114.1" y1="65.4" x2="-4.1" y2="65.4" />
@@ -4804,8 +4804,8 @@
       <line x1="-126.1" y1="15.4" x2="-126.1" y2="22.4" />
       <line x1="-126.1" y1="15.4" x2="-126.1" y2="22.4" />
       <line x1="-126.1" y1="15.4" x2="-126.1" y2="22.4" />
-      <line x1="-126.1" y1="20.4" x2="-126.1" y2="50.4" />
-      <line x1="-126.1" y1="20.4" x2="-126.1" y2="50.4" />
+      <line x1="-126.1" y1="18.9" x2="-126.1" y2="51.9" />
+      <line x1="-126.1" y1="18.9" x2="-126.1" y2="51.9" />
       <path d="M -126.1,-49.6 Q -126.1,-49.47404 -126.1,-49.34808 Q -126.1,-49.097562 -126.1,-48.856872 Q -126.1,-48.740317 -126.1,-48.623762 Q -126.1,-48.513345 -126.1,-48.402928 Q -126.1,-48.300038 -126.1,-48.197148 Q -126.1,-48.103079 -126.1,-48.00901 Q -126.1,-47.924944 -126.1,-47.840879 Q -126.1,-47.767875 -126.1,-47.694871 Q -126.1,-47.633845 -126.1,-47.57282 Q -126.1,-47.524541 -126.1,-47.476263 Q -126.1,-47.441337 -126.1,-47.406412 Q -126.1,-47.38528 -126.1,-47.364148 Q -126.1,-47.357074 -126.1,-47.35" />
       <path d="M -126.1,-47.35 L -126.1,-47.406412 L -126.1,-47.57282 L -126.1,-47.840879 L -126.1,-48.197148 L -126.1,-48.623762 L -126.1,-49.099328 L -126.1,-49.6 L -126.1,-50.100672 L -126.1,-50.576238 L -126.1,-51.002852 L -126.1,-51.359121 L -126.1,-51.62718 L -126.1,-51.793588 L -126.1,-51.85" />
       <path d="M -126.1,-51.85 Q -126.1,-51.842926 -126.1,-51.835852 Q -126.1,-51.81472 -126.1,-51.793588 Q -126.1,-51.758663 -126.1,-51.723737 Q -126.1,-51.675459 -126.1,-51.62718 Q -126.1,-51.566155 -126.1,-51.505129 Q -126.1,-51.432125 -126.1,-51.359121 Q -126.1,-51.275056 -126.1,-51.19099 Q -126.1,-51.096921 -126.1,-51.002852 Q -126.1,-50.899962 -126.1,-50.797072 Q -126.1,-50.686655 -126.1,-50.576238 Q -126.1,-50.459683 -126.1,-50.343128 Q -126.1,-50.2219 -126.1,-50.100672 Q -126.1,-49.852808 -126.1,-49.6" />
@@ -4841,8 +4841,8 @@
       <line x1="-124.1" y1="21.4" x2="-124.1" y2="16.4" />
       <line x1="-124.1" y1="21.4" x2="-124.1" y2="16.4" />
       <line x1="-124.1" y1="21.4" x2="-124.1" y2="16.4" />
-      <line x1="-124.1" y1="48.4" x2="-124.1" y2="22.4" />
-      <line x1="-124.1" y1="48.4" x2="-124.1" y2="22.4" />
+      <line x1="-124.1" y1="50.4" x2="-124.1" y2="20.4" />
+      <line x1="-124.1" y1="50.4" x2="-124.1" y2="20.4" />
       <path d="M -124.1,-49.6 Q -124.1,-49.47404 -124.1,-49.34808 Q -124.1,-49.097562 -124.1,-48.856872 Q -124.1,-48.740317 -124.1,-48.623762 Q -124.1,-48.513345 -124.1,-48.402928 Q -124.1,-48.300038 -124.1,-48.197148 Q -124.1,-48.103079 -124.1,-48.00901 Q -124.1,-47.924944 -124.1,-47.840879 Q -124.1,-47.767875 -124.1,-47.694871 Q -124.1,-47.633845 -124.1,-47.57282 Q -124.1,-47.524541 -124.1,-47.476263 Q -124.1,-47.441337 -124.1,-47.406412 Q -124.1,-47.38528 -124.1,-47.364148 Q -124.1,-47.357074 -124.1,-47.35" />
       <path d="M -124.1,-47.35 L -124.1,-47.406412 L -124.1,-47.57282 L -124.1,-47.840879 L -124.1,-48.197148 L -124.1,-48.623762 L -124.1,-49.099328 L -124.1,-49.6 L -124.1,-50.100672 L -124.1,-50.576238 L -124.1,-51.002852 L -124.1,-51.359121 L -124.1,-51.62718 L -124.1,-51.793588 L -124.1,-51.85" />
       <path d="M -124.1,-51.85 Q -124.1,-51.842926 -124.1,-51.835852 Q -124.1,-51.81472 -124.1,-51.793588 Q -124.1,-51.758663 -124.1,-51.723737 Q -124.1,-51.675459 -124.1,-51.62718 Q -124.1,-51.566155 -124.1,-51.505129 Q -124.1,-51.432125 -124.1,-51.359121 Q -124.1,-51.275056 -124.1,-51.19099 Q -124.1,-51.096921 -124.1,-51.002852 Q -124.1,-50.899962 -124.1,-50.797072 Q -124.1,-50.686655 -124.1,-50.576238 Q -124.1,-50.459683 -124.1,-50.343128 Q -124.1,-50.2219 -124.1,-50.100672 Q -124.1,-49.852808 -124.1,-49.6" />
@@ -4889,11 +4889,11 @@
       <line x1="-130.1" y1="15.4" x2="-126.1" y2="15.4" />
       <line x1="-130.1" y1="15.4" x2="-126.1" y2="15.4" />
       <line x1="-130.1" y1="15.4" x2="-130.1" y2="22.4" />
-      <line x1="-134.1" y1="50.4" x2="-126.1" y2="50.4" />
-      <line x1="-134.1" y1="20.4" x2="-134.1" y2="40.4" />
-      <line x1="-134.1" y1="20.4" x2="-126.1" y2="20.4" />
-      <line x1="-134.1" y1="20.4" x2="-126.1" y2="20.4" />
-      <line x1="-134.1" y1="20.4" x2="-134.1" y2="50.4" />
+      <line x1="-134.1" y1="51.9" x2="-126.1" y2="51.9" />
+      <line x1="-134.1" y1="18.9" x2="-134.1" y2="40.4" />
+      <line x1="-134.1" y1="18.9" x2="-126.1" y2="18.9" />
+      <line x1="-134.1" y1="18.9" x2="-126.1" y2="18.9" />
+      <line x1="-134.1" y1="18.9" x2="-134.1" y2="51.9" />
       <line x1="-126.1" y1="20.4" x2="-124.1" y2="20.4" />
       <line x1="-126.1" y1="20.4" x2="-124.1" y2="20.4" />
       <line x1="-126.1" y1="-39.6" x2="-124.1" y2="-39.6" />
@@ -4931,12 +4931,12 @@
       <line x1="-124.1" y1="16.4" x2="-99.1" y2="16.4" />
       <line x1="-99.1" y1="16.4" x2="-99.1" y2="21.4" />
       <line x1="-124.1" y1="16.4" x2="-99.1" y2="16.4" />
-      <line x1="-124.1" y1="48.4" x2="-99.1" y2="48.4" />
-      <line x1="-124.1" y1="48.4" x2="-99.1" y2="48.4" />
-      <line x1="-99.1" y1="22.4" x2="-99.1" y2="48.4" />
-      <line x1="-124.1" y1="22.4" x2="-99.1" y2="22.4" />
-      <line x1="-99.1" y1="22.4" x2="-99.1" y2="48.4" />
-      <line x1="-124.1" y1="22.4" x2="-99.1" y2="22.4" />
+      <line x1="-124.1" y1="50.4" x2="-103.1" y2="50.4" />
+      <line x1="-124.1" y1="50.4" x2="-103.1" y2="50.4" />
+      <line x1="-103.1" y1="20.4" x2="-103.1" y2="50.4" />
+      <line x1="-124.1" y1="20.4" x2="-103.1" y2="20.4" />
+      <line x1="-103.1" y1="20.4" x2="-103.1" y2="50.4" />
+      <line x1="-124.1" y1="20.4" x2="-103.1" y2="20.4" />
       <path d="M -104.1,35.4 L -104.1,36.071787 L -104.1,36.735126 L -104.1,37.381674 L -104.1,38.003302 L -104.1,38.592192 L -104.1,39.140939 L -104.1,39.642641 L -104.1,40.090989 L -104.1,40.480345 L -104.1,40.805813 L -104.1,41.0633 L -104.1,41.249567 L -104.1,41.362273 L -104.1,41.4" />
       <path d="M -104.1,41.4 L -104.1,41.249567 L -104.1,40.805813 L -104.1,40.090989 L -104.1,39.140939 L -104.1,38.003302 L -104.1,36.735126 L -104.1,35.4 L -104.1,34.064874 L -104.1,32.796698 L -104.1,31.659061 L -104.1,30.709011 L -104.1,29.994187 L -104.1,29.550433 L -104.1,29.4" />
       <path d="M -104.1,29.4 L -104.1,29.437727 L -104.1,29.550433 L -104.1,29.7367 L -104.1,29.994187 L -104.1,30.319655 L -104.1,30.709011 L -104.1,31.157359 L -104.1,31.659061 L -104.1,32.207808 L -104.1,32.796698 L -104.1,33.418326 L -104.1,34.064874 L -104.1,34.728213 L -104.1,35.4" />
@@ -4961,7 +4961,7 @@
       <line x1="-129.1" y1="58.4" x2="-126.1" y2="58.4" />
       <line x1="-126.1" y1="40.4" x2="-126.1" y2="58.4" />
       <line x1="-129.1" y1="40.4" x2="-126.1" y2="40.4" />
-      <line x1="-129.1" y1="40.4" x2="-129.1" y2="50.4" />
+      <line x1="-129.1" y1="40.4" x2="-129.1" y2="51.9" />
       <line x1="-126.1" y1="40.4" x2="-126.1" y2="58.4" />
       <line x1="-129.1" y1="40.4" x2="-126.1" y2="40.4" />
       <line x1="-126.1" y1="56.4" x2="-114.1" y2="56.4" />
@@ -5950,8 +5950,8 @@
       <line x1="-128.693434" y1="25.763493" x2="-128.693434" y2="31.856211" />
       <line x1="-121.622366" y1="28.374658" x2="-111.015765" y2="23.152328" />
       <line x1="-111.015765" y1="17.05961" x2="-111.015765" y2="23.152328" />
-      <line x1="-93.338095" y1="38.819317" x2="-75.660426" y2="30.115434" />
-      <line x1="-75.660426" y1="4.003786" x2="-75.660426" y2="30.115434" />
+      <line x1="-93.691649" y1="40.298977" x2="-76.013979" y2="31.595095" />
+      <line x1="-76.013979" y1="2.872281" x2="-76.013979" y2="31.595095" />
       <path d="M 60.98796,-124.204408 A 2.25,1.3847792735174935 116.21406534015115 0,1 58.403086,-121.402471" />
       <path d="M 58.403086,-121.402471 A 2.25,1.3847792735174935 116.21406534015115 0,1 60.390853,-125.439645" />
       <path d="M 60.390853,-125.439645 A 2.25,1.3847792735174935 116.21406534015115 0,1 60.98796,-124.204408" />
@@ -6002,13 +6002,13 @@
       <line x1="-113.844192" y1="15.666989" x2="-111.015765" y2="17.05961" />
       <line x1="-124.450793" y1="20.889319" x2="-113.844192" y2="15.666989" />
       <line x1="-124.450793" y1="20.889319" x2="-124.450793" y2="26.982037" />
-      <line x1="-98.994949" y1="36.034075" x2="-93.338095" y2="38.819317" />
-      <line x1="-81.31728" y1="27.330192" x2="-75.660426" y2="30.115434" />
-      <line x1="-98.994949" y1="36.034075" x2="-81.31728" y2="27.330192" />
-      <line x1="-81.31728" y1="1.218544" x2="-81.31728" y2="27.330192" />
-      <line x1="-81.31728" y1="1.218544" x2="-75.660426" y2="4.003786" />
-      <line x1="-98.994949" y1="9.922426" x2="-81.31728" y2="1.218544" />
-      <line x1="-98.994949" y1="9.922426" x2="-98.994949" y2="36.034075" />
+      <line x1="-99.348503" y1="37.513735" x2="-93.691649" y2="40.298977" />
+      <line x1="-81.670833" y1="28.809852" x2="-76.013979" y2="31.595095" />
+      <line x1="-99.348503" y1="37.513735" x2="-81.670833" y2="28.809852" />
+      <line x1="-81.670833" y1="0.087039" x2="-81.670833" y2="28.809852" />
+      <line x1="-81.670833" y1="0.087039" x2="-76.013979" y2="2.872281" />
+      <line x1="-99.348503" y1="8.790922" x2="-81.670833" y2="0.087039" />
+      <line x1="-99.348503" y1="8.790922" x2="-99.348503" y2="37.513735" />
       <path d="M -53.740115,4.874174 A 8.0,4.9236596391733105 116.21406534015115 0,1 -62.930778,14.836617" />
       <path d="M -62.930778,14.836617 A 8.000000147167036,4.92365972974836 116.21406534015115 0,1 -55.863161,0.482217" />
       <path d="M -55.863161,0.482217 A 8.0,4.9236596391733105 116.21406534015115 0,1 -53.740115,4.874174" />
@@ -6231,4 +6231,4 @@
       <line x1="261.022907" y1="-122.376592" x2="261.022907" y2="-117.452932" />
     </g>
   </g>
-</svg><text x="346.00" y="156.00" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="2.8" font-weight="600" fill="#EEF5FF" text-anchor="middle">ISOMETRIC VIEW</text><text x="346.00" y="160.00" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="2.2" font-weight="400" fill="#AFC8EC" text-anchor="middle">Not to scale; grey is for scale; seen from the front right and above, about 30 deg elevation</text><rect x="276" y="168" width="140" height="35.599999999999994" fill="#143F73" stroke="#EEF5FF" stroke-width="0.35"/><text x="279.00" y="173.00" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="2.3" font-weight="600" fill="#8FE3D6" text-anchor="start">KEY FIGURES</text><text x="279.00" y="178.00" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="2.6" font-weight="400" fill="#EEF5FF" text-anchor="start">One SwapCell pack (interface v0.3): 419 Wh usable</text><text x="279.00" y="182.60" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="2.6" font-weight="400" fill="#EEF5FF" text-anchor="start">Evening load 203 Wh: 1.87 evenings (R2 not met)</text><text x="279.00" y="187.20" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="2.6" font-weight="400" fill="#EEF5FF" text-anchor="start">Full charge: grid 2.1 h, 200 W solar 0.7 day (est.)</text><text x="279.00" y="191.80" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="2.6" font-weight="400" fill="#EEF5FF" text-anchor="start">300 W, 230 V pure sine AC with RCD; USB-C PD, USB-A, 12 V</text><text x="279.00" y="196.40" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="2.6" font-weight="400" fill="#EEF5FF" text-anchor="start">480 x 279 x 275 mm overall, 9.4 kg with pack (est.)</text><text x="279.00" y="201.00" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="2.6" font-weight="400" fill="#EEF5FF" text-anchor="start">Never connects to household wiring</text><rect x="273.8" y="10.0" width="148" height="10.4" fill="#143F73" stroke="#EEF5FF" stroke-width="0.5"/><rect x="273.8" y="10.0" width="148" height="5.2" fill="#1D4F8A" stroke="#EEF5FF" stroke-width="0.5"/><text x="275.60" y="13.60" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="2.0" font-weight="600" fill="#EEF5FF" text-anchor="start">REV</text><text x="289.60" y="13.60" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="2.0" font-weight="600" fill="#EEF5FF" text-anchor="start">DESCRIPTION</text><text x="381.60" y="13.60" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="2.0" font-weight="600" fill="#EEF5FF" text-anchor="start">DATE</text><text x="407.60" y="13.60" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="2.0" font-weight="600" fill="#EEF5FF" text-anchor="start">BY</text><line x1="273.8" y1="15.2" x2="421.8" y2="15.2" stroke="#6F93C4" stroke-width="0.3"/><text x="275.60" y="18.80" font-family="IBM Plex Mono, Menlo, monospace" font-size="2.3" font-weight="400" fill="#EEF5FF" text-anchor="start">P2</text><text x="289.60" y="18.80" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="2.3" font-weight="400" fill="#EEF5FF" text-anchor="start">Concept sheet</text><text x="381.60" y="18.80" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="2.3" font-weight="400" fill="#EEF5FF" text-anchor="start">2026-10-01</text><text x="407.60" y="18.80" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="2.3" font-weight="400" fill="#EEF5FF" text-anchor="start">AC</text><rect x="231.8" y="213.39999999999998" width="190.0" height="56.0" fill="#143F73" stroke="#EEF5FF" stroke-width="0.7"/><rect x="231.8" y="213.39999999999998" width="3" height="56.0" fill="#8FE3D6"/><line x1="231.8" y1="227.39999999999998" x2="421.8" y2="227.39999999999998" stroke="#6F93C4" stroke-width="0.3"/><line x1="231.8" y1="239.39999999999998" x2="421.8" y2="239.39999999999998" stroke="#6F93C4" stroke-width="0.3"/><line x1="231.8" y1="251.39999999999998" x2="421.8" y2="251.39999999999998" stroke="#6F93C4" stroke-width="0.3"/><line x1="231.8" y1="260.4" x2="421.8" y2="260.4" stroke="#6F93C4" stroke-width="0.3"/><text x="237.80" y="218.40" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="2.2" font-weight="600" fill="#8FE3D6" text-anchor="start">POWERBOX</text><text x="418.80" y="218.40" font-family="IBM Plex Mono, Menlo, monospace" font-size="2.2" font-weight="500" fill="#8FE3D6" text-anchor="end">github.com/BoujeeEnjinia1701/powerbox</text><text x="237.80" y="224.40" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="4.4" font-weight="600" fill="#EEF5FF" text-anchor="start">Power station concept</text><text x="236.80" y="230.80" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="1.8" font-weight="500" fill="#AFC8EC" text-anchor="start">DRAWING NO.</text><text x="236.80" y="235.60" font-family="IBM Plex Mono, Menlo, monospace" font-size="3.4" font-weight="600" fill="#EEF5FF" text-anchor="start">PBX-DWG-010</text><text x="316.80" y="230.80" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="1.8" font-weight="500" fill="#AFC8EC" text-anchor="start">REV</text><text x="316.80" y="235.60" font-family="IBM Plex Mono, Menlo, monospace" font-size="3.4" font-weight="600" fill="#EEF5FF" text-anchor="start">P2</text><line x1="314.8" y1="227.39999999999998" x2="314.8" y2="239.39999999999998" stroke="#6F93C4" stroke-width="0.3"/><text x="341.80" y="230.80" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="1.8" font-weight="500" fill="#AFC8EC" text-anchor="start">SHEET</text><text x="341.80" y="235.60" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="3.4" font-weight="600" fill="#EEF5FF" text-anchor="start">1 of 1</text><line x1="339.8" y1="227.39999999999998" x2="339.8" y2="239.39999999999998" stroke="#6F93C4" stroke-width="0.3"/><text x="371.80" y="230.80" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="1.8" font-weight="500" fill="#AFC8EC" text-anchor="start">SIZE</text><text x="371.80" y="235.60" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="3.4" font-weight="600" fill="#EEF5FF" text-anchor="start">ANSI B</text><line x1="369.8" y1="227.39999999999998" x2="369.8" y2="239.39999999999998" stroke="#6F93C4" stroke-width="0.3"/><text x="236.80" y="242.80" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="1.8" font-weight="500" fill="#AFC8EC" text-anchor="start">SCALE</text><text x="236.80" y="247.20" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="3.0" font-weight="500" fill="#EEF5FF" text-anchor="start">1:5</text><text x="266.80" y="242.80" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="1.8" font-weight="500" fill="#AFC8EC" text-anchor="start">UNITS</text><text x="266.80" y="247.20" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="3.0" font-weight="500" fill="#EEF5FF" text-anchor="start">mm</text><line x1="264.8" y1="239.39999999999998" x2="264.8" y2="251.39999999999998" stroke="#6F93C4" stroke-width="0.3"/><text x="291.80" y="242.80" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="1.8" font-weight="500" fill="#AFC8EC" text-anchor="start">PROJECTION</text><path d="M302.8 244.39999999999998 L308.8 242.89999999999998 L308.8 250.89999999999998 L302.8 249.39999999999998 Z" fill="none" stroke="#EEF5FF" stroke-width="0.3"/><circle cx="314.8" cy="246.89999999999998" r="4" fill="none" stroke="#EEF5FF" stroke-width="0.3"/><circle cx="314.8" cy="246.89999999999998" r="2.3" fill="none" stroke="#EEF5FF" stroke-width="0.3"/><line x1="300.8" y1="246.89999999999998" x2="320.3" y2="246.89999999999998" stroke="#EEF5FF" stroke-width="0.18" stroke-dasharray="3 1 0.6 1"/><line x1="289.8" y1="239.39999999999998" x2="289.8" y2="251.39999999999998" stroke="#6F93C4" stroke-width="0.3"/><text x="326.80" y="242.80" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="1.8" font-weight="500" fill="#AFC8EC" text-anchor="start">DATE</text><text x="326.80" y="247.20" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="3.0" font-weight="500" fill="#EEF5FF" text-anchor="start">2026-10-01</text><line x1="324.8" y1="239.39999999999998" x2="324.8" y2="251.39999999999998" stroke="#6F93C4" stroke-width="0.3"/><text x="366.80" y="242.80" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="1.8" font-weight="500" fill="#AFC8EC" text-anchor="start">DRAWN</text><text x="366.80" y="247.20" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="3.0" font-weight="500" fill="#EEF5FF" text-anchor="start">Amish Chadha</text><line x1="364.8" y1="239.39999999999998" x2="364.8" y2="251.39999999999998" stroke="#6F93C4" stroke-width="0.3"/><text x="236.80" y="254.80" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="1.8" font-weight="500" fill="#AFC8EC" text-anchor="start">MATERIAL / NOTES</text><text x="236.80" y="258.80" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="2.6" font-weight="400" fill="#EEF5FF" text-anchor="start">Massing model for concept communication</text><text x="236.80" y="266.20" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="2.1" font-weight="400" fill="#AFC8EC" text-anchor="start">Licensed CERN-OHL-S-2.0 · Design Molecule Lab · designmolecule.com</text><text x="418.80" y="266.20" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="1.9" font-weight="400" fill="#AFC8EC" text-anchor="end">Generated from cad/src; do not edit by hand</text></svg>
+</svg><text x="346.00" y="156.00" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="2.8" font-weight="600" fill="#EEF5FF" text-anchor="middle">ISOMETRIC VIEW</text><text x="346.00" y="160.00" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="2.2" font-weight="400" fill="#AFC8EC" text-anchor="middle">Not to scale; grey is for scale; seen from the front right and above, about 30 deg elevation</text><rect x="276" y="168" width="140" height="35.599999999999994" fill="#143F73" stroke="#EEF5FF" stroke-width="0.35"/><text x="279.00" y="173.00" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="2.3" font-weight="600" fill="#8FE3D6" text-anchor="start">KEY FIGURES</text><text x="279.00" y="178.00" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="2.6" font-weight="400" fill="#EEF5FF" text-anchor="start">One SwapCell pack (interface v0.3): 419 Wh usable</text><text x="279.00" y="182.60" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="2.6" font-weight="400" fill="#EEF5FF" text-anchor="start">Evening load 203 Wh: 1.87 evenings (R2 met, target 1.8)</text><text x="279.00" y="187.20" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="2.6" font-weight="400" fill="#EEF5FF" text-anchor="start">Full charge: grid 2.1 h, 200 W solar 0.7 day (est.)</text><text x="279.00" y="191.80" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="2.6" font-weight="400" fill="#EEF5FF" text-anchor="start">300 W, 230 V pure sine AC with RCD; USB-C PD, USB-A, 12 V</text><text x="279.00" y="196.40" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="2.6" font-weight="400" fill="#EEF5FF" text-anchor="start">480 x 279 x 275 mm overall, 9.4 kg with pack (est.)</text><text x="279.00" y="201.00" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="2.6" font-weight="400" fill="#EEF5FF" text-anchor="start">Never connects to household wiring</text><rect x="273.8" y="10.0" width="148" height="10.4" fill="#143F73" stroke="#EEF5FF" stroke-width="0.5"/><rect x="273.8" y="10.0" width="148" height="5.2" fill="#1D4F8A" stroke="#EEF5FF" stroke-width="0.5"/><text x="275.60" y="13.60" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="2.0" font-weight="600" fill="#EEF5FF" text-anchor="start">REV</text><text x="289.60" y="13.60" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="2.0" font-weight="600" fill="#EEF5FF" text-anchor="start">DESCRIPTION</text><text x="381.60" y="13.60" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="2.0" font-weight="600" fill="#EEF5FF" text-anchor="start">DATE</text><text x="407.60" y="13.60" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="2.0" font-weight="600" fill="#EEF5FF" text-anchor="start">BY</text><line x1="273.8" y1="15.2" x2="421.8" y2="15.2" stroke="#6F93C4" stroke-width="0.3"/><text x="275.60" y="18.80" font-family="IBM Plex Mono, Menlo, monospace" font-size="2.3" font-weight="400" fill="#EEF5FF" text-anchor="start">P3</text><text x="289.60" y="18.80" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="2.3" font-weight="400" fill="#EEF5FF" text-anchor="start">Concept sheet</text><text x="381.60" y="18.80" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="2.3" font-weight="400" fill="#EEF5FF" text-anchor="start">2026-10-02</text><text x="407.60" y="18.80" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="2.3" font-weight="400" fill="#EEF5FF" text-anchor="start">AC</text><rect x="231.8" y="213.39999999999998" width="190.0" height="56.0" fill="#143F73" stroke="#EEF5FF" stroke-width="0.7"/><rect x="231.8" y="213.39999999999998" width="3" height="56.0" fill="#8FE3D6"/><line x1="231.8" y1="227.39999999999998" x2="421.8" y2="227.39999999999998" stroke="#6F93C4" stroke-width="0.3"/><line x1="231.8" y1="239.39999999999998" x2="421.8" y2="239.39999999999998" stroke="#6F93C4" stroke-width="0.3"/><line x1="231.8" y1="251.39999999999998" x2="421.8" y2="251.39999999999998" stroke="#6F93C4" stroke-width="0.3"/><line x1="231.8" y1="260.4" x2="421.8" y2="260.4" stroke="#6F93C4" stroke-width="0.3"/><text x="237.80" y="218.40" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="2.2" font-weight="600" fill="#8FE3D6" text-anchor="start">POWERBOX</text><text x="418.80" y="218.40" font-family="IBM Plex Mono, Menlo, monospace" font-size="2.2" font-weight="500" fill="#8FE3D6" text-anchor="end">github.com/BoujeeEnjinia1701/powerbox</text><text x="237.80" y="224.40" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="4.4" font-weight="600" fill="#EEF5FF" text-anchor="start">Power station concept</text><text x="236.80" y="230.80" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="1.8" font-weight="500" fill="#AFC8EC" text-anchor="start">DRAWING NO.</text><text x="236.80" y="235.60" font-family="IBM Plex Mono, Menlo, monospace" font-size="3.4" font-weight="600" fill="#EEF5FF" text-anchor="start">PBX-DWG-010</text><text x="316.80" y="230.80" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="1.8" font-weight="500" fill="#AFC8EC" text-anchor="start">REV</text><text x="316.80" y="235.60" font-family="IBM Plex Mono, Menlo, monospace" font-size="3.4" font-weight="600" fill="#EEF5FF" text-anchor="start">P3</text><line x1="314.8" y1="227.39999999999998" x2="314.8" y2="239.39999999999998" stroke="#6F93C4" stroke-width="0.3"/><text x="341.80" y="230.80" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="1.8" font-weight="500" fill="#AFC8EC" text-anchor="start">SHEET</text><text x="341.80" y="235.60" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="3.4" font-weight="600" fill="#EEF5FF" text-anchor="start">1 of 1</text><line x1="339.8" y1="227.39999999999998" x2="339.8" y2="239.39999999999998" stroke="#6F93C4" stroke-width="0.3"/><text x="371.80" y="230.80" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="1.8" font-weight="500" fill="#AFC8EC" text-anchor="start">SIZE</text><text x="371.80" y="235.60" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="3.4" font-weight="600" fill="#EEF5FF" text-anchor="start">ANSI B</text><line x1="369.8" y1="227.39999999999998" x2="369.8" y2="239.39999999999998" stroke="#6F93C4" stroke-width="0.3"/><text x="236.80" y="242.80" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="1.8" font-weight="500" fill="#AFC8EC" text-anchor="start">SCALE</text><text x="236.80" y="247.20" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="3.0" font-weight="500" fill="#EEF5FF" text-anchor="start">1:5</text><text x="266.80" y="242.80" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="1.8" font-weight="500" fill="#AFC8EC" text-anchor="start">UNITS</text><text x="266.80" y="247.20" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="3.0" font-weight="500" fill="#EEF5FF" text-anchor="start">mm</text><line x1="264.8" y1="239.39999999999998" x2="264.8" y2="251.39999999999998" stroke="#6F93C4" stroke-width="0.3"/><text x="291.80" y="242.80" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="1.8" font-weight="500" fill="#AFC8EC" text-anchor="start">PROJECTION</text><path d="M302.8 244.39999999999998 L308.8 242.89999999999998 L308.8 250.89999999999998 L302.8 249.39999999999998 Z" fill="none" stroke="#EEF5FF" stroke-width="0.3"/><circle cx="314.8" cy="246.89999999999998" r="4" fill="none" stroke="#EEF5FF" stroke-width="0.3"/><circle cx="314.8" cy="246.89999999999998" r="2.3" fill="none" stroke="#EEF5FF" stroke-width="0.3"/><line x1="300.8" y1="246.89999999999998" x2="320.3" y2="246.89999999999998" stroke="#EEF5FF" stroke-width="0.18" stroke-dasharray="3 1 0.6 1"/><line x1="289.8" y1="239.39999999999998" x2="289.8" y2="251.39999999999998" stroke="#6F93C4" stroke-width="0.3"/><text x="326.80" y="242.80" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="1.8" font-weight="500" fill="#AFC8EC" text-anchor="start">DATE</text><text x="326.80" y="247.20" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="3.0" font-weight="500" fill="#EEF5FF" text-anchor="start">2026-10-02</text><line x1="324.8" y1="239.39999999999998" x2="324.8" y2="251.39999999999998" stroke="#6F93C4" stroke-width="0.3"/><text x="366.80" y="242.80" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="1.8" font-weight="500" fill="#AFC8EC" text-anchor="start">DRAWN</text><text x="366.80" y="247.20" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="3.0" font-weight="500" fill="#EEF5FF" text-anchor="start">Amish Chadha</text><line x1="364.8" y1="239.39999999999998" x2="364.8" y2="251.39999999999998" stroke="#6F93C4" stroke-width="0.3"/><text x="236.80" y="254.80" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="1.8" font-weight="500" fill="#AFC8EC" text-anchor="start">MATERIAL / NOTES</text><text x="236.80" y="258.80" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="2.6" font-weight="400" fill="#EEF5FF" text-anchor="start">Massing model for concept communication</text><text x="236.80" y="266.20" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="2.1" font-weight="400" fill="#AFC8EC" text-anchor="start">Licensed CERN-OHL-S-2.0 · Design Molecule Lab · designmolecule.com</text><text x="418.80" y="266.20" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="1.9" font-weight="400" fill="#AFC8EC" text-anchor="end">Generated from cad/src; do not edit by hand</text></svg>

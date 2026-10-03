@@ -3,7 +3,7 @@ doc_id: PBX-DEC-001
 title: PowerBox design decisions register
 project: PowerBox
 doc_type: Design decisions register
-version: "0.2"
+version: "0.3"
 status: Draft
 date: '2026-10-02'
 author: Amish Chadha
@@ -17,6 +17,10 @@ revisions:
     date: '2026-10-02'
     author: Amish Chadha
     change: "Amish approved the recommendations for all twelve open decisions on 2026-10-02 (PBX-DDR-003 accepted); moved to decisions made"
+  - version: "0.3"
+    date: '2026-10-02'
+    author: Amish Chadha
+    change: "Cost USD 483 (USD 33 over the target) with the lit rocker main switch; savings figure USD 433 without the grid charger"
 ---
 
 # PowerBox design decisions register
@@ -42,11 +46,11 @@ None. All open decisions were decided on 2026-10-02.
 
 ## Value engineering
 
-Value-engineering target: USD 450 (a hypothetical control target, not a limit). Estimated cost of the constructable design: USD 482 for the PowerBox parts, excluding the shared SwapCell pack (USD 32 over the target). Main cost drivers and savings worth trying:
+Value-engineering target: USD 450 (a hypothetical control target, not a limit). Estimated cost of the constructable design: USD 483 for the PowerBox parts, excluding the shared SwapCell pack (USD 33 over the target). Main cost drivers and savings worth trying:
 
 - The largest lines are the inverter (USD 70), the grid charger brick (USD 50), the output panel modules (USD 46), the protection parts and wiring (USD 38), the enclosure body (USD 38), the pack bay (USD 40), and the charge controller and buck converter (USD 30 each).
 - Making the design constructable added USD 33 over the concept's USD 449: rivet nuts and windows in the body, the deeper lid skirt, the handle doubler, the shelf, brackets, runners and rail, the door hinge, cam latch and staple, the filter frame, the protection plate and the counted fixings.
-- Savings worth trying: leave out the grid charger where a SwapCell dock is on hand (USD 50, bringing the parts to USD 432); the DC-only variant without the inverter and AC outlet (about USD 92, and no mains voltage in the box); quotes for the folded sheet parts as one batch from one shop; printing the brackets in place of folding them is not worth trying, since they carry the pack's latch load.
+- Savings worth trying: leave out the grid charger where a SwapCell dock is on hand (USD 50, bringing the parts to USD 433); the DC-only variant without the inverter and AC outlet (about USD 92, and no mains voltage in the box); quotes for the folded sheet parts as one batch from one shop; printing the brackets in place of folding them is not worth trying, since they carry the pack's latch load.
 
 ## Decisions made
 

@@ -1,12 +1,14 @@
 """PowerBox product appearance model (build123d), TRL 3.
 
-Finished-product look for photoreal renders: a filleted, powder-coated aluminium case with a lid
-parting line, a dark lid with rounded exhaust slots and corner screws, a folding carry handle with a
-ribbed rubber grip, the output panel (USB-C PD, USB-A, 12 V car socket and barrel, rocker main
-switch with a lit indicator, recessed wake button, printed port marks and an accent band), the
-state-of-charge display with a lit readout, the 230 V AC outlet module with RCD test and reset
-buttons and a lit status light, the Anderson Powerpole input panel, the pack bay door with a clear
-window onto the SwapCell pack, a pull, hinge and padlock eye, the fan grille and rubber feet.
+Finished-product look for the constructable design (PBX-DDR-003, decisions of 2026-10-02): a folded
+bare 5052 aluminium case (no paint; powder coat is for a later product version) with riveted corner
+tabs, a lid whose 16 mm skirt hangs over the outside of the walls with six side screws, a folding carry
+handle on two base plates with a ribbed rubber grip, the 2 mm output panel plate (USB-C PD, USB-A,
+12 V car socket and barrel, lit rocker main switch, recessed wake button, printed port marks and an
+accent band), the state-of-charge display with a lit readout, the 230 V AC outlet module with RCD test
+and reset buttons and a lit status light, the 2 mm Anderson Powerpole input plate, the plain pack bay
+door (no window) hinged on its front edge with a piano hinge, a thumb-turn cam latch and a padlock
+hasp over a staple, the 76 mm fan hole with grille, and four 8 mm rubber feet.
 Inside: the SwapCell reference pack, pack bay, finned charge controller, host board, inverter,
 buck converter, fan and intake filter. The grid charger brick (BOM 17) is an accessory. Context is
 a compact bench top with a small folding-stand solar panel wired to the DC input and a phone on
@@ -16,7 +18,7 @@ APPEARANCE MODEL ONLY: no tolerances, no fabrication detail. CONCEPT, NOT FOR FA
 Every main dimension, position and interface comes from PARAMS, pack_frame() and build_parts() in
 model.py (model.py has no derived(); pack_frame() plays that role). Axes as model.py: X along the
 case length (pack slides in from +X), Y front (-Y, output panel) to back, Z up, case floor at Z = 0.
-Differences from model.py are listed in docs/REVIEW.md, session 2026-09-26.
+Differences from model.py are listed in docs/REVIEW.md, sessions 2026-09-26 and 2026-10-02.
 
     from product_model import product_parts
     for p in product_parts(): print(p["name"], p["group"], p["material"])
@@ -27,14 +29,14 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from build123d import Axis, Box, Cylinder, Plane, Pos, Rot, Solid, Sphere, Vector, fillet
-from model import PARAMS, pack_frame
+from model import PARAMS, derived, pack_frame
 
 TITLE = "PowerBox: portable power station built around a swappable SwapCell battery"
 
 RENDER_VIEWS = [
     {"name": "hero", "groups": ["shell", "internal", "context"], "explode": False, "el": 30, "az": -40,
      "note": "Product render from the front right and above (about 30 deg elevation); output panel and AC "
-             "outlet on the front, input panel and pack bay door with its window on the right end, a small "
+             "outlet on the front, input panel and plain pack bay door (hinged on its front edge) on the right end, a small "
              "solar panel behind wired to the DC input and a phone charging on USB-C"},
     {"name": "exploded", "groups": ["shell", "internal", "accessory"], "explode": True, "el": 28, "az": -55,
      "note": "Exploded view from the front right and above (about 28 deg elevation): case, lid and handle; "
@@ -46,14 +48,14 @@ RENDER_VIEWS = [
 ]
 
 # Colours (restrained product palette; kit accent)
-C_BODY = "#E4E6E9"
-C_LID = "#30353C"
+C_BODY = "#C4C9CF"      # bare 5052 aluminium
+C_LID = "#B8BDC4"       # bare aluminium, slightly darker than the body
 C_PANEL = "#1F242B"
 C_BEZEL = "#3A4048"
 C_BLACK = "#15181C"
 C_ACCENT = "#0F766E"
 C_PACK = "#0F766E"
-C_METAL = "#B8BEC6"
+C_METAL = "#8D949D"
 C_ALU = "#C9CED4"
 C_RUBBER = "#24272B"
 C_INK = "#F2F3F1"
@@ -156,42 +158,56 @@ def _union(shapes):
 
 def product_parts(P=PARAMS):
     L, D, H, t = P["case_l"], P["case_d"], P["case_h"], P["sheet_t"]
+    DV = derived(P)
     x0, x1, y0, y1, z0, z1, yc, zc = pack_frame(P)
-    lh = P["lid_h"]
     PF = -D / 2
     out = []
 
     def add(name, shape, color, material, bom, group, explode):
+        # The output panel plate is 2 mm thick (model.py panel_t), thinner than the 4 mm concept faceplate
+        # this file was first drawn on, so the modules, display, AC outlet and prints (BOM 11 to 13) are
+        # moved 2 mm toward the case and the Powerpole parts (BOM 14) 2 mm toward the end wall.
+        if group == "shell" and bom in (11, 12, 13):
+            shape = Pos(0, 2.0, 0) * shape
+        elif group == "shell" and bom == 14:
+            shape = Pos(-2.0, 0, 0) * shape
         out.append({"name": name, "shape": shape, "color": color, "material": material,
                     "bom": bom, "group": group, "explode": tuple(float(v) for v in explode)})
 
     # ------------------------------------------------------------ enclosure body (BOM 1)
     EB = (0, 0, -300)
-    R = 10.0
+    R = 3.0                                        # folded corners: a small bend radius, not a rounded block
     outer = b(-L / 2, L / 2, -D / 2, D / 2, 0, H)
-    outer = _fillet_try(outer, _par(outer, Axis.Z), [R, 8.0, 6.0])
-    outer = _fillet_try(outer, _face_edges(outer, Axis.Z, False), [4.0, 3.0, 2.0])
+    outer = _fillet_try(outer, _par(outer, Axis.Z), [R])
+    outer = _fillet_try(outer, _face_edges(outer, Axis.Z, False), [2.0, 1.5, 1.0])
     inner = b(-L / 2 + t, L / 2 - t, -D / 2 + t, D / 2 - t, t, H + 1)
-    inner = _fillet_try(inner, _par(inner, Axis.Z), [R - t, 7.0, 5.0])
+    inner = _fillet_try(inner, _par(inner, Axis.Z), [max(R - t, 0.8)])
     body = outer - inner
-    body -= b(L / 2 - t - 1, L / 2 + 1, y0 - P["latch_proud"] - 4, y1 + 5, z0 - 2, z1 + 4)   # pack door opening
+    oy0, oy1, oz0, oz1 = DV["door_open"]
+    body -= b(L / 2 - t - 1, L / 2 + 1, oy0, oy1, oz0, oz1)                                   # pack door opening
     for i in range(6):                                                                        # intake slots, +X end
         z = 20 + i * 12
         body -= Pos(L / 2 - t / 2, -65, z + 2.5) * Rot(0, 90, 0) * Box(5, 90, t + 4)
-    for i in range(6):                                                                        # exhaust slots, -X end
-        z = 116 + i * 12
-        body -= b(-L / 2 - 1, -L / 2 + t + 1, -55, 15, z, z + 5)
-    # parting line groove just under the lid joint
-    gro = b(-L / 2 - 2, L / 2 + 2, -D / 2 - 2, D / 2 + 2, H - 1.4, H - 0.6)
-    keep = b(-L / 2 + 0.5, L / 2 - 0.5, -D / 2 + 0.5, D / 2 - 0.5, H - 2, H)
-    keep = _fillet_try(keep, _par(keep, Axis.Z), [R - 0.5, 7.0])
-    body -= gro - keep
-    add("Enclosure body (powder-coated aluminium)", body, C_BODY, "painted", 1, "shell", EB)
+    body -= _xcyl(-L / 2 + t / 2, -20, 150, 38, t + 4)                                        # 76 mm fan hole, -X end
+    add("Enclosure body (bare aluminium)", body, C_BODY, "metal", 1, "shell", EB)
 
-    feet = _union([_zcyl(sx * (L / 2 - 38), sy * (D / 2 - 32), -1.0, 13.0, 2.0)
-                   for sx in (-1, 1) for sy in (-1, 1)])
-    feet = _fillet_try(feet, _face_edges(feet, Axis.Z, False), [0.8, 0.5])
-    add("Rubber feet", feet, C_RUBBER, "rubber", 18, "shell", (0, 0, -360))
+    # corner tabs folded from the end walls onto the outside of the long walls, three blind rivets each
+    tabs, rivs = [], []
+    for sx in (-1, 1):
+        for sy in (-1, 1):
+            xa, xb = sorted((sx * (L / 2 - P["tab_w"]), sx * L / 2))
+            ya, yb = sorted((sy * D / 2, sy * (D / 2 + t)))
+            tabs.append(b(xa, xb, ya, yb, 4, P["tab_top"]))
+            for z in (40, 100, 160):
+                rv = _ycyl(sx * (L / 2 - P["tab_w"] / 2), sy * (D / 2 + t + 0.5), z, 3.2, 1.0)
+                rivs.append(rv)
+    add("Corner tabs (folded from the end walls)", _union(tabs), C_BODY, "metal", 1, "shell", EB)
+    add("Corner tab rivets", _union(rivs), C_METAL, "metal", 18, "shell", EB)
+
+    fh, fd = P["foot_h"], P["foot_d"]
+    feet = _union([_zcyl(sx * 220, sy * 115, -fh / 2, fd / 2, fh) for sx in (-1, 1) for sy in (-1, 1)])
+    feet = _fillet_try(feet, _face_edges(feet, Axis.Z, False), [1.5, 1.0])
+    add("Rubber feet (4, self-adhesive)", feet, C_RUBBER, "rubber", 18, "shell", (0, 0, -360))
 
     # name plate above the output panel (thin raised)
     npl = _rbox(-190, -120, PF - 0.4, PF, 203, 212, Axis.Y, [1.5, 1.0])
@@ -201,37 +217,47 @@ def product_parts(P=PARAMS):
 
     # ------------------------------------------------------------ lid (BOM 2) and screws
     EL = (0, 0, 260)
-    lo = b(-L / 2, L / 2, -D / 2, D / 2, H, H + lh)
-    lo = _fillet_try(lo, _par(lo, Axis.Z), [R, 8.0, 6.0])
-    lo = _fillet_try(lo, _face_edges(lo, Axis.Z, True), [3.0, 2.0, 1.0])
-    li = b(-L / 2 + t, L / 2 - t, -D / 2 + t, D / 2 - t, H - 1, H + lh - t)
-    li = _fillet_try(li, _par(li, Axis.Z), [R - t, 7.0])
+    xo, yo = DV["lid_xi"] + t, DV["lid_yi"] + t           # outside of the skirt
+    lt, lz0 = DV["lid_top"], DV["lid_skirt_z0"]
+    lo = b(-xo, xo, -yo, yo, lz0, lt)
+    lo = _fillet_try(lo, _par(lo, Axis.Z), [R + 2.2])
+    lo = _fillet_try(lo, _face_edges(lo, Axis.Z, True), [2.0, 1.5, 1.0])
+    li = b(-DV["lid_xi"], DV["lid_xi"], -DV["lid_yi"], DV["lid_yi"], lz0 - 1, lt - t)
+    li = _fillet_try(li, _par(li, Axis.Z), [R + 1.0])
     lid = lo - li
     for i in range(7):
         x = -200 + i * 14
-        lid -= _slot_y(x + 3, 30, 115, 6, H + lh - t - 1, H + lh + 1)
-    add("Lid with exhaust slots", lid, C_LID, "painted", 2, "shell", EL)
-    top = H + lh
+        lid -= _slot_y(x + 3, 30, 115, 6, lt - t - 1, lt + 1)
+    add("Lid with exhaust slots (bare aluminium)", lid, C_LID, "metal", 2, "shell", EL)
     scr = []
-    for sx in (-1, 1):
-        for sy in (-1, 1):
-            x, y = sx * (L / 2 - 16), sy * (D / 2 - 16)
-            s = _zcyl(x, y, top + 0.6, 4.0, 1.2)
-            s = _fillet_try(s, _face_edges(s, Axis.Z, True), [0.6, 0.3])
-            s -= b(x - 2.5, x + 2.5, y - 0.5, y + 0.5, top + 0.8, top + 2)
-            scr.append(s)
-    add("Lid screws", _union(scr), C_METAL, "metal", 18, "shell", (0, 0, 300))
+    for sy in (-1, 1):
+        for x in (-150, 0, 150):
+            s_ = _ycyl(x, sy * (yo + 0.6), P["lid_screw_z"], 4.0, 1.2)
+            s_ = _fillet_try(s_, _face_edges(s_, Axis.Y, sy > 0), [0.6, 0.3])
+            s_ -= b(x - 0.5, x + 0.5, sy * (yo + 0.8) - 1.2, sy * (yo + 0.8) + 1.2, P["lid_screw_z"] - 2.5, P["lid_screw_z"] + 2.5)
+            scr.append(s_)
+    add("Lid screws (six, M4, in the skirt)", _union(scr), C_METAL, "metal", 18, "shell", (0, 0, 300))
 
     # ------------------------------------------------------------ carry handle (BOM 3)
     EHd = (0, 0, 360)
+    top = lt
     s_ = P["handle_span"] / 2
+    bt = P["handle_base_t"]
     ph_ = P["handle_post_h"]
     gz = top + ph_ + 4
+    bases, bolts = [], []
+    for sgn in (-1, 1):
+        xa, xb = (-s_ - 10, -s_ + 30) if sgn < 0 else (s_ - 30, s_ + 10)
+        bp = b(xa, xb, -12, 12, top, top + bt)
+        bases.append(_fillet_try(bp, _par(bp, Axis.Z), [3.0, 2.0]))
+    for x in (-s_ - 5, -s_ + 25, s_ - 25, s_ + 5):
+        bolts.append(_zcyl(x, 0, top + bt + 1.5, 4.5, 3.0))
+    add("Handle base plates", _union(bases), C_BLACK, "plastic", 3, "shell", EHd)
+    add("Handle bolts (four, M5)", _union(bolts), C_METAL, "metal", 18, "shell", EHd)
     posts = []
     for x in (-s_ + 10, s_ - 10):
-        p = b(x - 10, x + 10, -12, 12, top, gz) + _xcyl(x, 0, gz, 12.0, 20)
+        p = b(x - 10, x + 10, -12, 12, top + bt, gz) + _xcyl(x, 0, gz, 12.0, 20)
         p = _fillet_try(p, _par(p, Axis.Z), [4.0, 2.0])
-        p = _fillet_try(p, _face_edges(p, Axis.Z, False), [1.5, 1.0])
         posts.append(p)
     add("Handle hinge posts", _union(posts), C_BLACK, "plastic", 3, "shell", EHd)
     ferr = _xcyl(-s_ + 21.5, 0, gz, 10.5, 3) + _xcyl(s_ - 21.5, 0, gz, 10.5, 3)
@@ -244,10 +270,11 @@ def product_parts(P=PARAMS):
 
     # ------------------------------------------------------------ output panel (BOM 11)
     EP = (0, -460, -40)
-    fp = b(-190, 200, PF - 4, PF, 40, 195)
+    px0, px1, pz0, pz1 = DV["out_panel"]                 # 2 mm plate (drawn at PF-4 to PF-2, moved 2 mm by add())
+    fp = b(px0, px1, PF - 4, PF - 2, pz0, pz1)
     fp = _fillet_try(fp, _par(fp, Axis.Y), [8.0, 6.0])
-    fp = _fillet_try(fp, _face_edges(fp, Axis.Y, False), [1.0, 0.6])
-    add("Output panel faceplate", fp, C_PANEL, "plastic", 11, "shell", EP)
+    fp = _fillet_try(fp, _face_edges(fp, Axis.Y, False), [0.8, 0.5])
+    add("Output panel plate (2 mm)", fp, C_PANEL, "plastic", 11, "shell", EP)
     band = b(-180, 60, PF - 4.3, PF - 4, 47, 50)
     add("Output panel accent band", band, C_ACCENT, "painted", 11, "shell", EP)
 
@@ -269,26 +296,26 @@ def product_parts(P=PARAMS):
     add("USB-A ports", _union(usba), C_METAL, "metal", 11, "shell", EP)
     add("USB-A port tongues", _union(tongues), C_ACCENT, "plastic", 11, "shell", EP)
     # 12 V car socket and barrel jack, both r 14 bezels as model.py
-    car = _ycyl(-140, PF - 7, 85, 14, 6)
+    car = _ycyl(-140, PF - 7, 100, 14, 6)
     car = _fillet_try(car, _face_edges(car, Axis.Y, False), [1.5, 1.0])
-    car -= _ycyl(-140, PF - 8, 85, 10.5, 6)
-    car += _ycyl(-140, PF - 5.5, 85, 2.2, 2.0)
-    brl = _ycyl(-90, PF - 7, 85, 14, 6)
+    car -= _ycyl(-140, PF - 8, 100, 10.5, 6)
+    car += _ycyl(-140, PF - 5.5, 100, 2.2, 2.0)
+    brl = _ycyl(-90, PF - 7, 100, 14, 6)
     brl = _fillet_try(brl, _face_edges(brl, Axis.Y, False), [1.5, 1.0])
-    brl -= _ycyl(-90, PF - 8, 85, 4.2, 6)
+    brl -= _ycyl(-90, PF - 8, 100, 4.2, 6)
     add("12 V sockets (car socket, barrel)", car + brl, C_BEZEL, "plastic", 11, "shell", EP)
-    pins = _ycyl(-140, PF - 8.2, 85, 1.4, 1.0) + _ycyl(-90, PF - 6.0, 85, 1.0, 2.0)
+    pins = _ycyl(-140, PF - 8.2, 100, 1.4, 1.0) + _ycyl(-90, PF - 6.0, 100, 1.0, 2.0)
     add("12 V socket contacts", pins, C_METAL, "metal", 11, "shell", EP)
-    # main rocker switch
-    frame = _rbox(-20, 5, PF - 8, PF - 4, 150, 180, Axis.Y, [2.5, 1.5])
-    frame -= b(-17, 2, PF - 9, PF - 5, 153, 177)
+    # lit rocker main switch: snap-in, 22 x 30 mm hole, 25 x 33 mm bezel (model.py, BOM 11)
+    frame = _rbox(-20.5, 4.5, PF - 8, PF - 4, 148.5, 181.5, Axis.Y, [2.5, 1.5])
+    frame -= b(-17.5, 1.5, PF - 9, PF - 5, 152, 178)
     add("Main switch bezel", frame, C_BLACK, "plastic", 11, "shell", EP)
-    rock = Pos(-7.5, PF - 6, 165) * Rot(10, 0, 0) * Box(18, 8, 23)
+    rock = Pos(-8, PF - 6, 165) * Rot(10, 0, 0) * Box(17, 8, 23)
     rock = _fillet_try(rock, rock.edges().filter_by(Axis.X), [2.0, 1.2])
-    rock &= b(-17, 2, PF - 12, PF - 5, 153, 177)
-    add("Main rocker switch", rock, C_BEZEL, "plastic", 11, "shell", EP)
-    lit = b(-13, -2, PF - 11.8, PF - 10.2, 170.5, 172.0)
-    add("Main switch indicator (lit)", lit, C_LIT, "emissive", 11, "shell", EP)
+    rock &= b(-17.5, 1.5, PF - 12, PF - 5, 152, 178)
+    add("Main rocker switch (lit)", rock, C_BEZEL, "plastic", 11, "shell", EP)
+    lit = b(-14, -1, PF - 11.8, PF - 10.2, 167, 175)
+    add("Main switch lamp (lit)", lit, C_LIT, "emissive", 11, "shell", EP)
     # recessed wake button (bezel ring as model.py)
     wb = _ycyl(30, PF - 5, 165, 8, 2) - _ycyl(30, PF - 5, 165, 5, 3)
     add("Wake button bezel", wb, C_METAL, "metal", 11, "shell", EP)
@@ -298,7 +325,7 @@ def product_parts(P=PARAMS):
     # printed port marks
     marks = [b(-147, -135, PF - 4.3, PF - 4, 138, 140), b(-117, -105, PF - 4.3, PF - 4, 138, 140),
              b(-82, -73, PF - 4.3, PF - 4, 138, 140), b(-57, -48, PF - 4.3, PF - 4, 138, 140),
-             b(-152, -128, PF - 4.3, PF - 4, 64, 67), b(-102, -78, PF - 4.3, PF - 4, 64, 67),
+             b(-152, -128, PF - 4.3, PF - 4, 79, 82), b(-102, -78, PF - 4.3, PF - 4, 79, 82),
              b(-17, 2, PF - 4.3, PF - 4, 142, 144), b(22, 38, PF - 4.3, PF - 4, 153, 155),
              b(-180, -60, PF - 4.3, PF - 4, 128, 129), b(10, 60, PF - 4.3, PF - 4, 58, 60)]
     add("Output panel print", _union(marks), C_INK, "paper", 11, "shell", EP)
@@ -346,10 +373,11 @@ def product_parts(P=PARAMS):
 
     # ------------------------------------------------------------ input panel (BOM 14), +X end
     EI = (220, 0, 260)
-    ip = b(L / 2, L / 2 + 4, -115, -15, 120, 195)
+    iy0p, iy1p, iz0p, iz1p = DV["in_panel"]                  # 2 mm plate (drawn at L/2+2 to L/2+4, moved 2 mm by add())
+    ip = b(L / 2 + 2, L / 2 + 4, iy0p, iy1p, iz0p, iz1p)
     ip = _fillet_try(ip, _par(ip, Axis.X), [6.0, 4.0])
     ip = _fillet_try(ip, _face_edges(ip, Axis.X, True), [1.0, 0.6])
-    add("Input panel plate", ip, C_PANEL, "plastic", 14, "shell", EI)
+    add("Input panel plate (2 mm)", ip, C_PANEL, "plastic", 14, "shell", EI)
     flanges, reds, blacks, caps = [], [], [], []
     for y in (-100, -55):
         f = _rbox(L / 2 + 4, L / 2 + 7, y, y + 30, 140, 175, Axis.X, [3.0, 2.0])
@@ -366,30 +394,25 @@ def product_parts(P=PARAMS):
     add("Input panel print (DC IN, CHARGER)", _union(caps), C_INK, "paper", 14, "shell", EI)
 
     # ------------------------------------------------------------ pack bay door (BOM 6)
+    # Plain 1.2 mm door (no window, decided 2026-10-02) hinged on its FRONT edge (toward the output panel,
+    # -Y) with a piano hinge; thumb-turn cam latch near the back edge; hasp tab over a flush padlock staple.
     EDr = (680, 0, 0)
     dt = P["door_t"]
-    dy0, dy1 = y0 - P["latch_proud"] - 6, y1 + 7
-    dz0, dz1 = z0 - 4, z1 + 6
-    door = b(L / 2, L / 2 + dt, dy0, dy1, dz0, dz1)
-    door = _fillet_try(door, _par(door, Axis.X), [6.0, 4.0])
-    door = _fillet_try(door, _face_edges(door, Axis.X, True), [1.5, 1.0])
-    win = _rbox(L / 2 - 1, L / 2 + dt + 1, 28, 54, 18, 94, Axis.X, [4.0, 3.0])
-    door -= win
-    add("Pack bay door", door, C_BODY, "painted", 6, "shell", EDr)
-    pane = _rbox(L / 2 + 1.5, L / 2 + 4, 28, 54, 18, 94, Axis.X, [4.0, 3.0])
-    add("Pack bay door window (clear)", pane, C_WINDOW, "clear", 6, "shell", EDr)
-    pull = b(L / 2 + dt + 5, L / 2 + dt + 8, 60, 90, 49, 61)
-    pull = _fillet_try(pull, _par(pull, Axis.X), [2.0, 1.0])
-    pull += b(L / 2 + dt, L / 2 + dt + 5, 60, 66, 51, 59) + b(L / 2 + dt, L / 2 + dt + 5, 84, 90, 51, 59)
-    add("Door pull", pull, C_METAL, "metal", 6, "shell", EDr)
-    eye = b(L / 2 + dt, L / 2 + dt + 7, 100, 108, 70, 88)
-    eye = _fillet_try(eye, _par(eye, Axis.Y), [3.0, 2.0])
-    eye -= _ycyl(L / 2 + dt + 3.5, 104, 82, 2.5, 12)
-    add("Padlock eye", eye, C_METAL, "metal", 6, "shell", EDr)
-    hinge = _union([_zcyl(L / 2 + dt + 2, dy1 - 4, zz, 3.0, 18) for zz in (dz0 + 14, (dz0 + dz1) / 2, dz1 - 14)])
-    add("Door hinge knuckles", hinge, C_METAL, "metal", 6, "shell", EDr)
-    catch = _rbox(L / 2 + 0.2, L / 2 + dt + 0.4, 22, 26, 44, 66, Axis.X, [1.0, 0.5])
-    add("Door magnetic catch strip", catch, C_BLACK, "plastic", 6, "shell", EDr)
+    dy0, dy1, dz0, dz1 = DV["door"]
+    door = b(L / 2, L / 2 + dt, dy0, dy1, dz0, dz1) + b(L / 2, L / 2 + dt, 100, dy1, dz1, 142)
+    door = _fillet_try(door, _par(door, Axis.X), [4.0, 3.0])
+    door -= b(L / 2 - 1, L / 2 + dt + 1, 104, 122, 116, 136)                      # hasp slot
+    door -= _xcyl(L / 2 + dt / 2, 111, 56, 9.75, dt + 2)                          # latch hole
+    add("Pack bay door (plain)", door, C_LID, "metal", 6, "shell", EDr)
+    kx, ky = L / 2 + 3.0, 15.5
+    hinge = (b(L / 2, L / 2 + 1, 4, ky, dz0 + 4, dz1 - 4) + b(L / 2 + dt, L / 2 + dt + 1, ky, 30, dz0 + 4, dz1 - 4)
+             + _zcyl(kx, ky, (dz0 + dz1) / 2, 2.3, dz1 - dz0 - 8))
+    add("Piano hinge (front edge)", hinge, C_METAL, "metal", 6, "shell", EDr)
+    latch = (_xcyl(L / 2 + dt + 1.5, 111, 56, 12.0, 3.0) + b(L / 2 + dt + 3, L / 2 + dt + 15, 108, 114, 46, 66))
+    latch = _fillet_try(latch, _par(latch, Axis.Y), [1.5, 1.0])
+    add("Thumb-turn cam latch", latch, C_BLACK, "plastic", 6, "shell", EDr)
+    staple = b(L / 2 + dt, L / 2 + 11, 110.5, 115.5, 121, 131) - b(L / 2 + dt + 2, L / 2 + 9, 110, 116, 123, 129)
+    add("Padlock staple (through the hasp slot)", staple, C_METAL, "metal", 6, "shell", EDr)
 
     # ------------------------------------------------------------ fan grille (BOM 15), -X end
     EF = (-120, 300, -20)
@@ -502,7 +525,7 @@ def product_parts(P=PARAMS):
     brick = _fillet_try(brick, _par(brick, Axis.X), [8.0, 5.0])
     brick = _fillet_try(brick, _face_edges(brick, Axis.X, True), [3.0, 2.0])
     brick = _fillet_try(brick, _face_edges(brick, Axis.X, False), [3.0, 2.0])
-    add("Grid charger brick (54.6 V, 5 A)", brick, C_LID, "plastic", 17, "accessory", EG)
+    add("Grid charger brick (54.6 V, 5 A)", brick, "#30353C", "plastic", 17, "accessory", EG)
     add("Charger label", b(gx0 + 30, gx0 + 120, gy0 - 0.4, gy0, 10, 32), C_LABEL, "paper", 17, "accessory", EG)
     lead = _pipe([(gx0 + 170, gy0 + 36, 21), (gx0 + 215, gy0 + 36, 21), (gx0 + 240, gy0 + 60, 8),
                   (gx0 + 240, gy0 + 140, 8)], 3.5)
@@ -511,12 +534,12 @@ def product_parts(P=PARAMS):
     add("Charger Powerpole plug", ppl, C_PP_RED, "plastic", 17, "accessory", EG)
 
     # ------------------------------------------------------------ context: bench top, solar panel, phone
-    add("Bench top (oak)", _rbox(-280, 345, -290, 375, -32, -2, Axis.Z, [12.0, 8.0]), C_WOOD, "wood", None,
+    add("Bench top (oak)", _rbox(-280, 345, -290, 375, -38, -8, Axis.Z, [12.0, 8.0]), C_WOOD, "wood", None,
         "context", (0, 0, 0))
     # small 50 W panel on a folding stand behind the case, leaning back 30 deg, facing front
     tilt = 30.0
     pw_, ph2, pt_ = 380.0, 300.0, 22.0
-    py_bot, pz_bot, pcx = 170.0, -2.0, 60.0
+    py_bot, pz_bot, pcx = 170.0, -8.0, 60.0
     ploc = Pos(pcx, py_bot, pz_bot) * Rot(-tilt, 0, 0)          # local: X across, Z up the slope, -Y is the face
 
     def pl(x0_, x1_, y0_, y1_, z0_, z1_):
@@ -532,36 +555,36 @@ def product_parts(P=PARAMS):
     legs = []
     for sx in (-1, 1):
         tp = (ploc * Pos(sx * 130, pt_, ph2 * 0.62)).position
-        legs.append(_pipe([(tp.X, tp.Y, tp.Z), (tp.X, 355.0, 3.0)], 5.0))
+        legs.append(_pipe([(tp.X, tp.Y, tp.Z), (tp.X, 355.0, -3.0)], 5.0))
     legs = _union(legs)
     add("Solar panel stand legs", legs, C_FRAME, "metal", None, "context", (0, 0, 0))
     jb = pl(95, 145, pt_, pt_ + 16, 30, 70)
     add("Solar panel junction box", jb, C_BLACK, "plastic", None, "context", (0, 0, 0))
     # panel lead to the DC IN Powerpole on the +X end
     iy = -85.0
-    plug = b(L / 2 + 18, L / 2 + 32, iy - 13, iy + 13, 146, 169)
+    plug = b(L / 2 + 16, L / 2 + 30, iy - 13, iy + 13, 146, 169)
     plug = _fillet_try(plug, _par(plug, Axis.X), [2.0, 1.0])
     add("Solar lead Powerpole plug", plug, C_PP_RED, "plastic", None, "context", (0, 0, 0))
     jv = (ploc * Pos(120, pt_ + 16, 50)).position
     jbw = (jv.X, jv.Y, jv.Z)
-    cable = _pipe([(L / 2 + 32, iy, 157.5), (L / 2 + 55, iy, 157.5), (L / 2 + 72, iy, 120),
-                   (L / 2 + 80, iy + 10, 4), (L / 2 + 85, 150, 4), (jbw[0] + 10, jbw[1] + 30, 4),
+    cable = _pipe([(L / 2 + 30, iy, 157.5), (L / 2 + 55, iy, 157.5), (L / 2 + 72, iy, 120),
+                   (L / 2 + 80, iy + 10, -2), (L / 2 + 85, 150, -2), (jbw[0] + 10, jbw[1] + 30, -2),
                    (jbw[0], jbw[1] + 8, jbw[2] - 10), jbw], 3.5)
     add("Solar panel lead", cable, C_CABLE, "rubber", None, "context", (0, 0, 0))
     # phone charging from USB-C on the bench in front of the case
     ph_x0, ph_x1, ph_y0, ph_y1 = -250, -95, -262, -187
-    phone = b(ph_x0, ph_x1, ph_y0, ph_y1, -2, 6)
+    phone = b(ph_x0, ph_x1, ph_y0, ph_y1, -8, 0)
     phone = _fillet_try(phone, _par(phone, Axis.Z), [9.0, 6.0])
     phone = _fillet_try(phone, _face_edges(phone, Axis.Z, True), [2.0, 1.0])
     add("Phone (scale)", phone, "#2B2F36", "plastic", None, "context", (0, 0, 0))
-    scr_ = b(ph_x0 + 5, ph_x1 - 5, ph_y0 + 5, ph_y1 - 5, 5.9, 6.2)
+    scr_ = b(ph_x0 + 5, ph_x1 - 5, ph_y0 + 5, ph_y1 - 5, -0.1, 0.2)
     scr_ = _fillet_try(scr_, _par(scr_, Axis.Z), [6.0, 4.0])
     add("Phone screen", scr_, "#0E1216", "screen", None, "context", (0, 0, 0))
-    uplug = _rbox(-148, -134, PF - 26, PF - 8, 146.5, 153.5, Axis.Y, [3.0, 2.0])
-    pplug = _rbox(ph_x1, ph_x1 + 18, -228, -221, 0, 6, Axis.X, [2.5, 1.5])
+    uplug = _rbox(-148, -134, PF - 24, PF - 6, 146.5, 153.5, Axis.Y, [3.0, 2.0])
+    pplug = _rbox(ph_x1, ph_x1 + 18, -228, -221, -6, 0, Axis.X, [2.5, 1.5])
     add("USB-C cable plugs", uplug + pplug, "#E5E7EB", "plastic", None, "context", (0, 0, 0))
-    ucab = _pipe([(-141, PF - 26, 150), (-141, PF - 40, 150), (-130, PF - 60, 110), (-100, PF - 75, 30),
-                  (-70, -205, 4), (-60, -224.5, 3), (ph_x1 + 18, -224.5, 3)], 2.2)
+    ucab = _pipe([(-141, PF - 24, 150), (-141, PF - 40, 150), (-130, PF - 60, 110), (-100, PF - 75, 30),
+                  (-70, -205, -2), (-60, -224.5, -3), (ph_x1 + 18, -224.5, -3)], 2.2)
     add("USB-C cable", ucab, "#E5E7EB", "rubber", None, "context", (0, 0, 0))
     return out
 

@@ -3,7 +3,7 @@ doc_id: PBX-CAL-001
 title: PowerBox sizing calculations
 project: PowerBox
 doc_type: Calculation note
-version: "0.3"
+version: "0.4"
 status: Draft
 date: '2026-10-02'
 author: Amish Chadha
@@ -21,11 +21,15 @@ revisions:
   date: '2026-10-02'
   author: Amish Chadha
   change: "R2 status from Amish's 2026-10-02 restatement (1.8 evenings, PBX-DEC-001 item 5): met on paper. Figures not rerun; sizing.py still prints the 2-evening target"
+- version: "0.4"
+  date: '2026-10-02'
+  author: Amish Chadha
+  change: "sizing.py rerun with the R2 target restated to 1.8 evenings (R2 met); lit rocker main switch (USD 1 more) brings the cost to USD 483, USD 33 over the target; results.csv regenerated"
 ---
 
 # PowerBox sizing calculations
 
-On paper, PowerBox meets nine of its twelve requirements. One SwapCell pack runs the reference evening 1.87 times (1.81 with minimum-capacity cells), short of the two evenings first set; on 2026-10-02 Amish restated R2 as 1.8 evenings (PBX-DEC-001, item 5), so **R2 is met on paper**. R6 (DC input efficiency) is **at risk**, R11 (cost) is reported against a value-engineering target (USD 482 against USD 450, USD 32 over), and R12 (swap time) cannot be verified until users try it. Version 0.2 reprices and reweighs the constructable design of PBX-DDR-003: 9.42 kg with the pack (R10 still met) and 480 x 279 x 275 mm overall. Two TRL 2 figures were wrong and are corrected here: the 48 V to 12 V converter was too small for the full DC output set (26.5 A needed, 20 A fitted, now 30 A), and the mass rises from about 8.3 to 8.6 kg with the SwapCell v0.3 pack and the real sheet areas. SwapCell interface v0.3 removes both TRL 2 interface blockers: PowerBox wakes the pack through its INTERLOCK loop and runs loads while charging in station mode.
+On paper, PowerBox meets nine of its twelve requirements. One SwapCell pack runs the reference evening 1.87 times (1.81 with minimum-capacity cells), short of the two evenings first set; on 2026-10-02 Amish restated R2 as 1.8 evenings (PBX-DEC-001, item 5), so **R2 is met on paper** (the script now carries the restated target). R6 (DC input efficiency) is **at risk**, R11 (cost) is reported against a value-engineering target (USD 483 against USD 450, USD 33 over), and R12 (swap time) cannot be verified until users try it. Version 0.2 repriced and reweighs the constructable design of PBX-DDR-003: 9.42 kg with the pack (R10 still met) and 480 x 279 x 275 mm overall. Two TRL 2 figures were wrong and are corrected here: the 48 V to 12 V converter was too small for the full DC output set (26.5 A needed, 20 A fitted, now 30 A), and the mass rises from about 8.3 to 8.6 kg with the SwapCell v0.3 pack and the real sheet areas. SwapCell interface v0.3 removes both TRL 2 interface blockers: PowerBox wakes the pack through its INTERLOCK loop and runs loads while charging in station mode.
 
 Every number here is printed by `docs/04-calcs/sizing.py` (run from the repo root: `python docs/04-calcs/sizing.py`), which also writes `docs/04-calcs/results.csv`. The script reads the case dimensions from `cad/src/model.py` and the costs from `bom/bom.csv`. All values are first-principles estimates; nothing is measured.
 
@@ -153,7 +157,7 @@ The constructable design weighs 0.81 kg more than the concept, mostly in the she
 
 ## 11. Cost (R11)
 
-Value-engineering target: USD 450 (a hypothetical control target, not a limit; Amish, 2026-10-01). Estimated cost of the constructable design: **USD 482** for 18 BOM lines, excluding the SwapCell pack, which Amish decided on 2026-09-25 is priced once in the SwapCell BOM (about $414). That is **USD 32 over the target**; the concept design was USD 449. Making the design constructable added USD 33: rivet nuts and window cut-outs in the body, a deeper lid skirt, the handle doubler, the shelf, brackets, runners and rail, the door hinge, cam latch and staple, the filter frame, the protection plate and more fixings. A household or charging point with a SwapCell dock can omit the grid charger, bringing the parts to USD 432. For reference only, one PowerBox with its own pack is about USD 896. The savings worth trying are listed in the design decisions register (PBX-DEC-001).
+Value-engineering target: USD 450 (a hypothetical control target, not a limit; Amish, 2026-10-01). Estimated cost of the constructable design: **USD 483** for 18 BOM lines, excluding the SwapCell pack, which Amish decided on 2026-09-25 is priced once in the SwapCell BOM (about $414). That is **USD 33 over the target**; the concept design was USD 449. The lit rocker main switch decided on 2026-10-02 adds USD 1 (USD 46 to USD 47 for the output panel line). Making the design constructable added USD 33: rivet nuts and window cut-outs in the body, a deeper lid skirt, the handle doubler, the shelf, brackets, runners and rail, the door hinge, cam latch and staple, the filter frame, the protection plate and more fixings. A household or charging point with a SwapCell dock can omit the grid charger, bringing the parts to USD 433. For reference only, one PowerBox with its own pack is about USD 897. The savings worth trying are listed in the design decisions register (PBX-DEC-001).
 
 ## 12. Runtime
 
@@ -180,7 +184,7 @@ Energy flow per usable cycle (DC input to loads, evening mix): 470 Wh at the DC 
 | --- | --- | --- | --- |
 | R2 | 1.87 evenings (225 Wh per evening from the pack); 1.81 with minimum cells | 1.8 evenings (restated 2026-10-02) | Met on paper |
 | R6 | 90.5 % worst case (model); MPPT stability not analysed | 90 % or more from 40 to 200 W; stable MPPT | At risk |
-| R11 | USD 482 excluding the pack | Value-engineering target USD 450 | Over the target by USD 32 |
+| R11 | USD 483 excluding the pack | Value-engineering target USD 450 | Over the target by USD 33 |
 | R12 | Door, runners and class D catch; display reads PACK_STATUS and PACK_LIMITS | 30 s swap; status display | Not verifiable at TRL 3 |
 | R1 | 419 Wh usable (407 Wh with minimum cells) | 400 Wh or more | Met |
 | R3 | DC in 12 to 60 V 200 W MPPT; charger in; pack swap; SunSpoke panel | Four sources | Met (design review) |

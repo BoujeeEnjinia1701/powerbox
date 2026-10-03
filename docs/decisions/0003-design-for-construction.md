@@ -3,7 +3,7 @@ doc_id: PBX-DDR-003
 title: PowerBox design for construction
 project: PowerBox
 doc_type: Design decision record
-version: "0.2"
+version: "0.3"
 status: Draft
 date: '2026-10-02'
 author: Amish Chadha
@@ -17,6 +17,10 @@ revisions:
   date: '2026-10-02'
   author: Amish Chadha
   change: "Accepted by Amish on 2026-10-02 (Tables 1 to 3); record stays Draft"
+- version: "0.3"
+  date: '2026-10-02'
+  author: Amish Chadha
+  change: "Cost line updated to USD 483 with the lit rocker switch; follow-up on the renders marked done (appearance model updated; renders made on Amish's Mac)"
 ---
 
 # 0003: Design for construction
@@ -55,7 +59,7 @@ The changes below keep what PowerBox does: the same case size, pack position and
 | --- | --- | --- |
 | Mass | 9.42 kg with the pack (was 8.61 kg), 0.58 kg under R10's 10 kg (PBX-CAL-001 v0.2, Table 4). | The shelf, brackets, runners, panel plates, door hardware and fixings drawn with real thickness. |
 | Size | 480 x 279 x 275 mm overall (was 482 x 276 x 278 mm); R10 still met with 5 mm to spare in height. | Lid over the walls, 8 mm feet, panel plates. |
-| Cost | Value-engineering target: USD 450. Estimated cost of the constructable design: USD 482 (USD 32 over the target); the concept was USD 449. BOM lines 1, 2, 3, 5, 6, 15, 16 and 18 repriced. | Parts added for construction. |
+| Cost | Value-engineering target: USD 450. Estimated cost of the constructable design: USD 483 (USD 33 over the target); the concept was USD 449. BOM lines 1, 2, 3, 5, 6, 15, 16 and 18 repriced. | Parts added for construction. |
 | Thermal | Unchanged: the same heat sources, fan and intake area; the exhaust open area behind the fan rises from about 2,100 to 4,500 mm². | |
 | Drawings | PBX-DWG-001 Rev P2; making sketches PBX-DWG-101 to 113 added. | Follows the model. |
 | Documents | PBX-CAL-001 v0.2, PBX-REQ-001 v0.5, PBX-PRC-001 v0.6: mass, size and cost; the budget is reported as a value-engineering target. No requirement changed status except R11, now reported against its target. | Follows the model. |
@@ -72,5 +76,5 @@ The changes below keep what PowerBox does: the same case size, pack position and
 ## Consequences
 
 - `design_state: constructable` in `project.yaml`. The build plan PBX-BLD-001 shows every component and step in pictures generated from the model (`cad/src/build_plan_media.py`).
-- The photoreal renders (`media/render-*.png`), `media/card.png`, `media/social-preview.png` and the appearance model `cad/src/product_model.py` still show the concept lid, door, panels and fan end; they need updating on Amish's Mac, with the door hinged on its front edge (A1), no door window, a lit rocker main switch and a bare aluminium case (PBX-DEC-001, items 9, 11 and 12).
+- The photoreal renders (`media/render-*.png`), `media/card.png`, `media/social-preview.png` and the appearance model `cad/src/product_model.py` the appearance model `cad/src/product_model.py` was updated on 2026-10-02 to this design (lid skirt, door hinged on its front edge with no window, lit rocker main switch, bare aluminium case, 76 mm fan hole, 8 mm feet; PBX-DEC-001, items 9, 11 and 12). The photoreal renders, card and social preview are remade on Amish's Mac from the exported scenes.
 - Several bought parts must be checked against their datasheets when they are chosen at TRL 4 (the design decisions register PBX-DEC-001 lists them): hole patterns of the catch, receptacle mount, inverter and converter feet, cam latch grip, panel cut-outs, and the voltage rating of the fuse block.

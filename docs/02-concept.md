@@ -3,7 +3,7 @@ doc_id: PBX-PRC-001
 title: PowerBox design precis
 project: PowerBox
 doc_type: Design precis
-version: "0.7"
+version: "0.8"
 status: Draft
 date: '2026-10-02'
 author: Amish Chadha
@@ -37,11 +37,15 @@ revisions:
   date: '2026-10-02'
   author: Amish Chadha
   change: "Decisions of 2026-10-02: R2 restated (met on paper), national AC socket with bonded earth, bare aluminium case, lit rocker switch, per-port metering, theft resistance, first candidate partner type, SwapCell transition action"
+- version: "0.8"
+  date: '2026-10-02'
+  author: Amish Chadha
+  change: "Cost USD 483 (USD 33 over the target) with the lit rocker main switch (PBX-CAL-001 v0.4); figures and pictures regenerated"
 ---
 
 # PowerBox design precis
 
-PowerBox is an aluminium carry case about the size of a small toolbox (460 x 260 x 220 mm body, 480 x 279 x 275 mm overall) with a SwapCell pack sliding into a bay through an end door. A charge controller takes DC from a solar panel, a certified external charger takes grid power, and a charged pack from a SunSpoke bike can simply be swapped in. Power leaves through USB-C PD, USB-A, 12 V sockets and one 300 W, 230 V pure sine AC outlet behind a 30 mA RCD. It never connects to household wiring. The sizing note PBX-CAL-001 shows one pack gives 419 Wh usable, which runs the reference evening of lights, phones, radio and a router **1.87 times (1.81 with minimum-capacity cells), above the 1.8 evenings of R2** as Amish restated it on 2026-10-02. The constructable design (PBX-DDR-003) weighs about 9.4 kg with the pack. Value-engineering target: USD 450. Estimated cost of the constructable design: USD 482 without the pack (USD 32 over the target). How to build the prototype is in the build plan PBX-BLD-001.
+PowerBox is an aluminium carry case about the size of a small toolbox (460 x 260 x 220 mm body, 480 x 279 x 275 mm overall) with a SwapCell pack sliding into a bay through an end door. A charge controller takes DC from a solar panel, a certified external charger takes grid power, and a charged pack from a SunSpoke bike can simply be swapped in. Power leaves through USB-C PD, USB-A, 12 V sockets and one 300 W, 230 V pure sine AC outlet behind a 30 mA RCD. It never connects to household wiring. The sizing note PBX-CAL-001 shows one pack gives 419 Wh usable, which runs the reference evening of lights, phones, radio and a router **1.87 times (1.81 with minimum-capacity cells), above the 1.8 evenings of R2** as Amish restated it on 2026-10-02. The constructable design (PBX-DDR-003) weighs about 9.4 kg with the pack. Value-engineering target: USD 450. Estimated cost of the constructable design: USD 483 without the pack (USD 33 over the target). How to build the prototype is in the build plan PBX-BLD-001.
 
 PowerBox builds to **SwapCell interface v0.3**. It is a station host (item C), so it can run loads while charging from solar; its receptacle carries the 10 kΩ INTERLOCK coding resistor that wakes a sleeping pack (item W); and its bay uses a class D latch catch (item V).
 
@@ -118,8 +122,8 @@ All values come from PBX-CAL-001 (`docs/04-calcs/sizing.py`) and are paper estim
 | Heat at full load while charging | 60 W; air rise about 6 K with the fan | Inverter 41 W, buck 6.4 W, controller 12 W, host 1 W | Fan needed |
 | Mass | 9.4 kg (20.8 lb) with pack | Pack 2.85, body 1.22, lid 0.47, inverter 1.20, other parts 3.68 kg (constructable design) | R10 met (10 kg); charger brick about 0.8 kg extra |
 | Size | 480 x 279 x 275 mm overall | Parametric model | R10 met, 5 mm spare in height |
-| PowerBox parts cost | USD 482 | `bom/bom.csv`, indicative prices | Value-engineering target USD 450: USD 32 over |
-| Cost with one SwapCell pack | USD 896, for reference | USD 482 plus USD 414 from the SwapCell BOM | Pack excluded from this budget (decided) |
+| PowerBox parts cost | USD 483 | `bom/bom.csv`, indicative prices | Value-engineering target USD 450: USD 33 over |
+| Cost with one SwapCell pack | USD 897, for reference | USD 483 plus USD 414 from the SwapCell BOM | Pack excluded from this budget (decided) |
 
 *Table 3. Runtime on one full pack (419 Wh usable) for single loads.*
 
@@ -196,7 +200,7 @@ Items that remain open after PBX-DDR-001 and PBX-DDR-002. None of them is TRL 4 
 - **Legacy-to-station transition.** SwapCell interface v0.3 does not say whether a pack in legacy discharge accepts a station heartbeat and moves to mode 2 or 4 without opening its output. PowerBox's host is powered from the pack and depends on this. Kept with SwapCell as one cross-repo action shared with MotionCore, with an answer needed before PowerBox's interface is frozen; if the answer is no, a small hold-up capacitor for the host is planned across the mode change (decided by Amish, 2026-10-02).
 - **Inverter selection.** Confirm idle draw, light-load efficiency and an isolated output whose neutral can be bonded for the RCD.
 - **Charge controller selection (R6, at risk).** Confirm 90 % or more at 12 V and 200 W and at 40 W, and stable tracking.
-- **Value engineering (R11).** The constructable design is USD 32 over the USD 450 value-engineering target on indicative prices; the savings worth trying are in the design decisions register (PBX-DEC-001).
+- **Value engineering (R11).** The constructable design is USD 33 over the USD 450 value-engineering target on indicative prices; the savings worth trying are in the design decisions register (PBX-DEC-001).
 - **Theft resistance and metering (decided 2026-10-02).** Thumb-turn cam latch and padlock hasp for the prototype, a keyed cam latch if the first partner runs an unattended or shared charging point; per-port energy and session counts on the display, not for billing.
 - **First co-design partner (decided 2026-10-02).** A partner in a 230 V, 50 Hz region that runs or supplies community charging or solar home systems; the first candidate type to approach is a solar distribution charity such as SolarAid, which works in Zambia and Malawi. Nothing is agreed. The load profile, pack-swap routine and price must be validated with users.
 

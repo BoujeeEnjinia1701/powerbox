@@ -124,10 +124,10 @@
       <line x1="-66.1" y1="22.4" x2="-51.1" y2="22.4" />
       <circle cx="-146.1" cy="-29.6" r="14.0" />
       <circle cx="-96.1" cy="-29.6" r="8.0" />
-      <line x1="-26.1" y1="20.4" x2="-26.1" y2="50.4" />
-      <line x1="-26.1" y1="20.4" x2="-1.1" y2="20.4" />
-      <line x1="-1.1" y1="20.4" x2="-1.1" y2="50.4" />
-      <line x1="-26.1" y1="50.4" x2="-1.1" y2="50.4" />
+      <line x1="-26.6" y1="18.9" x2="-26.6" y2="51.9" />
+      <line x1="-26.6" y1="18.9" x2="-1.6" y2="18.9" />
+      <line x1="-1.6" y1="18.9" x2="-1.6" y2="51.9" />
+      <line x1="-26.6" y1="51.9" x2="-1.6" y2="51.9" />
       <circle cx="23.9" cy="35.4" r="8.0" />
       <circle cx="23.9" cy="35.4" r="5.0" />
       <line x1="63.9" y1="-59.6" x2="63.9" y2="40.4" />
@@ -2037,10 +2037,10 @@
       <line x1="-52.1" y1="16.4" x2="-52.1" y2="21.4" />
       <line x1="-65.1" y1="16.4" x2="-65.1" y2="21.4" />
       <line x1="-65.1" y1="16.4" x2="-52.1" y2="16.4" />
-      <line x1="-24.1" y1="48.4" x2="-3.1" y2="48.4" />
-      <line x1="-3.1" y1="22.4" x2="-3.1" y2="48.4" />
-      <line x1="-24.1" y1="22.4" x2="-24.1" y2="48.4" />
-      <line x1="-24.1" y1="22.4" x2="-3.1" y2="22.4" />
+      <line x1="-25.1" y1="50.4" x2="-3.1" y2="50.4" />
+      <line x1="-3.1" y1="20.4" x2="-3.1" y2="50.4" />
+      <line x1="-25.1" y1="20.4" x2="-25.1" y2="50.4" />
+      <line x1="-25.1" y1="20.4" x2="-3.1" y2="20.4" />
       <circle cx="189.9" cy="-49.6" r="2.25" />
       <line x1="85.9" y1="20.4" x2="145.9" y2="20.4" />
       <line x1="145.9" y1="-39.6" x2="145.9" y2="20.4" />
@@ -2075,10 +2075,10 @@
       <line x1="-65.1" y1="21.4" x2="-65.1" y2="16.4" />
       <line x1="-52.1" y1="21.4" x2="-52.1" y2="16.4" />
       <line x1="-65.1" y1="16.4" x2="-52.1" y2="16.4" />
-      <line x1="-24.1" y1="48.4" x2="-3.1" y2="48.4" />
-      <line x1="-24.1" y1="48.4" x2="-24.1" y2="22.4" />
-      <line x1="-3.1" y1="48.4" x2="-3.1" y2="22.4" />
-      <line x1="-24.1" y1="22.4" x2="-3.1" y2="22.4" />
+      <line x1="-25.1" y1="50.4" x2="-3.1" y2="50.4" />
+      <line x1="-25.1" y1="50.4" x2="-25.1" y2="20.4" />
+      <line x1="-3.1" y1="50.4" x2="-3.1" y2="20.4" />
+      <line x1="-25.1" y1="20.4" x2="-3.1" y2="20.4" />
       <circle cx="189.9" cy="-49.6" r="2.25" />
       <line x1="85.9" y1="20.4" x2="145.9" y2="20.4" />
       <line x1="85.9" y1="20.4" x2="85.9" y2="-39.6" />
@@ -2122,14 +2122,14 @@
       <circle cx="-146.1" cy="-29.6" r="12.0" />
       <circle cx="-96.1" cy="-29.6" r="8.0" />
       <circle cx="-96.1" cy="-29.6" r="6.0" />
-      <line x1="-26.1" y1="20.4" x2="-26.1" y2="50.4" />
-      <line x1="-26.1" y1="50.4" x2="-1.1" y2="50.4" />
-      <line x1="-26.1" y1="20.4" x2="-1.1" y2="20.4" />
-      <line x1="-1.1" y1="20.4" x2="-1.1" y2="50.4" />
-      <line x1="-24.1" y1="48.4" x2="-3.1" y2="48.4" />
-      <line x1="-3.1" y1="22.4" x2="-3.1" y2="48.4" />
-      <line x1="-24.1" y1="22.4" x2="-3.1" y2="22.4" />
-      <line x1="-24.1" y1="22.4" x2="-24.1" y2="48.4" />
+      <line x1="-26.6" y1="18.9" x2="-26.6" y2="51.9" />
+      <line x1="-26.6" y1="51.9" x2="-1.6" y2="51.9" />
+      <line x1="-26.6" y1="18.9" x2="-1.6" y2="18.9" />
+      <line x1="-1.6" y1="18.9" x2="-1.6" y2="51.9" />
+      <line x1="-25.1" y1="50.4" x2="-3.1" y2="50.4" />
+      <line x1="-3.1" y1="20.4" x2="-3.1" y2="50.4" />
+      <line x1="-25.1" y1="20.4" x2="-3.1" y2="20.4" />
+      <line x1="-25.1" y1="20.4" x2="-25.1" y2="50.4" />
       <circle cx="23.9" cy="35.4" r="8.0" />
       <circle cx="23.9" cy="35.4" r="5.0" />
       <circle cx="23.9" cy="35.4" r="6.0" />
@@ -2911,9 +2911,9 @@
       <line x1="-132.1" y1="-130.5" x2="-132.1" y2="-133.5" />
       <path d="M -88.1,-133.5 L -88.300577,-133.5 L -88.892249,-133.5 L -89.845348,-133.5 L -91.112082,-133.5 L -92.62893,-133.5 L -94.319833,-133.5 L -96.1,-133.5 L -97.880167,-133.5 L -99.57107,-133.5 L -101.087918,-133.5 L -102.354652,-133.5 L -103.307751,-133.5 L -103.899423,-133.5 L -104.1,-133.5" />
       <line x1="-88.1" y1="-131.5" x2="-88.1" y2="-133.5" />
-      <line x1="-26.1" y1="-135.5" x2="-26.1" y2="-127.7" />
-      <line x1="-26.1" y1="-135.5" x2="-1.1" y2="-135.5" />
-      <line x1="-1.1" y1="-135.5" x2="-1.1" y2="-127.7" />
+      <line x1="-26.6" y1="-135.5" x2="-26.6" y2="-127.7" />
+      <line x1="-26.6" y1="-135.5" x2="-1.6" y2="-135.5" />
+      <line x1="-1.6" y1="-135.5" x2="-1.6" y2="-127.7" />
       <path d="M 31.9,-129.5 L 31.699423,-129.5 L 31.107751,-129.5 L 30.154652,-129.5 L 28.887918,-129.5 L 27.37107,-129.5 L 25.680167,-129.5 L 23.9,-129.5 L 22.119833,-129.5 L 20.42893,-129.5 L 18.912082,-129.5 L 17.645348,-129.5 L 16.692249,-129.5 L 16.100577,-129.5 L 15.9,-129.5" />
       <line x1="31.9" y1="-127.7" x2="31.9" y2="-129.5" />
       <line x1="63.9" y1="-139.5" x2="63.9" y2="-127.7" />
@@ -4920,8 +4920,8 @@
       <line x1="-90.1" y1="-127.5" x2="-77.1" y2="-127.5" />
       <line x1="-65.1" y1="-127.5" x2="-52.1" y2="-127.5" />
       <line x1="-65.1" y1="-127.5" x2="-52.1" y2="-127.5" />
-      <line x1="-24.1" y1="-127.5" x2="-3.1" y2="-127.5" />
-      <line x1="-24.1" y1="-127.5" x2="-3.1" y2="-127.5" />
+      <line x1="-25.1" y1="-127.5" x2="-3.1" y2="-127.5" />
+      <line x1="-25.1" y1="-127.5" x2="-3.1" y2="-127.5" />
       <path d="M 192.15,-127.5 L 192.093588,-127.5 L 191.92718,-127.5 L 191.659121,-127.5 L 191.302852,-127.5 L 190.876238,-127.5 L 190.400672,-127.5 L 189.9,-127.5 L 189.399328,-127.5 L 188.923762,-127.5 L 188.497148,-127.5 L 188.140879,-127.5 L 187.87282,-127.5 L 187.706412,-127.5 L 187.65,-127.5" />
       <path d="M 187.65,-127.5 L 187.706412,-127.5 L 187.87282,-127.5 L 188.140879,-127.5 L 188.497148,-127.5 L 188.923762,-127.5 L 189.399328,-127.5 L 189.9,-127.5 L 190.400672,-127.5 L 190.876238,-127.5 L 191.302852,-127.5 L 191.659121,-127.5 L 191.92718,-127.5 L 192.093588,-127.5 L 192.15,-127.5" />
       <line x1="85.9" y1="-127.5" x2="145.9" y2="-127.5" />
@@ -4951,8 +4951,8 @@
       <line x1="-90.1" y1="-125.5" x2="-77.1" y2="-125.5" />
       <line x1="-65.1" y1="-125.5" x2="-52.1" y2="-125.5" />
       <line x1="-65.1" y1="-125.5" x2="-52.1" y2="-125.5" />
-      <line x1="-24.1" y1="-125.5" x2="-3.1" y2="-125.5" />
-      <line x1="-24.1" y1="-125.5" x2="-3.1" y2="-125.5" />
+      <line x1="-25.1" y1="-125.5" x2="-3.1" y2="-125.5" />
+      <line x1="-25.1" y1="-125.5" x2="-3.1" y2="-125.5" />
       <path d="M 192.15,-125.5 L 192.093588,-125.5 L 191.92718,-125.5 L 191.659121,-125.5 L 191.302852,-125.5 L 190.876238,-125.5 L 190.400672,-125.5 L 189.9,-125.5 L 189.399328,-125.5 L 188.923762,-125.5 L 188.497148,-125.5 L 188.140879,-125.5 L 187.87282,-125.5 L 187.706412,-125.5 L 187.65,-125.5" />
       <path d="M 187.65,-125.5 L 187.706412,-125.5 L 187.87282,-125.5 L 188.140879,-125.5 L 188.497148,-125.5 L 188.923762,-125.5 L 189.399328,-125.5 L 189.9,-125.5 L 190.400672,-125.5 L 190.876238,-125.5 L 191.302852,-125.5 L 191.659121,-125.5 L 191.92718,-125.5 L 192.093588,-125.5 L 192.15,-125.5" />
       <line x1="85.9" y1="-125.5" x2="145.9" y2="-125.5" />
@@ -4986,10 +4986,10 @@
       <line x1="-52.1" y1="-127.5" x2="-52.1" y2="-125.5" />
       <line x1="-52.1" y1="-127.5" x2="-52.1" y2="-125.5" />
       <line x1="-65.1" y1="-127.5" x2="-65.1" y2="-125.5" />
-      <line x1="-24.1" y1="-127.5" x2="-24.1" y2="-125.5" />
+      <line x1="-25.1" y1="-127.5" x2="-25.1" y2="-125.5" />
       <line x1="-3.1" y1="-127.5" x2="-3.1" y2="-125.5" />
       <line x1="-3.1" y1="-127.5" x2="-3.1" y2="-125.5" />
-      <line x1="-24.1" y1="-127.5" x2="-24.1" y2="-125.5" />
+      <line x1="-25.1" y1="-127.5" x2="-25.1" y2="-125.5" />
       <line x1="192.15" y1="-125.5" x2="192.15" y2="-127.5" />
       <line x1="85.9" y1="-127.5" x2="85.9" y2="-125.5" />
       <line x1="145.9" y1="-127.5" x2="145.9" y2="-125.5" />
@@ -5063,19 +5063,19 @@
       <line x1="-90.1" y1="-100.5" x2="-90.1" y2="-127.5" />
       <path d="M -90.1,-100.5 L -90.250433,-100.5 L -90.694187,-100.5 L -91.409011,-100.5 L -92.359061,-100.5 L -93.496698,-100.5 L -94.764874,-100.5 L -96.1,-100.5 L -97.435126,-100.5 L -98.703302,-100.5 L -99.840939,-100.5 L -100.790989,-100.5 L -101.505813,-100.5 L -101.949567,-100.5 L -102.1,-100.5" />
       <path d="M -102.1,-100.5 L -101.949567,-100.5 L -101.505813,-100.5 L -100.790989,-100.5 L -99.840939,-100.5 L -98.703302,-100.5 L -97.435126,-100.5 L -96.1,-100.5 L -94.764874,-100.5 L -93.496698,-100.5 L -92.359061,-100.5 L -91.409011,-100.5 L -90.694187,-100.5 L -90.250433,-100.5 L -90.1,-100.5" />
-      <line x1="-26.1" y1="-127.7" x2="-26.1" y2="-127.5" />
-      <line x1="-26.1" y1="-135.5" x2="-26.1" y2="-127.5" />
-      <line x1="-26.1" y1="-135.5" x2="-1.1" y2="-135.5" />
-      <line x1="-26.1" y1="-127.5" x2="-1.1" y2="-127.5" />
-      <line x1="-1.1" y1="-127.7" x2="-1.1" y2="-127.5" />
-      <line x1="-26.1" y1="-127.5" x2="-1.1" y2="-127.5" />
-      <line x1="-1.1" y1="-135.5" x2="-1.1" y2="-127.5" />
-      <line x1="-24.1" y1="-127.5" x2="-24.1" y2="-100.5" />
-      <line x1="-24.1" y1="-100.5" x2="-3.1" y2="-100.5" />
-      <line x1="-3.1" y1="-127.5" x2="-3.1" y2="-100.5" />
-      <line x1="-3.1" y1="-127.5" x2="-3.1" y2="-100.5" />
-      <line x1="-24.1" y1="-127.5" x2="-24.1" y2="-100.5" />
-      <line x1="-24.1" y1="-100.5" x2="-3.1" y2="-100.5" />
+      <line x1="-26.6" y1="-127.7" x2="-26.6" y2="-127.5" />
+      <line x1="-26.6" y1="-135.5" x2="-26.6" y2="-127.5" />
+      <line x1="-26.6" y1="-135.5" x2="-1.6" y2="-135.5" />
+      <line x1="-26.6" y1="-127.5" x2="-1.6" y2="-127.5" />
+      <line x1="-1.6" y1="-127.7" x2="-1.6" y2="-127.5" />
+      <line x1="-26.6" y1="-127.5" x2="-1.6" y2="-127.5" />
+      <line x1="-1.6" y1="-135.5" x2="-1.6" y2="-127.5" />
+      <line x1="-25.1" y1="-127.5" x2="-25.1" y2="-104.5" />
+      <line x1="-25.1" y1="-104.5" x2="-3.1" y2="-104.5" />
+      <line x1="-3.1" y1="-127.5" x2="-3.1" y2="-104.5" />
+      <line x1="-3.1" y1="-127.5" x2="-3.1" y2="-104.5" />
+      <line x1="-25.1" y1="-127.5" x2="-25.1" y2="-104.5" />
+      <line x1="-25.1" y1="-104.5" x2="-3.1" y2="-104.5" />
       <path d="M 15.9,-129.5 L 16.100577,-129.5 L 16.692249,-129.5 L 17.645348,-129.5 L 18.912082,-129.5 L 20.42893,-129.5 L 22.119833,-129.5 L 23.9,-129.5 L 25.680167,-129.5 L 27.37107,-129.5 L 28.887918,-129.5 L 30.154652,-129.5 L 31.107751,-129.5 L 31.699423,-129.5 L 31.9,-129.5" />
       <line x1="31.9" y1="-127.5" x2="31.9" y2="-127.7" />
       <path d="M 31.9,-127.5 L 31.699423,-127.5 L 31.107751,-127.5 L 30.154652,-127.5 L 28.887918,-127.5 L 27.37107,-127.5 L 25.680167,-127.5 L 23.9,-127.5 L 22.119833,-127.5 L 20.42893,-127.5 L 18.912082,-127.5 L 17.645348,-127.5 L 16.692249,-127.5 L 16.100577,-127.5 L 15.9,-127.5" />
@@ -6125,13 +6125,13 @@
       <line x1="-127.5" y1="33.6" x2="-127.5" y2="70.4" />
       <line x1="-127.5" y1="70.4" x2="-126.7" y2="70.4" />
       <line x1="-127.5" y1="-93.6" x2="-126.7" y2="-93.6" />
-      <line x1="-135.5" y1="40.4" x2="-135.5" y2="50.4" />
-      <line x1="-135.5" y1="50.4" x2="-127.5" y2="50.4" />
+      <line x1="-135.5" y1="40.4" x2="-135.5" y2="51.9" />
+      <line x1="-135.5" y1="51.9" x2="-127.5" y2="51.9" />
       <path d="M -129.5,40.4 C -129.5,40.968748 -129.5,41.474866 -129.5,41.9" />
       <line x1="-139.5" y1="-59.6" x2="-139.5" y2="40.4" />
       <line x1="-139.5" y1="40.4" x2="-127.5" y2="40.4" />
       <line x1="-139.5" y1="-59.6" x2="-127.5" y2="-59.6" />
-      <line x1="-130.5" y1="50.4" x2="-130.5" y2="58.4" />
+      <line x1="-130.5" y1="51.9" x2="-130.5" y2="58.4" />
       <line x1="-130.5" y1="58.4" x2="-127.5" y2="58.4" />
       <line x1="-115.5" y1="-9.6" x2="-115.5" y2="65.4" />
       <line x1="-115.5" y1="65.4" x2="-5.5" y2="65.4" />
@@ -8565,8 +8565,8 @@
       <line x1="-127.5" y1="16.4" x2="-127.5" y2="21.4" />
       <line x1="-127.5" y1="16.4" x2="-127.5" y2="21.4" />
       <line x1="-127.5" y1="16.4" x2="-127.5" y2="21.4" />
-      <line x1="-127.5" y1="22.4" x2="-127.5" y2="48.4" />
-      <line x1="-127.5" y1="22.4" x2="-127.5" y2="48.4" />
+      <line x1="-127.5" y1="20.4" x2="-127.5" y2="50.4" />
+      <line x1="-127.5" y1="20.4" x2="-127.5" y2="50.4" />
       <path d="M -127.5,-49.6 Q -127.5,-49.47404 -127.5,-49.34808 Q -127.5,-49.097562 -127.5,-48.856872 Q -127.5,-48.740317 -127.5,-48.623762 Q -127.5,-48.513345 -127.5,-48.402928 Q -127.5,-48.300038 -127.5,-48.197148 Q -127.5,-48.103079 -127.5,-48.00901 Q -127.5,-47.924944 -127.5,-47.840879 Q -127.5,-47.767875 -127.5,-47.694871 Q -127.5,-47.633845 -127.5,-47.57282 Q -127.5,-47.524541 -127.5,-47.476263 Q -127.5,-47.441337 -127.5,-47.406412 Q -127.5,-47.38528 -127.5,-47.364148 Q -127.5,-47.357074 -127.5,-47.35" />
       <path d="M -127.5,-47.35 L -127.5,-47.406412 L -127.5,-47.57282 L -127.5,-47.840879 L -127.5,-48.197148 L -127.5,-48.623762 L -127.5,-49.099328 L -127.5,-49.6 L -127.5,-50.100672 L -127.5,-50.576238 L -127.5,-51.002852 L -127.5,-51.359121 L -127.5,-51.62718 L -127.5,-51.793588 L -127.5,-51.85" />
       <path d="M -127.5,-51.85 Q -127.5,-51.842926 -127.5,-51.835852 Q -127.5,-51.81472 -127.5,-51.793588 Q -127.5,-51.758663 -127.5,-51.723737 Q -127.5,-51.675459 -127.5,-51.62718 Q -127.5,-51.566155 -127.5,-51.505129 Q -127.5,-51.432125 -127.5,-51.359121 Q -127.5,-51.275056 -127.5,-51.19099 Q -127.5,-51.096921 -127.5,-51.002852 Q -127.5,-50.899962 -127.5,-50.797072 Q -127.5,-50.686655 -127.5,-50.576238 Q -127.5,-50.459683 -127.5,-50.343128 Q -127.5,-50.2219 -127.5,-50.100672 Q -127.5,-49.852808 -127.5,-49.6" />
@@ -8602,8 +8602,8 @@
       <line x1="-125.5" y1="21.4" x2="-125.5" y2="16.4" />
       <line x1="-125.5" y1="21.4" x2="-125.5" y2="16.4" />
       <line x1="-125.5" y1="21.4" x2="-125.5" y2="16.4" />
-      <line x1="-125.5" y1="48.4" x2="-125.5" y2="22.4" />
-      <line x1="-125.5" y1="48.4" x2="-125.5" y2="22.4" />
+      <line x1="-125.5" y1="50.4" x2="-125.5" y2="20.4" />
+      <line x1="-125.5" y1="50.4" x2="-125.5" y2="20.4" />
       <path d="M -125.5,-49.6 Q -125.5,-49.47404 -125.5,-49.34808 Q -125.5,-49.097562 -125.5,-48.856872 Q -125.5,-48.740317 -125.5,-48.623762 Q -125.5,-48.513345 -125.5,-48.402928 Q -125.5,-48.300038 -125.5,-48.197148 Q -125.5,-48.103079 -125.5,-48.00901 Q -125.5,-47.924944 -125.5,-47.840879 Q -125.5,-47.767875 -125.5,-47.694871 Q -125.5,-47.633845 -125.5,-47.57282 Q -125.5,-47.524541 -125.5,-47.476263 Q -125.5,-47.441337 -125.5,-47.406412 Q -125.5,-47.38528 -125.5,-47.364148 Q -125.5,-47.357074 -125.5,-47.35" />
       <path d="M -125.5,-47.35 L -125.5,-47.406412 L -125.5,-47.57282 L -125.5,-47.840879 L -125.5,-48.197148 L -125.5,-48.623762 L -125.5,-49.099328 L -125.5,-49.6 L -125.5,-50.100672 L -125.5,-50.576238 L -125.5,-51.002852 L -125.5,-51.359121 L -125.5,-51.62718 L -125.5,-51.793588 L -125.5,-51.85" />
       <path d="M -125.5,-51.85 Q -125.5,-51.842926 -125.5,-51.835852 Q -125.5,-51.81472 -125.5,-51.793588 Q -125.5,-51.758663 -125.5,-51.723737 Q -125.5,-51.675459 -125.5,-51.62718 Q -125.5,-51.566155 -125.5,-51.505129 Q -125.5,-51.432125 -125.5,-51.359121 Q -125.5,-51.275056 -125.5,-51.19099 Q -125.5,-51.096921 -125.5,-51.002852 Q -125.5,-50.899962 -125.5,-50.797072 Q -125.5,-50.686655 -125.5,-50.576238 Q -125.5,-50.459683 -125.5,-50.343128 Q -125.5,-50.2219 -125.5,-50.100672 Q -125.5,-49.852808 -125.5,-49.6" />
@@ -8636,10 +8636,10 @@
       <line x1="-127.5" y1="21.4" x2="-125.5" y2="21.4" />
       <line x1="-127.5" y1="16.4" x2="-125.5" y2="16.4" />
       <line x1="-127.5" y1="16.4" x2="-125.5" y2="16.4" />
-      <line x1="-127.5" y1="48.4" x2="-125.5" y2="48.4" />
-      <line x1="-127.5" y1="48.4" x2="-125.5" y2="48.4" />
-      <line x1="-127.5" y1="22.4" x2="-125.5" y2="22.4" />
-      <line x1="-127.5" y1="22.4" x2="-125.5" y2="22.4" />
+      <line x1="-127.5" y1="50.4" x2="-125.5" y2="50.4" />
+      <line x1="-127.5" y1="50.4" x2="-125.5" y2="50.4" />
+      <line x1="-127.5" y1="20.4" x2="-125.5" y2="20.4" />
+      <line x1="-127.5" y1="20.4" x2="-125.5" y2="20.4" />
       <line x1="-127.5" y1="20.4" x2="-125.5" y2="20.4" />
       <line x1="-127.5" y1="20.4" x2="-125.5" y2="20.4" />
       <line x1="-127.5" y1="-39.6" x2="-125.5" y2="-39.6" />
@@ -8718,19 +8718,19 @@
       <path d="M -100.5,-29.6 L -100.5,-28.928213 L -100.5,-28.264874 L -100.5,-27.618326 L -100.5,-26.996698 L -100.5,-26.407808 L -100.5,-25.859061 L -100.5,-25.357359 L -100.5,-24.909011 L -100.5,-24.519655 L -100.5,-24.194187 L -100.5,-23.9367 L -100.5,-23.750433 L -100.5,-23.637727 L -100.5,-23.6" />
       <path d="M -100.5,-23.6 L -100.5,-23.750433 L -100.5,-24.194187 L -100.5,-24.909011 L -100.5,-25.859061 L -100.5,-26.996698 L -100.5,-28.264874 L -100.5,-29.6 L -100.5,-30.935126 L -100.5,-32.203302 L -100.5,-33.340939 L -100.5,-34.290989 L -100.5,-35.005813 L -100.5,-35.449567 L -100.5,-35.6" />
       <path d="M -100.5,-35.6 L -100.5,-35.562273 L -100.5,-35.449567 L -100.5,-35.2633 L -100.5,-35.005813 L -100.5,-34.680345 L -100.5,-34.290989 L -100.5,-33.842641 L -100.5,-33.340939 L -100.5,-32.792192 L -100.5,-32.203302 L -100.5,-31.581674 L -100.5,-30.935126 L -100.5,-30.271787 L -100.5,-29.6" />
-      <line x1="-135.5" y1="20.4" x2="-135.5" y2="50.4" />
-      <line x1="-135.5" y1="50.4" x2="-127.5" y2="50.4" />
-      <line x1="-127.5" y1="20.4" x2="-127.5" y2="50.4" />
-      <line x1="-135.5" y1="20.4" x2="-127.5" y2="20.4" />
-      <line x1="-135.5" y1="20.4" x2="-135.5" y2="40.4" />
-      <line x1="-127.5" y1="20.4" x2="-127.5" y2="50.4" />
-      <line x1="-135.5" y1="20.4" x2="-127.5" y2="20.4" />
-      <line x1="-127.5" y1="48.4" x2="-100.5" y2="48.4" />
-      <line x1="-127.5" y1="48.4" x2="-100.5" y2="48.4" />
-      <line x1="-100.5" y1="22.4" x2="-100.5" y2="48.4" />
-      <line x1="-127.5" y1="22.4" x2="-100.5" y2="22.4" />
-      <line x1="-127.5" y1="22.4" x2="-100.5" y2="22.4" />
-      <line x1="-100.5" y1="22.4" x2="-100.5" y2="48.4" />
+      <line x1="-135.5" y1="18.9" x2="-135.5" y2="51.9" />
+      <line x1="-135.5" y1="51.9" x2="-127.5" y2="51.9" />
+      <line x1="-127.5" y1="18.9" x2="-127.5" y2="51.9" />
+      <line x1="-135.5" y1="18.9" x2="-127.5" y2="18.9" />
+      <line x1="-135.5" y1="18.9" x2="-135.5" y2="40.4" />
+      <line x1="-127.5" y1="18.9" x2="-127.5" y2="51.9" />
+      <line x1="-135.5" y1="18.9" x2="-127.5" y2="18.9" />
+      <line x1="-127.5" y1="50.4" x2="-104.5" y2="50.4" />
+      <line x1="-127.5" y1="50.4" x2="-104.5" y2="50.4" />
+      <line x1="-104.5" y1="20.4" x2="-104.5" y2="50.4" />
+      <line x1="-127.5" y1="20.4" x2="-104.5" y2="20.4" />
+      <line x1="-127.5" y1="20.4" x2="-104.5" y2="20.4" />
+      <line x1="-104.5" y1="20.4" x2="-104.5" y2="50.4" />
       <path d="M -129.5,35.4 C -129.5,36.300404 -129.5,37.199183 -129.5,38.04953 C -129.5,38.169795 -129.5,38.29006 -129.5,38.410325 C -129.5,38.647652 -129.5,38.880909 -129.5,39.110096 C -129.5,39.222546 -129.5,39.334995 -129.5,39.447445 C -129.5,39.556757 -129.5,39.66607 -129.5,39.775383 C -129.5,39.881304 -129.5,39.987226 -129.5,40.093147 C -129.5,40.195431 -129.5,40.297716 -129.5,40.4" />
       <path d="M -129.5,41.9 L -129.5,42.100834 L -129.5,42.288427 L -129.5,42.46241 L -129.5,42.622438 L -129.5,42.768195 L -129.5,42.899393 L -129.5,43.015773 L -129.5,43.117105 L -129.5,43.203189 L -129.5,43.273854 L -129.5,43.328961 L -129.5,43.368401 L -129.5,43.392096 L -129.5,43.4" />
       <path d="M -129.5,43.4 L -129.5,43.199423 L -129.5,42.607751 L -129.5,41.654652 L -129.5,40.387918 L -129.5,38.87107 L -129.5,37.180167 L -129.5,35.4 L -129.5,33.619833 L -129.5,31.92893 L -129.5,30.412082 L -129.5,29.145348 L -129.5,28.192249 L -129.5,27.600577 L -129.5,27.4" />
@@ -8762,7 +8762,7 @@
       <line x1="-130.5" y1="58.4" x2="-127.5" y2="58.4" />
       <line x1="-127.5" y1="40.4" x2="-127.5" y2="58.4" />
       <line x1="-130.5" y1="40.4" x2="-127.5" y2="40.4" />
-      <line x1="-130.5" y1="40.4" x2="-130.5" y2="50.4" />
+      <line x1="-130.5" y1="40.4" x2="-130.5" y2="51.9" />
       <line x1="-127.5" y1="40.4" x2="-127.5" y2="58.4" />
       <line x1="-130.5" y1="40.4" x2="-127.5" y2="40.4" />
       <line x1="-127.5" y1="56.4" x2="-115.5" y2="56.4" />
@@ -10215,15 +10215,15 @@
       <path d="M -158.817908,-45.961701 A 8.0,4.92365963917331 116.21406534015118 0,1 -156.694863,-41.569744" />
       <path d="M -152.452222,-39.480812 A 8.0,4.92365963917331 116.21406534015118 0,1 -161.642885,-29.51837" />
       <path d="M -154.575267,-43.87277 A 8.0,4.92365963917331 116.21406534015118 0,1 -152.452222,-39.480812" />
-      <line x1="-114.268456" y1="-20.33227" x2="-114.268456" y2="5.779378" />
-      <line x1="-114.268456" y1="5.779378" x2="-108.611602" y2="8.564621" />
-      <line x1="-114.268456" y1="-20.33227" x2="-96.590786" y2="-29.036153" />
-      <line x1="-96.590786" y1="-29.036153" x2="-96.590786" y2="-2.924505" />
-      <line x1="-114.268456" y1="5.779378" x2="-96.590786" y2="-2.924505" />
-      <line x1="-108.611602" y1="8.564621" x2="-90.933932" y2="-0.139262" />
-      <line x1="-96.590786" y1="-2.924505" x2="-90.933932" y2="-0.139262" />
-      <line x1="-90.933932" y1="-26.250911" x2="-90.933932" y2="-0.139262" />
-      <line x1="-96.590786" y1="-29.036153" x2="-90.933932" y2="-26.250911" />
+      <line x1="-114.622009" y1="-21.463775" x2="-114.622009" y2="7.259038" />
+      <line x1="-114.622009" y1="7.259038" x2="-108.965155" y2="10.044281" />
+      <line x1="-114.622009" y1="-21.463775" x2="-96.94434" y2="-30.167658" />
+      <line x1="-96.94434" y1="-30.167658" x2="-96.94434" y2="-1.444845" />
+      <line x1="-114.622009" y1="7.259038" x2="-96.94434" y2="-1.444845" />
+      <line x1="-108.965155" y1="10.044281" x2="-91.287485" y2="1.340398" />
+      <line x1="-96.94434" y1="-1.444845" x2="-91.287485" y2="1.340398" />
+      <line x1="-91.287485" y1="-27.382415" x2="-91.287485" y2="1.340398" />
+      <line x1="-96.94434" y1="-30.167658" x2="-91.287485" y2="-27.382415" />
       <path d="M -69.013622,-25.380522 A 8.0,4.92365963917331 116.21406534015118 0,1 -78.204285,-15.41808" />
       <path d="M -78.204285,-15.41808 A 8.0,4.92365963917331 116.21406534015118 0,1 -71.136667,-29.772479" />
       <path d="M -71.136667,-29.772479 A 8.0,4.92365963917331 116.21406534015118 0,1 -69.013622,-25.380522" />
@@ -10498,4 +10498,4 @@
       <line x1="154.563949" y1="-39.300108" x2="156.543848" y2="-40.274943" />
     </g>
   </g>
-</svg><text x="346.00" y="120.00" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="2.8" font-weight="600" fill="#111827" text-anchor="middle">ISOMETRIC VIEW</text><text x="346.00" y="124.00" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="2.2" font-weight="400" fill="#4B5563" text-anchor="middle">Not to scale; seen from the front right and above, about 30 deg elevation</text><rect x="276" y="128" width="140" height="81.6" fill="#FFFFFF" stroke="#111827" stroke-width="0.35"/><text x="279.00" y="133.00" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="2.3" font-weight="600" fill="#0F766E" text-anchor="start">KEY DIMENSIONS AND INTERFACES (MM)</text><text x="279.00" y="138.00" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="2.6" font-weight="400" fill="#111827" text-anchor="start">Body 460 x 260 x 220; overall 480 x 279 x 275</text><text x="279.00" y="142.60" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="2.6" font-weight="400" fill="#111827" text-anchor="start">Sheet 1.2 Al; lid skirt 16 over the walls, 6 M4 screws</text><text x="279.00" y="147.20" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="2.6" font-weight="400" fill="#111827" text-anchor="start">Handle span 200 on a 2 mm doubler; 8 mm rubber feet</text><text x="279.00" y="151.80" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="2.6" font-weight="400" fill="#111827" text-anchor="start">Pack bay: SwapCell interface v0.3, pack 340 x 90 x 80,</text><text x="279.00" y="156.40" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="2.6" font-weight="400" fill="#111827" text-anchor="start">  393 overall; inserted from +X end, connector first</text><text x="279.00" y="161.00" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="2.6" font-weight="400" fill="#111827" text-anchor="start">Printed runners and top rail, 1 clearance per side</text><text x="279.00" y="165.60" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="2.6" font-weight="400" fill="#111827" text-anchor="start">Class D catch on a folded 3 mm bracket; 2 mm folded shelf</text><text x="279.00" y="170.20" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="2.6" font-weight="400" fill="#111827" text-anchor="start">Door hinged on its front edge; cam latch; padlock hasp</text><text x="279.00" y="174.80" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="2.6" font-weight="400" fill="#111827" text-anchor="start">Receptacle: floating mount, 10 kOhm INTERLOCK coding</text><text x="279.00" y="179.40" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="2.6" font-weight="400" fill="#111827" text-anchor="start">  resistor (v0.3 item W); 120 ohm CAN termination</text><text x="279.00" y="184.00" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="2.6" font-weight="400" fill="#111827" text-anchor="start">Station host type 3, mode 4 charge-discharge, 5.0 A max</text><text x="279.00" y="188.60" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="2.6" font-weight="400" fill="#111827" text-anchor="start">Front: USB-C 100 + 60 W, 2 x USB-A, 2 x 12 V, 230 V RCD</text><text x="279.00" y="193.20" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="2.6" font-weight="400" fill="#111827" text-anchor="start">+X end: DC in 12 to 60 V 200 W, charger in 54.6 V 5 A</text><text x="279.00" y="197.80" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="2.6" font-weight="400" fill="#111827" text-anchor="start">Main fuse 30 A, inverter breaker 20 A (PBX-CAL-001)</text><text x="279.00" y="202.40" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="2.6" font-weight="400" fill="#111827" text-anchor="start">Mass about 9.4 kg with pack (PBX-CAL-001 v0.2)</text><text x="279.00" y="207.00" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="2.6" font-weight="400" fill="#111827" text-anchor="start">PRELIMINARY, NOT FOR FABRICATION</text><rect x="273.8" y="10.0" width="148" height="15.600000000000001" fill="#FFFFFF" stroke="#111827" stroke-width="0.5"/><rect x="273.8" y="10.0" width="148" height="5.2" fill="#F3F4F6" stroke="#111827" stroke-width="0.5"/><text x="275.60" y="13.60" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="2.0" font-weight="600" fill="#111827" text-anchor="start">REV</text><text x="289.60" y="13.60" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="2.0" font-weight="600" fill="#111827" text-anchor="start">DESCRIPTION</text><text x="381.60" y="13.60" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="2.0" font-weight="600" fill="#111827" text-anchor="start">DATE</text><text x="407.60" y="13.60" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="2.0" font-weight="600" fill="#111827" text-anchor="start">BY</text><line x1="273.8" y1="15.2" x2="421.8" y2="15.2" stroke="#9CA3AF" stroke-width="0.3"/><text x="275.60" y="18.80" font-family="IBM Plex Mono, Menlo, monospace" font-size="2.3" font-weight="400" fill="#111827" text-anchor="start">P1</text><text x="289.60" y="18.80" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="2.3" font-weight="400" fill="#111827" text-anchor="start">Preliminary GA, SwapCell interface v0.3 (PBX-CAL-001)</text><text x="381.60" y="18.80" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="2.3" font-weight="400" fill="#111827" text-anchor="start">2026-09-25</text><text x="407.60" y="18.80" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="2.3" font-weight="400" fill="#111827" text-anchor="start">AC</text><line x1="273.8" y1="20.4" x2="421.8" y2="20.4" stroke="#9CA3AF" stroke-width="0.3"/><text x="275.60" y="24.00" font-family="IBM Plex Mono, Menlo, monospace" font-size="2.3" font-weight="400" fill="#111827" text-anchor="start">P2</text><text x="289.60" y="24.00" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="2.3" font-weight="400" fill="#111827" text-anchor="start">Constructable design, PBX-DDR-003</text><text x="381.60" y="24.00" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="2.3" font-weight="400" fill="#111827" text-anchor="start">2026-10-01</text><text x="407.60" y="24.00" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="2.3" font-weight="400" fill="#111827" text-anchor="start">AC</text><rect x="231.8" y="213.39999999999998" width="190.0" height="56.0" fill="#FFFFFF" stroke="#111827" stroke-width="0.7"/><rect x="231.8" y="213.39999999999998" width="3" height="56.0" fill="#0F766E"/><line x1="231.8" y1="227.39999999999998" x2="421.8" y2="227.39999999999998" stroke="#9CA3AF" stroke-width="0.3"/><line x1="231.8" y1="239.39999999999998" x2="421.8" y2="239.39999999999998" stroke="#9CA3AF" stroke-width="0.3"/><line x1="231.8" y1="251.39999999999998" x2="421.8" y2="251.39999999999998" stroke="#9CA3AF" stroke-width="0.3"/><line x1="231.8" y1="260.4" x2="421.8" y2="260.4" stroke="#9CA3AF" stroke-width="0.3"/><text x="237.80" y="218.40" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="2.2" font-weight="600" fill="#0F766E" text-anchor="start">POWERBOX</text><text x="418.80" y="218.40" font-family="IBM Plex Mono, Menlo, monospace" font-size="2.2" font-weight="500" fill="#0F766E" text-anchor="end">github.com/BoujeeEnjinia1701/powerbox</text><text x="237.80" y="224.40" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="4.4" font-weight="600" fill="#111827" text-anchor="start">General arrangement, SwapCell station</text><text x="236.80" y="230.80" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="1.8" font-weight="500" fill="#4B5563" text-anchor="start">DRAWING NO.</text><text x="236.80" y="235.60" font-family="IBM Plex Mono, Menlo, monospace" font-size="3.4" font-weight="600" fill="#111827" text-anchor="start">PBX-DWG-001</text><text x="316.80" y="230.80" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="1.8" font-weight="500" fill="#4B5563" text-anchor="start">REV</text><text x="316.80" y="235.60" font-family="IBM Plex Mono, Menlo, monospace" font-size="3.4" font-weight="600" fill="#111827" text-anchor="start">P2</text><line x1="314.8" y1="227.39999999999998" x2="314.8" y2="239.39999999999998" stroke="#9CA3AF" stroke-width="0.3"/><text x="341.80" y="230.80" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="1.8" font-weight="500" fill="#4B5563" text-anchor="start">SHEET</text><text x="341.80" y="235.60" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="3.4" font-weight="600" fill="#111827" text-anchor="start">1 of 1</text><line x1="339.8" y1="227.39999999999998" x2="339.8" y2="239.39999999999998" stroke="#9CA3AF" stroke-width="0.3"/><text x="371.80" y="230.80" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="1.8" font-weight="500" fill="#4B5563" text-anchor="start">SIZE</text><text x="371.80" y="235.60" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="3.4" font-weight="600" fill="#111827" text-anchor="start">ANSI B</text><line x1="369.8" y1="227.39999999999998" x2="369.8" y2="239.39999999999998" stroke="#9CA3AF" stroke-width="0.3"/><text x="236.80" y="242.80" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="1.8" font-weight="500" fill="#4B5563" text-anchor="start">SCALE</text><text x="236.80" y="247.20" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="3.0" font-weight="500" fill="#111827" text-anchor="start">1:5</text><text x="266.80" y="242.80" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="1.8" font-weight="500" fill="#4B5563" text-anchor="start">UNITS</text><text x="266.80" y="247.20" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="3.0" font-weight="500" fill="#111827" text-anchor="start">mm</text><line x1="264.8" y1="239.39999999999998" x2="264.8" y2="251.39999999999998" stroke="#9CA3AF" stroke-width="0.3"/><text x="291.80" y="242.80" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="1.8" font-weight="500" fill="#4B5563" text-anchor="start">PROJECTION</text><path d="M302.8 244.39999999999998 L308.8 242.89999999999998 L308.8 250.89999999999998 L302.8 249.39999999999998 Z" fill="none" stroke="#111827" stroke-width="0.3"/><circle cx="314.8" cy="246.89999999999998" r="4" fill="none" stroke="#111827" stroke-width="0.3"/><circle cx="314.8" cy="246.89999999999998" r="2.3" fill="none" stroke="#111827" stroke-width="0.3"/><line x1="300.8" y1="246.89999999999998" x2="320.3" y2="246.89999999999998" stroke="#111827" stroke-width="0.18" stroke-dasharray="3 1 0.6 1"/><line x1="289.8" y1="239.39999999999998" x2="289.8" y2="251.39999999999998" stroke="#9CA3AF" stroke-width="0.3"/><text x="326.80" y="242.80" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="1.8" font-weight="500" fill="#4B5563" text-anchor="start">DATE</text><text x="326.80" y="247.20" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="3.0" font-weight="500" fill="#111827" text-anchor="start">2026-10-01</text><line x1="324.8" y1="239.39999999999998" x2="324.8" y2="251.39999999999998" stroke="#9CA3AF" stroke-width="0.3"/><text x="366.80" y="242.80" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="1.8" font-weight="500" fill="#4B5563" text-anchor="start">DRAWN</text><text x="366.80" y="247.20" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="3.0" font-weight="500" fill="#111827" text-anchor="start">Amish Chadha</text><line x1="364.8" y1="239.39999999999998" x2="364.8" y2="251.39999999999998" stroke="#9CA3AF" stroke-width="0.3"/><text x="236.80" y="254.80" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="1.8" font-weight="500" fill="#4B5563" text-anchor="start">MATERIAL / NOTES</text><text x="236.80" y="258.80" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="2.6" font-weight="400" fill="#111827" text-anchor="start">Case, lid, door: 1.2 mm 5052 Al; shelf 2 mm, brackets 3 mm Al; runners and rail printed PETG. See bom/bom.csv</text><text x="236.80" y="266.20" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="2.1" font-weight="400" fill="#4B5563" text-anchor="start">Licensed CERN-OHL-S-2.0 · Design Molecule Lab · designmolecule.com</text><text x="418.80" y="266.20" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="1.9" font-weight="400" fill="#4B5563" text-anchor="end">Generated from cad/src; do not edit by hand</text></svg>
+</svg><text x="346.00" y="120.00" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="2.8" font-weight="600" fill="#111827" text-anchor="middle">ISOMETRIC VIEW</text><text x="346.00" y="124.00" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="2.2" font-weight="400" fill="#4B5563" text-anchor="middle">Not to scale; seen from the front right and above, about 30 deg elevation</text><rect x="276" y="128" width="140" height="81.6" fill="#FFFFFF" stroke="#111827" stroke-width="0.35"/><text x="279.00" y="133.00" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="2.3" font-weight="600" fill="#0F766E" text-anchor="start">KEY DIMENSIONS AND INTERFACES (MM)</text><text x="279.00" y="138.00" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="2.6" font-weight="400" fill="#111827" text-anchor="start">Body 460 x 260 x 220; overall 480 x 279 x 275</text><text x="279.00" y="142.60" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="2.6" font-weight="400" fill="#111827" text-anchor="start">Sheet 1.2 Al; lid skirt 16 over the walls, 6 M4 screws</text><text x="279.00" y="147.20" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="2.6" font-weight="400" fill="#111827" text-anchor="start">Handle span 200 on a 2 mm doubler; 8 mm rubber feet</text><text x="279.00" y="151.80" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="2.6" font-weight="400" fill="#111827" text-anchor="start">Pack bay: SwapCell interface v0.3, pack 340 x 90 x 80,</text><text x="279.00" y="156.40" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="2.6" font-weight="400" fill="#111827" text-anchor="start">  393 overall; inserted from +X end, connector first</text><text x="279.00" y="161.00" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="2.6" font-weight="400" fill="#111827" text-anchor="start">Printed runners and top rail, 1 clearance per side</text><text x="279.00" y="165.60" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="2.6" font-weight="400" fill="#111827" text-anchor="start">Class D catch on a folded 3 mm bracket; 2 mm folded shelf</text><text x="279.00" y="170.20" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="2.6" font-weight="400" fill="#111827" text-anchor="start">Door hinged on its front edge; cam latch; padlock hasp</text><text x="279.00" y="174.80" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="2.6" font-weight="400" fill="#111827" text-anchor="start">Receptacle: floating mount, 10 kOhm INTERLOCK coding</text><text x="279.00" y="179.40" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="2.6" font-weight="400" fill="#111827" text-anchor="start">  resistor (v0.3 item W); 120 ohm CAN termination</text><text x="279.00" y="184.00" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="2.6" font-weight="400" fill="#111827" text-anchor="start">Station host type 3, mode 4 charge-discharge, 5.0 A max</text><text x="279.00" y="188.60" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="2.6" font-weight="400" fill="#111827" text-anchor="start">Front: USB-C 100 + 60 W, 2 x USB-A, 2 x 12 V, lit switch, 230 V RCD</text><text x="279.00" y="193.20" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="2.6" font-weight="400" fill="#111827" text-anchor="start">+X end: DC in 12 to 60 V 200 W, charger in 54.6 V 5 A</text><text x="279.00" y="197.80" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="2.6" font-weight="400" fill="#111827" text-anchor="start">Main fuse 30 A, inverter breaker 20 A (PBX-CAL-001)</text><text x="279.00" y="202.40" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="2.6" font-weight="400" fill="#111827" text-anchor="start">Mass about 9.4 kg with pack (PBX-CAL-001 v0.4)</text><text x="279.00" y="207.00" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="2.6" font-weight="400" fill="#111827" text-anchor="start">PRELIMINARY, NOT FOR FABRICATION</text><rect x="273.8" y="10.0" width="148" height="20.8" fill="#FFFFFF" stroke="#111827" stroke-width="0.5"/><rect x="273.8" y="10.0" width="148" height="5.2" fill="#F3F4F6" stroke="#111827" stroke-width="0.5"/><text x="275.60" y="13.60" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="2.0" font-weight="600" fill="#111827" text-anchor="start">REV</text><text x="289.60" y="13.60" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="2.0" font-weight="600" fill="#111827" text-anchor="start">DESCRIPTION</text><text x="381.60" y="13.60" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="2.0" font-weight="600" fill="#111827" text-anchor="start">DATE</text><text x="407.60" y="13.60" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="2.0" font-weight="600" fill="#111827" text-anchor="start">BY</text><line x1="273.8" y1="15.2" x2="421.8" y2="15.2" stroke="#9CA3AF" stroke-width="0.3"/><text x="275.60" y="18.80" font-family="IBM Plex Mono, Menlo, monospace" font-size="2.3" font-weight="400" fill="#111827" text-anchor="start">P1</text><text x="289.60" y="18.80" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="2.3" font-weight="400" fill="#111827" text-anchor="start">Preliminary GA, SwapCell interface v0.3 (PBX-CAL-001)</text><text x="381.60" y="18.80" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="2.3" font-weight="400" fill="#111827" text-anchor="start">2026-09-25</text><text x="407.60" y="18.80" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="2.3" font-weight="400" fill="#111827" text-anchor="start">AC</text><line x1="273.8" y1="20.4" x2="421.8" y2="20.4" stroke="#9CA3AF" stroke-width="0.3"/><text x="275.60" y="24.00" font-family="IBM Plex Mono, Menlo, monospace" font-size="2.3" font-weight="400" fill="#111827" text-anchor="start">P2</text><text x="289.60" y="24.00" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="2.3" font-weight="400" fill="#111827" text-anchor="start">Constructable design, PBX-DDR-003</text><text x="381.60" y="24.00" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="2.3" font-weight="400" fill="#111827" text-anchor="start">2026-10-01</text><text x="407.60" y="24.00" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="2.3" font-weight="400" fill="#111827" text-anchor="start">AC</text><line x1="273.8" y1="25.6" x2="421.8" y2="25.6" stroke="#9CA3AF" stroke-width="0.3"/><text x="275.60" y="29.20" font-family="IBM Plex Mono, Menlo, monospace" font-size="2.3" font-weight="400" fill="#111827" text-anchor="start">P3</text><text x="289.60" y="29.20" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="2.3" font-weight="400" fill="#111827" text-anchor="start">Lit rocker switch cut-out 22 x 30; R2 and decisions of 2026-10-02</text><text x="381.60" y="29.20" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="2.3" font-weight="400" fill="#111827" text-anchor="start">2026-10-02</text><text x="407.60" y="29.20" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="2.3" font-weight="400" fill="#111827" text-anchor="start">AC</text><rect x="231.8" y="213.39999999999998" width="190.0" height="56.0" fill="#FFFFFF" stroke="#111827" stroke-width="0.7"/><rect x="231.8" y="213.39999999999998" width="3" height="56.0" fill="#0F766E"/><line x1="231.8" y1="227.39999999999998" x2="421.8" y2="227.39999999999998" stroke="#9CA3AF" stroke-width="0.3"/><line x1="231.8" y1="239.39999999999998" x2="421.8" y2="239.39999999999998" stroke="#9CA3AF" stroke-width="0.3"/><line x1="231.8" y1="251.39999999999998" x2="421.8" y2="251.39999999999998" stroke="#9CA3AF" stroke-width="0.3"/><line x1="231.8" y1="260.4" x2="421.8" y2="260.4" stroke="#9CA3AF" stroke-width="0.3"/><text x="237.80" y="218.40" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="2.2" font-weight="600" fill="#0F766E" text-anchor="start">POWERBOX</text><text x="418.80" y="218.40" font-family="IBM Plex Mono, Menlo, monospace" font-size="2.2" font-weight="500" fill="#0F766E" text-anchor="end">github.com/BoujeeEnjinia1701/powerbox</text><text x="237.80" y="224.40" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="4.4" font-weight="600" fill="#111827" text-anchor="start">General arrangement, SwapCell station</text><text x="236.80" y="230.80" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="1.8" font-weight="500" fill="#4B5563" text-anchor="start">DRAWING NO.</text><text x="236.80" y="235.60" font-family="IBM Plex Mono, Menlo, monospace" font-size="3.4" font-weight="600" fill="#111827" text-anchor="start">PBX-DWG-001</text><text x="316.80" y="230.80" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="1.8" font-weight="500" fill="#4B5563" text-anchor="start">REV</text><text x="316.80" y="235.60" font-family="IBM Plex Mono, Menlo, monospace" font-size="3.4" font-weight="600" fill="#111827" text-anchor="start">P3</text><line x1="314.8" y1="227.39999999999998" x2="314.8" y2="239.39999999999998" stroke="#9CA3AF" stroke-width="0.3"/><text x="341.80" y="230.80" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="1.8" font-weight="500" fill="#4B5563" text-anchor="start">SHEET</text><text x="341.80" y="235.60" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="3.4" font-weight="600" fill="#111827" text-anchor="start">1 of 1</text><line x1="339.8" y1="227.39999999999998" x2="339.8" y2="239.39999999999998" stroke="#9CA3AF" stroke-width="0.3"/><text x="371.80" y="230.80" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="1.8" font-weight="500" fill="#4B5563" text-anchor="start">SIZE</text><text x="371.80" y="235.60" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="3.4" font-weight="600" fill="#111827" text-anchor="start">ANSI B</text><line x1="369.8" y1="227.39999999999998" x2="369.8" y2="239.39999999999998" stroke="#9CA3AF" stroke-width="0.3"/><text x="236.80" y="242.80" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="1.8" font-weight="500" fill="#4B5563" text-anchor="start">SCALE</text><text x="236.80" y="247.20" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="3.0" font-weight="500" fill="#111827" text-anchor="start">1:5</text><text x="266.80" y="242.80" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="1.8" font-weight="500" fill="#4B5563" text-anchor="start">UNITS</text><text x="266.80" y="247.20" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="3.0" font-weight="500" fill="#111827" text-anchor="start">mm</text><line x1="264.8" y1="239.39999999999998" x2="264.8" y2="251.39999999999998" stroke="#9CA3AF" stroke-width="0.3"/><text x="291.80" y="242.80" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="1.8" font-weight="500" fill="#4B5563" text-anchor="start">PROJECTION</text><path d="M302.8 244.39999999999998 L308.8 242.89999999999998 L308.8 250.89999999999998 L302.8 249.39999999999998 Z" fill="none" stroke="#111827" stroke-width="0.3"/><circle cx="314.8" cy="246.89999999999998" r="4" fill="none" stroke="#111827" stroke-width="0.3"/><circle cx="314.8" cy="246.89999999999998" r="2.3" fill="none" stroke="#111827" stroke-width="0.3"/><line x1="300.8" y1="246.89999999999998" x2="320.3" y2="246.89999999999998" stroke="#111827" stroke-width="0.18" stroke-dasharray="3 1 0.6 1"/><line x1="289.8" y1="239.39999999999998" x2="289.8" y2="251.39999999999998" stroke="#9CA3AF" stroke-width="0.3"/><text x="326.80" y="242.80" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="1.8" font-weight="500" fill="#4B5563" text-anchor="start">DATE</text><text x="326.80" y="247.20" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="3.0" font-weight="500" fill="#111827" text-anchor="start">2026-10-02</text><line x1="324.8" y1="239.39999999999998" x2="324.8" y2="251.39999999999998" stroke="#9CA3AF" stroke-width="0.3"/><text x="366.80" y="242.80" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="1.8" font-weight="500" fill="#4B5563" text-anchor="start">DRAWN</text><text x="366.80" y="247.20" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="3.0" font-weight="500" fill="#111827" text-anchor="start">Amish Chadha</text><line x1="364.8" y1="239.39999999999998" x2="364.8" y2="251.39999999999998" stroke="#9CA3AF" stroke-width="0.3"/><text x="236.80" y="254.80" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="1.8" font-weight="500" fill="#4B5563" text-anchor="start">MATERIAL / NOTES</text><text x="236.80" y="258.80" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="2.6" font-weight="400" fill="#111827" text-anchor="start">Case, lid, door: 1.2 mm 5052 Al; shelf 2 mm, brackets 3 mm Al; runners and rail printed PETG. See bom/bom.csv</text><text x="236.80" y="266.20" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="2.1" font-weight="400" fill="#4B5563" text-anchor="start">Licensed CERN-OHL-S-2.0 · Design Molecule Lab · designmolecule.com</text><text x="418.80" y="266.20" font-family="IBM Plex Sans, Helvetica, Arial, sans-serif" font-size="1.9" font-weight="400" fill="#4B5563" text-anchor="end">Generated from cad/src; do not edit by hand</text></svg>

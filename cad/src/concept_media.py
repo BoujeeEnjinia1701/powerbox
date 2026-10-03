@@ -29,9 +29,9 @@ phone = box(290, 365, -300, -150, -8, 1)
 context = [Part("Table top", table, "#C8CDD3"), Part("phone", phone, "#6B7280")]
 
 render_all(
-    parts, project="PowerBox", title="Power station concept", dwg_no="PBX-DWG-010", date="2026-10-01", rev="P2",
+    parts, project="PowerBox", title="Power station concept", dwg_no="PBX-DWG-010", date="2026-10-02", rev="P3",
     key_figures=["One SwapCell pack (interface v0.3): 419 Wh usable",
-                 "Evening load 203 Wh: 1.87 evenings (R2 not met)",
+                 "Evening load 203 Wh: 1.87 evenings (R2 met, target 1.8)",
                  "Full charge: grid 2.1 h, 200 W solar 0.7 day (est.)",
                  "300 W, 230 V pure sine AC with RCD; USB-C PD, USB-A, 12 V",
                  "480 x 279 x 275 mm overall, 9.4 kg with pack (est.)",

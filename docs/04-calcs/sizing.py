@@ -93,7 +93,9 @@ print(f"Two evenings need {2 * eve:.1f} Wh: cut-off {soc_needed * 100:.1f} % SoC
       f"at 5 % cut-off {e5:.1f} Wh gives {e5 / eve:.2f} evenings; "
       f"at 10 % cut-off the profile must fall to {e_use / 2:.1f} Wh from the pack "
       f"(about {e_use / 2 / eve * 203:.0f} Wh at the loads)")
-res("R2", f"{evenings:.2f} evenings ({eve:.0f} Wh per evening from the pack)", "2 evenings", "Not met")
+R2_TARGET = 1.8     # restated by Amish on 2026-10-02 (PBX-DEC-001, item 5); first set as 2 evenings
+res("R2", f"{evenings:.2f} evenings ({eve:.0f} Wh per evening from the pack); {e_use_min / eve:.2f} with minimum cells",
+    f"{R2_TARGET} evenings (restated 2026-10-02)", "Met" if e_use_min / eve >= R2_TARGET else "Not met")
 
 # ---------------------------------------------------------------- 3. Charging (R3, R4, R5, R6)
 res("R3", "DC in 12 to 60 V 200 W MPPT; charger in; pack swap; SunSpoke panel on DC in", "Four sources", "Met (design review)")

@@ -3,7 +3,7 @@ doc_id: PBX-REQ-001
 title: PowerBox requirements
 project: PowerBox
 doc_type: Requirements
-version: "0.6"
+version: "0.7"
 status: Draft
 date: '2026-10-02'
 author: Amish Chadha
@@ -33,11 +33,15 @@ revisions:
   date: '2026-10-02'
   author: Amish Chadha
   change: "R2 restated as 1.8 evenings (Amish, 2026-10-02, PBX-DEC-001 item 5); met on paper"
+- version: "0.7"
+  date: '2026-10-02'
+  author: Amish Chadha
+  change: "R11 cost restated to USD 483, USD 33 over the target, after the lit rocker main switch (PBX-CAL-001 v0.4)"
 ---
 
 # PowerBox requirements
 
-These requirements are checked by calculation in PBX-CAL-001 (TRL 3). They are still proposals, not user-validated needs, and will be revised after co-design sessions. On paper, nine are met, including R2 as restated by Amish on 2026-10-02 (1.87 evenings against 1.8); R6 is at risk, R11 is reported against its value-engineering target (USD 32 over), and R12 cannot be verified until users try a pack swap. The Status column gives the TRL 3 result.
+These requirements are checked by calculation in PBX-CAL-001 (TRL 3). They are still proposals, not user-validated needs, and will be revised after co-design sessions. On paper, nine are met, including R2 as restated by Amish on 2026-10-02 (1.87 evenings against 1.8); R6 is at risk, R11 is reported against its value-engineering target (USD 33 over), and R12 cannot be verified until users try a pack swap. The Status column gives the TRL 3 result.
 
 | ID | Requirement | Target | Verification (TRL 3 or later) | Status (PBX-CAL-001) |
 | --- | --- | --- | --- | --- |
@@ -51,7 +55,7 @@ These requirements are checked by calculation in PBX-CAL-001 (TRL 3). They are s
 | R8 | Waste little energy when idle | Off: 5 % or less of pack energy per month, including cell self-discharge. Ready (display on, outputs off): 1.0 W or less. Inverter switches itself off after 10 min below 5 W | Standby budget calculation; later measurement | Met, 3.2 % per month off, 0.6 W ready |
 | R9 | Never back-feed household wiring | No AC input connector that can mate with an AC output; AC output only through a 30 mA RCD outlet with the inverter neutral bonded to the case; grid charging only through a certified external charger with a DC plug; DC bus 60 V or less | Design review and safety checklist | Met (design review) |
 | R10 | Be carried by one adult | 10 kg (22 lb) or less with pack; 500 x 300 x 280 mm or smaller including handle; one top handle | Massing model, then weighing | Met, 9.4 kg, 480 x 279 x 275 mm (constructable design) |
-| R11 | Keep to the value-engineering target | PowerBox parts against a value-engineering target of USD 450 (a hypothetical control target, not a limit; Amish, 2026-10-01), including the grid charger and excluding the SwapCell pack, which is priced once in the SwapCell BOM (decided by Amish, 2026-09-25) | Priced BOM | USD 482, USD 32 over the target |
+| R11 | Keep to the value-engineering target | PowerBox parts against a value-engineering target of USD 450 (a hypothetical control target, not a limit; Amish, 2026-10-01), including the grid charger and excluding the SwapCell pack, which is priced once in the SwapCell BOM (decided by Amish, 2026-09-25) | Priced BOM | USD 483, USD 33 over the target |
 | R12 | Swap packs and show status simply | Pack swapped by hand in 30 s or less without tools; display shows state of charge, input and output power and estimated time remaining, read from the SwapCell interface v0.3 CAN messages; a sleeping pack wakes through the INTERLOCK loop (v0.3 item W) | Design review; later timed trial with users | Not verifiable at TRL 3 |
 
 ## Assumptions

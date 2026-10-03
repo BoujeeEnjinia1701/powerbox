@@ -402,7 +402,8 @@ def build_components(p=PARAMS):
         mod(bx(x, x + 15, PO - 4, PO, 145, 152), bx(x + 1, x + 14, PO, PF + 25, 146, 151), "sockets")       # USB-A
     mod(cyl("y", (-140, 0, 100), 14, PO - 6, PO), cyl("y", (-140, 0, 100), 12, PO, PF + 55), "sockets")     # 12 V car socket
     mod(cyl("y", (-90, 0, 100), 8, PO - 6, PO), cyl("y", (-90, 0, 100), 6, PO, PF + 25), "sockets")         # barrel socket
-    mod(bx(-20, 5, PO - 8, PO, 150, 180), bx(-18, 3, PO, PF + 25, 152, 178), "sockets")                     # main switch
+    # main switch: lit rocker, snap-in, 22 x 30 mm panel hole, bezel 25 x 33 mm, body 21 mm behind the plate
+    mod(bx(-20.5, 4.5, PO - 8, PO, 148.5, 181.5), bx(-19, 3, PO, PF + 21, 150, 180), "sockets")
     mod(cyl("y", (30, 0, 165), 8, PO - 2, PO) - cyl("y", (30, 0, 165), 5, PO - 3, PO + 1),
         cyl("y", (30, 0, 165), 6, PO, PF + 20), "sockets")                                                   # wake button
     mod(bx(70, 175, PO - 12, PO, 70, 170), bx(92, 152, PO, PF + 40, 90, 150), "ac")                         # AC outlet with RCD
@@ -589,6 +590,13 @@ def checks(p=PARAMS):
     chk("Staple clear of the door hasp slot", S("staple"), S("door"), 0.5)
     chk("Output panel plate on the front wall", S("out_panel"), S("body"), "touch")
     chk("Output modules in the panel plate", S("sockets", "ac", "display"), S("out_panel"), "touch")
+    PO_SW = -p["case_d"] / 2 - p["panel_t"]
+    sw_bezel = bx(-20.5, 4.5, PO_SW - 8, PO_SW, 148.5, 181.5)
+    sw_body = bx(-19, 3, PO_SW, PO_SW + 21, 150, 180)
+    chk("Lit rocker switch bezel (25 x 33 mm) clear of the wake button", sw_bezel, cyl("y", (30, 0, 165), 8, PO_SW - 3, PO_SW), 10.0)
+    chk("Lit rocker switch bezel clear of the display", sw_bezel, S("display"), 10.0)
+    chk("Lit rocker switch body (22 x 30 mm hole) in the panel plate", sw_body, S("out_panel"), "touch")
+    chk("Lit rocker switch body clear of the lid skirt and the inverter", sw_body, S("lid", "inverter"), 10.0)
     chk("Output modules clear of the front wall (through the window)", S("sockets", "ac", "display"), S("body"), 1.0)
     chk("Output module backs clear of the inverter", S("sockets", "ac", "display"), S("inverter"), 10.0)
     chk("Output module backs clear of the buck converter", S("sockets", "ac", "display"), S("dcdc"), 10.0)

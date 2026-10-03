@@ -1,5 +1,43 @@
 # Review note: PowerBox
 
+## Session 2026-10-02 (later): approved follow-ups carried out
+
+Amish approved on 2026-10-02 that every follow-up action from the open-decision sign-off be carried out. The 11 follow-up actions listed in the section below were worked through; 7 are done and 4 are not done (reasons given).
+
+### Approved follow-ups carried out
+
+1. Decision 1, appearance model to the constructable design: done. `cad/src/product_model.py` now has the lid with its 16 mm skirt and six side screws, corner tabs and rivets, handle base plates and bolts, 2 mm output and input panel plates, the plain door with hinge, cam latch and hasp over a staple, the 76 mm fan hole and four 8 mm feet, with dimensions read from `cad/src/model.py`. The render scenes were exported (below). The photoreal renders, card and social preview are made on Amish's Mac next.
+2. Decision 2, door hinged on its front edge: done in the appearance model.
+3. Decision 5, R2 target in `sizing.py`: done. The target is 1.8 evenings; the script was rerun and R2 now prints "Met" (1.87 evenings, 1.81 with minimum-capacity cells), matching PBX-CAL-001.
+4. Decision 7, per-port energy and session counting in the host firmware notes: not done, because the host firmware is not written and firmware is TRL 4 work (on hold).
+5. Decision 8, legacy-to-station question: not done here, because it is an action for the SwapCell project (listed under Cross-repo actions); the hold-up capacitor is only sized if the answer is no.
+6. Decision 9, bare 5052 aluminium: done in the appearance model (body, lid and door are bare aluminium; no powder coat).
+7. Decision 10, AC outlet cut-out for the national socket (model and making sketch): not done, because the first partner's country is not yet known; the 60 x 60 mm cut-out stays generic until it is.
+8. Decision 10, name the national socket in BOM line 12: not done, for the same reason.
+9. Decision 11, no window in the door: done in the appearance model.
+10. Decision 12, lit rocker switch in BOM line 11: done. Line 11 is USD 47 (was USD 46); total USD 483.
+11. Decision 12, switch cut-out check: done. The switch hole is now 22 x 30 mm with a 25 x 33 mm bezel (it was 21 x 26 mm, too small for a snap-in lit rocker). Four new constructability checks (bezel clear of the wake button and display, body in the plate, body clear of the lid skirt and inverter); all 68 checks pass.
+
+### Key results
+
+- Requirement status changes: R2 now prints Met in `sizing.py` and `results.csv` (documents already said met on paper). No other change.
+- Value-engineering target: USD 450. Estimated cost of the constructable design: USD 483 (USD 33 over the target). Mass unchanged at 9.42 kg with the pack; overall size unchanged at 480 x 279 x 275 mm.
+- Pictures regenerated: PBX-DWG-001 Rev P3; concept media (hero, blueprint, cutaway, exploded, flow, model.glb, viewer); the build plan overview, making sketches, hole layouts, joints, step pictures and wiring diagram from the updated model; the output panel sketch (PBX-DWG-110) and layout carry the 22 x 30 mm switch hole.
+- Render scenes exported to `/home/claude/renders/powerbox`: hero, exploded and detail (one .npz and .json each, plus `powerbox__jobs.json`).
+- Documents changed: PBX-CAL-001 v0.4, PBX-REQ-001 v0.7, PBX-PRC-001 v0.8, PBX-BLD-001 v0.3, PBX-DEC-001 v0.3, PBX-DDR-003 v0.3; `bom/bom.csv`, `bom/bom-notes.md`, `README.md`.
+
+### Appearance deviations from model.py (Proposed, awaiting Amish)
+
+Rivet and screw heads, the cam latch and its thumb-turn, the rocker switch lamp and the fan grille rings are drawn for realism and are not in the engineering model. The bench top was lowered 6 mm so the 8 mm feet stand on it.
+
+### Cross-repo actions
+
+- SwapCell (with MotionCore): decide whether a legacy-mode pack may be moved to station mode in use, and answer before PowerBox's interface is frozen; if no, PowerBox sizes a host hold-up capacitor.
+
+### Not done
+
+See items 4, 5, 7 and 8 above. TRL 4 remains on hold.
+
 ## Session 2026-10-02: open decisions decided by Amish
 
 Amish wrote on 2026-10-02: "i approve your recommendations for all 555 open decisions." Every open decision in this repo's register was decided as recommended and moved to "Decisions made" in `docs/06-design-decisions.md`, dated 2026-10-02.
@@ -21,7 +59,7 @@ Amish wrote on 2026-10-02: "i approve your recommendations for all 555 open deci
 - `docs/05-build-plan.md` v0.2
 - `README.md` (R2 wording and DDR-003 status; not a controlled document)
 
-PDFs re-rendered with `python3 .kit/render.py`. The CAD model, BOM quantities and prices, and pictures were not changed.
+PDFs re-rendered with `python3 .kit/render.py`. The CAD model, BOM quantities and prices, and pictures were not changed in that session (they were updated in the later session above).
 
 ### Follow-up actions to carry approved decisions into the design
 
@@ -303,3 +341,7 @@ This is an appearance model only, with no tolerances and no fabrication detail. 
 - Kit 1.5.0 synced: STANDARDS v1.5 (sections 12 to 15: product renders, storefront images and image quality, public release, authorship and signing), `.kit/cards.py`, `.kit/image_qc.py`, `.kit/release_gate.py`, issue templates, and the `/render-product` and `/release` commands. `CLAUDE.md` now matches `.kit/CLAUDE.md`.
 - Every `media/render-*.png` recaptioned from its original render with the new layout: the title, concept label and repository sit in a band above the render and the view note in a band below it, each line wrapped to the image width, so no text overlaps other text or the render or runs off the image. `media/card.png` and `media/social-preview.png` regenerated with the same rules.
 - `python .kit/image_qc.py` and `python .kit/release_gate.py` pass. trl stays 3.
+
+## 2026-10-02: photoreal renders redone on the constructable design
+
+Rendered with Blender Cycles on Amish's Mac from the updated appearance model; captioned with `.kit/photo_caption.py`; `media/card.png` and `media/social-preview.png` regenerated with `.kit/cards.py`. Views: hero, exploded, detail. image_qc passes. Appearance deviations are those logged above as proposed, awaiting Amish.
